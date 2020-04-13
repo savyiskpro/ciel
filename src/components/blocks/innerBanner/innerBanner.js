@@ -15,8 +15,8 @@ const innerBanner = (props) => {
 
 			</figure>
 			<div className="text-layer">
-				<h2 data-aos="fade-right" data-aos-duration="2000">{props.sectionDetail.title}</h2>
-				<h3 data-aos="fade-left" data-aos-duration="2000">{props.sectionDetail.subtitle}</h3>
+				<h2 data-aos="fade-in" data-aos-duration="2000">{props.sectionDetail.title}</h2>
+				<h3 data-aos="fade-in" data-aos-duration="2000">{props.sectionDetail.subtitle}</h3>
 			</div>
 
 		</div>

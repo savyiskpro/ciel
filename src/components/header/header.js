@@ -114,6 +114,9 @@ class Header extends Component {
 				});
 			}, 500)
 		})
+		if (location.pathname !== '/') {
+			$('header').addClass('inner-header');
+		}
 
 	}
 	render() {
@@ -141,7 +144,7 @@ class Header extends Component {
 					<div className="container">
 						<ul className="flex space-between items-align-center">
 							<li><a href="" className="toggle-btn"><img src={menuBar} /></a></li>
-							<li><a href="#" className="navbar-brand"><img src={this.props.headerData.logo.file.url} /></a></li>
+							<li><a href="/" className="navbar-brand"><img src={this.props.headerData.logo.file.url} /></a></li>
 							<li><a className="book-btn" href={this.props.headerData.rightNavigation.title}>{this.props.headerData.rightNavigation.title}</a></li>
 						</ul>
 					</div>

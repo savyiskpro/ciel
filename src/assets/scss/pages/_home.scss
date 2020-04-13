@@ -542,6 +542,7 @@
             transform: translateY(30px);
             opacity: 0;
             @include transition(all 1.5s);
+            z-index: -1;
         }
 
         &.slick-current {
@@ -549,6 +550,7 @@
                 -webkit-transform: translateY(0);
                 transform: translateY(0);
                 opacity: 1;
+                z-index: 1;
             }
         }
     }

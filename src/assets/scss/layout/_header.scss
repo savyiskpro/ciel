@@ -15,6 +15,20 @@ header {
         padding: 15px 0;
     }
 
+    &.inner-header {
+        position: static;
+        padding: 20px 0;
+        background-color: $color-white;
+
+        .navbar-brand {
+            opacity: 1;
+        }
+
+        @include breakpoint(large) {
+            padding: 10px 0;
+        }
+    }
+
     &.header-fixed {
         padding: 20px 0;
         background-color: $color-white;
