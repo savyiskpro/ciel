@@ -1,0 +1,142 @@
+.studio-section,
+.coworking-section {
+    padding-bottom: 50px;
+
+    @include breakpoint(xlarge) {
+        padding-top: 50px;
+    }
+
+    @include breakpoint(xmedium) {
+        padding-top: 70px;
+    }
+
+    @include breakpoint(medium) {
+        padding-top: 20px;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    @include breakpoint(xsml) {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 30px;
+    }
+
+    .studio-box {
+        width: 620px;
+        margin-left: 180px;
+        margin-bottom: 120px;
+        position: relative;
+
+        @include breakpoint(large) {
+            margin-left: 0;
+            margin-bottom: 100px;
+        }
+
+        @include breakpoint(xmedium) {
+
+            width: 100%;
+            padding-right: 150px;
+            margin-bottom: 70px;
+
+        }
+
+        @include breakpoint(medium) {
+            padding-right: 100px;
+
+        }
+
+        @include breakpoint(xsml) {
+            padding-right: 0;
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            top: 0;
+            right: -280px;
+            font-size: 120px;
+            position: absolute;
+            -webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            line-height: 1;
+            width: 87px;
+            overflow: hidden;
+            white-space: nowrap;
+
+            @include breakpoint(xmedium) {
+                right: 0;
+                font-size: 100px;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 70px;
+                right: 0;
+                width: 47px;
+            }
+
+            @include breakpoint(xsml) {
+                font-size: 50px;
+                width: 33px;
+            }
+        }
+
+        figure {
+            margin-bottom: 30px;
+
+            @include breakpoint(xsml) {
+                padding-right: 50px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .text-box {
+            max-width: 425px;
+            text-align: right;
+            margin-left: auto;
+
+            p {
+                padding-bottom: 30px;
+            }
+
+            @include breakpoint(xsml) {
+                text-align: left;
+                padding-right: 40px;
+
+                p {
+                    padding-bottom: 20px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        ul {
+            text-align: right;
+
+
+
+            li {
+                display: inline-block;
+                margin-left: 10px;
+            }
+
+            @include breakpoint(xsml) {
+                text-align: left;
+
+                li {
+                    margin-left: 0;
+                    margin-right: 10px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+.studios-page {
+    &.inner-banner .text-layer h2 {
+        color: $color-black;
+    }
+}

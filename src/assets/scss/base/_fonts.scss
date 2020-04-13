@@ -1,0 +1,49 @@
+$filePath: "../../";
+
+@font-face {
+    font-family: "LustSlim-Regular";
+    src: url($filePath+"assets/fonts/LustSlim-Regular.eot");
+    /* IE9 Compat Modes */
+    src: url($filePath+"assets/fonts/LustSlim-Regular.woff2") format("woff2"),
+        /* Super Modern Browsers */
+        url($filePath+"assets/fonts/LustSlim-Regular.woff") format("woff"),
+        /* Pretty Modern Browsers */
+        url($filePath+"assets/fonts/LustSlim-Regular.ttf") format("truetype"),
+        /* Safari, Android, iOS */
+        url($filePath+"assets/fonts/LustSlim-Regular.svg") format("svg");
+    /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BrandonGrotesque-Medium";
+    src: url($filePath+"assets/fonts/BrandonGrotesque-Medium.eot");
+    /* IE9 Compat Modes */
+    src: url($filePath+"assets/fonts/BrandonGrotesque-Medium.woff2") format("woff2"),
+        /* Super Modern Browsers */
+        url($filePath+"assets/fonts/BrandonGrotesque-Medium.woff") format("woff"),
+        /* Pretty Modern Browsers */
+        url($filePath+"assets/fonts/BrandonGrotesque-Medium.ttf") format("truetype"),
+        /* Safari, Android, iOS */
+        url($filePath+"assets/fonts/LustSlim-Regular.svg") format("svg");
+    /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BodoniSvtyTwoITCTTBook";
+    src: url($filePath+"assets/fonts/BodoniSvtyTwoITCTTBook.eot");
+    /* IE9 Compat Modes */
+    src: url($filePath+"assets/fonts/BodoniSvtyTwoITCTTBook.woff2") format("woff2"),
+        /* Super Modern Browsers */
+        url($filePath+"assets/fonts/BodoniSvtyTwoITCTTBook.woff") format("woff"),
+        /* Pretty Modern Browsers */
+        url($filePath+"assets/fonts/BodoniSvtyTwoITCTTBook.ttf") format("truetype"),
+        /* Safari, Android, iOS */
+        url($filePath+"assets/fonts/BodoniSvtyTwoITCTTBook.svg") format("svg");
+    /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+}

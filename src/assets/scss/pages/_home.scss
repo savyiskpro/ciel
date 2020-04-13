@@ -1,0 +1,1116 @@
+.page-content {
+    padding: 150px 0 100px;
+    text-align: center;
+
+    @include breakpoint(xlarge) {
+        padding: 90px 0 40px;
+    }
+
+    h3 {
+        font-size: 16px;
+        font-family: $font-brandon-medium;
+        text-transform: uppercase;
+        letter-spacing: 17px;
+        margin-bottom: 30px;
+
+        @include breakpoint(medium) {
+            font-size: 14px;
+            letter-spacing: 20px;
+            margin-bottom: 15px;
+        }
+    }
+
+    p {
+        @include breakpoint(medium) {
+            font-size: 14px;
+        }
+    }
+
+    h2 {
+        line-height: 100px;
+        color: $color-gray;
+        letter-spacing: -0.70px;
+        font-family: $font-lust;
+        // font-weight: 400;
+        font-size: 40px;
+        color: $color-gray;
+
+
+        span {
+            color: $color-black;
+        }
+    }
+
+    @include breakpoint(large) {
+        padding-top: 100px;
+        padding-bottom: 50px;
+
+        h2 {
+            line-height: 70px;
+            font-size: 30px;
+        }
+    }
+
+    @include breakpoint(xmedium) {
+        padding-bottom: 20px;
+    }
+
+    @include breakpoint(xmedium) {
+
+        h2 {
+            line-height: 50px;
+            font-size: 25px;
+
+        }
+    }
+
+    @include breakpoint(medium) {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        h2 {
+            font-size: 16px;
+            line-height: 48px;
+        }
+    }
+}
+
+
+
+
+
+.tab-section {
+    // padding: 100px 0 150px;
+    height: calc(100vh + 2000px);
+    position: relative;
+    padding: 0;
+
+    .container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 100%;
+
+        .flex {
+            width:
+                100%
+        }
+
+        @include breakpoint(medium) {
+            position: static;
+            height: auto;
+            display: block;
+        }
+    }
+
+
+    @include breakpoint(medium) {
+        padding-top: 30px;
+        padding-bottom: 50px;
+        height: auto;
+    }
+
+    .colmn-img,
+    .colmn-text {
+        width: 50%;
+
+        @include breakpoint(medium) {
+            width: 100%;
+        }
+    }
+
+    .colmn-img {
+
+
+        figure {
+            height: 600px;
+            position: relative;
+
+            @include breakpoint(large) {
+                height: 450px;
+            }
+
+            @include breakpoint(xsml) {
+                height: 400px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                @include transition(opacity 0.5s);
+
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .colmn-text {
+        padding-left: 135px;
+
+        @include breakpoint(large) {
+            padding-left: 90px;
+        }
+
+        @include breakpoint(medium) {
+            padding-left: 0;
+            margin-top: -30px;
+
+            ul {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            }
+        }
+
+        li {
+            margin-bottom: 50px;
+
+            @include breakpoint(large) {
+                margin-bottom: 20px;
+            }
+
+            @include breakpoint(medium) {
+                text-align: center;
+                width: 100%;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            a {
+                font-size: 60px;
+                color: $color-gray;
+                position: relative;
+                @include transition(color 0.5s);
+                font-family: $font-lust;
+
+                @include breakpoint(large) {
+                    font-size: 50px;
+                }
+
+                @include breakpoint(medium) {
+                    border-bottom: solid 5px $color-black;
+                    color: $color-black;
+                }
+
+
+                &:after {
+                    @include center(vertical);
+                    right: calc(100% + 55px);
+                    width: 0;
+                    height: 8px;
+                    background-color: $color-black;
+                    content: "";
+                    @include transition(width 0.5s);
+
+                    @include breakpoint(large) {
+                        right: calc(100% + 30px);
+                    }
+
+                    @include breakpoint(medium) {
+                        display: none;
+                    }
+                }
+
+
+            }
+
+            &.active {
+                @include breakpoint(medium) {
+                    -webkit-box-ordinal-group: 0;
+                    -ms-flex-order: -1;
+                    order: -1;
+                }
+
+                a {
+                    color: $color-black;
+
+                    &:after {
+                        width: 160px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.text-bg-section {
+    padding: 100px 0;
+
+    @include breakpoint(xlarge) {
+        padding: 30px 0;
+    }
+
+    @include breakpoint(large) {
+        padding: 50px 0;
+    }
+
+    @include breakpoint(xmedium) {
+        padding: 20px 0;
+    }
+
+    @include breakpoint(xmedium) {
+        .container-sm {
+            max-width: 750px;
+        }
+    }
+
+    @include breakpoint(medium) {
+        padding: 50px 0 35px;
+
+        .container-sm {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    [data-aos=fade-left] {
+        -webkit-transform: translate3d(50px, 30px, 0);
+        transform: translate3d(50px, 30px, 0)
+    }
+
+    [data-aos=fade-right] {
+        -webkit-transform: translate3d(-50px, 0, 0);
+        transform: translate3d(-50px, 0, 0)
+    }
+
+    .colmn-img {
+        position: relative;
+        z-index: 1;
+
+        figure {
+            &:nth-of-type(2) {
+                width: 540px;
+                height: 540px;
+                position: absolute;
+                left: 50%;
+                bottom: -60px;
+                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+
+                @include breakpoint(xmedium) {
+                    width: 480px;
+                    height: 480px;
+                }
+
+                @include breakpoint(medium) {
+                    width: 290px;
+                    height: 290px;
+                    bottom: -90px;
+                }
+            }
+        }
+    }
+
+    .colmn-text {
+        margin-top: 110px;
+        text-align: center;
+
+        @include breakpoint(medium) {
+            margin-top: 125px;
+            padding: 0 33px;
+        }
+
+        h3 {
+            font-family: $font-brandon-medium;
+            font-size: 26px;
+            margin-bottom: 30px;
+            letter-spacing: 45px;
+            line-height: 2;
+            text-transform: uppercase;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                margin-bottom: 25px;
+                line-height: 2em;
+                letter-spacing: 19px;
+            }
+        }
+
+        p {
+            line-height: 2;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+            }
+        }
+    }
+
+}
+
+.pardon-seciton {
+    margin: 160px 0;
+    padding: 260px 0;
+    position: relative;
+
+    @include breakpoint(xlarge) {
+        // padding: 100px 0;
+    }
+
+    @include breakpoint(large) {
+        padding: 150px 0;
+        margin: 80px 0;
+    }
+
+    @include breakpoint(medium) {
+        background-position-x: -100px;
+        margin: 70px 0;
+    }
+
+
+    .section-text {
+        position: absolute;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+        h2 {
+            font-size: 180px;
+            font-weight: 400;
+
+            @include breakpoint(large) {
+                font-size: 120px;
+            }
+
+            @include breakpoint(xmedium) {
+                font-size: 100px;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 60px;
+            }
+        }
+
+        &.left {
+            left: 0;
+            top: 0;
+        }
+
+        &.right {
+            top: 50%;
+            right: 0;
+
+            @include breakpoint(xmedium) {
+                top: 100px;
+            }
+
+            @include breakpoint(medium) {
+                top: 60px;
+            }
+        }
+
+        &.bottom {
+            top: 100%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            left: 50%;
+
+        }
+    }
+
+    .text-box {
+        max-width: 450px;
+        margin: 0 auto;
+        text-align: center;
+
+        @include breakpoint(medium) {
+            padding: 0px 15px;
+        }
+
+        h3 {
+            font-size: 26px;
+            font-family: $font-brandon-medium;
+            letter-spacing: 27px;
+            text-transform: uppercase;
+            line-height: 2;
+            margin-bottom: 20px;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                letter-spacing: 19px;
+            }
+        }
+
+        p {
+            margin-bottom: 30px;
+
+        }
+    }
+}
+
+.event-section {
+    padding: 150px 0 100px;
+    position: relative;
+
+    .slider-group {
+        position: relative;
+
+        &:hover {
+            .slick-arrow {
+                opacity: 1;
+            }
+        }
+    }
+
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 0;
+        border: none;
+        outline: none;
+        background-color: rgba($color-white, 0.6);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        z-index: 99;
+        opacity: 0;
+        @include transition(all 0.5s);
+
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 30px;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            font-family: fontawesome;
+            color: $color-black;
+        }
+
+        &.slick-next {
+            right: 15px;
+
+            &:after {
+                content: "\f105";
+            }
+
+        }
+
+        &.slick-prev {
+            left: 15px;
+
+            &:after {
+                content: "\f104";
+            }
+        }
+    }
+
+    @include breakpoint(xlarge) {
+        padding: 30px 0 100px;
+    }
+
+    @include breakpoint(large) {
+        padding: 50px 0;
+    }
+
+    @include breakpoint(medium) {
+        .container {
+            padding: 0px;
+        }
+    }
+
+
+    .slick-slide {
+        .slide-box {
+            -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+            opacity: 0;
+            @include transition(all 1.5s);
+        }
+
+        &.slick-current {
+            .slide-box {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    .event-box,
+    .slide-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 100px 0 130px;
+        position: relative;
+
+        @include breakpoint(xmedium) {
+            padding-bottom: 80px;
+        }
+
+        @include breakpoint(medium) {
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: 100px 0 50px;
+        }
+
+        .colmn-img {
+            width: 40%;
+
+            @include breakpoint(large) {
+                figure {
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            @include breakpoint(medium) {
+                width: 100%;
+
+                figure {
+                    height: 450px;
+                }
+            }
+
+            @include breakpoint(xsml) {
+                figure {
+                    height: auto;
+                }
+            }
+
+        }
+
+        .colmn-text {
+            width: 60%;
+            padding: 0px 150px;
+            text-align: center;
+
+            @include breakpoint(large) {
+                padding: 0px 50px;
+            }
+
+            @include breakpoint(medium) {
+                width: 100%;
+                -webkit-box-ordinal-group: 0;
+                -ms-flex-order: -1;
+                order: -1;
+                padding: 0px 15px 40px;
+            }
+
+
+
+            h2 {
+                font-size: 150px;
+                line-height: 1;
+                -webkit-clip-path: inset(0% 0 28.5% 0);
+                clip-path: inset(0% 0 28.5% 0%);
+                background-color: $color-white;
+                padding-top: 20px;
+
+                @include breakpoint(xmedium) {
+                    font-size: 100px;
+                    -webkit-clip-path: inset(0 0 20.5% 0);
+                    clip-path: inset(0 0 20.5% 0);
+                }
+
+                @include breakpoint(medium) {
+                    padding-top: 30px;
+                }
+            }
+
+            h4 {
+                font-size: 22px;
+                font-family: $font-brandon-medium;
+                letter-spacing: 28px;
+                text-transform: uppercase;
+                line-height: 2;
+                margin-bottom: 30px;
+
+                @include breakpoint(large) {
+                    margin-bottom: 20px;
+                    margin-top: -20px;
+                }
+
+                @include breakpoint(xmedium) {
+                    font-size: 16px;
+                    letter-spacing: 25px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            p {
+                line-height: 2;
+                margin-bottom: 30px;
+
+                @include breakpoint(large) {
+                    margin-bottom: 20px;
+                }
+
+                @include breakpoint(xmedium) {
+                    margin-bottom: 10px;
+                }
+
+                @include breakpoint(xsml) {
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+            }
+
+            ul {
+                li {
+                    display: inline-block;
+                    padding: 0px 10px;
+                }
+            }
+
+            .tag {
+                width: 160px;
+                height: 160px;
+                border-radius: 50%;
+                border: solid 4px $color-black;
+                @extend %flexCenter;
+                font-family: $font-brandon-medium;
+                padding: 0px 20px;
+                font-size: 18px;
+                position: absolute;
+                top: 0;
+                right: 30px;
+
+                @include breakpoint(large) {
+                    right: 0;
+                }
+
+                @include breakpoint(medium) {
+                    width: 105px;
+                    font-size: 14px;
+                    top: 15px;
+                    height: 105px;
+                    right: unset;
+                    left: 50%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    border: solid 2px $color-black;
+
+                }
+            }
+        }
+    }
+
+    .event-box {
+        padding-top: 0;
+
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+
+        .colmn-text {
+            padding: 0px 120px;
+
+            h4 {
+                font-size: 16px;
+                letter-spacing: 17px;
+            }
+
+            .time-details {
+                margin-bottom: 20px;
+
+                li {
+                    border-left: solid 1px $color-black;
+
+                    &:first-of-type {
+                        border-left: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .active-bar {
+        width: 250px;
+        background-color: $color-black;
+        position: absolute;
+        bottom: 98px;
+        z-index: 2;
+        height: 6px;
+        @include transition(all 0.5s);
+        cursor: pointer;
+
+        @include breakpoint(large) {
+            bottom: 48px;
+        }
+
+        @include breakpoint(medium) {
+            width: 150px;
+        }
+
+        @include breakpoint(xsml) {
+            width: 100px;
+        }
+    }
+
+    .slick-dots {
+        text-align: center;
+        font-size: 0;
+        margin: 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        bottom: 0;
+        @include center(horizontal);
+        z-index: 1;
+
+        &:after {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $color-gray;
+            content: "";
+            left: 0;
+            z-index: -1;
+        }
+
+        li {
+            display: inline-block;
+            width: 250px;
+            margin: 0;
+            border-radius: 0;
+            height: 6px;
+            margin-bottom: -2px;
+
+            &.slick-active {
+                button {
+                    border-radius: 0;
+                    background-color: $color-black;
+                }
+
+
+            }
+
+            @include breakpoint(medium) {
+                width: 150px;
+            }
+
+            @include breakpoint(xsml) {
+                width: 100px;
+            }
+
+            button {
+                font-size: 0;
+                background-color: transparent;
+                width: 100%;
+                display: block;
+                height: 6px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+
+            }
+        }
+    }
+}
+
+.join-section {
+    padding: 150px 0;
+
+    @include breakpoint(xlarge) {
+        padding: 20px 0;
+    }
+
+    .flex {
+        max-width: 1600px;
+        margin: 0 auto;
+
+        @include breakpoint(xxlarge) {
+            padding: 0 40px;
+        }
+
+        @include breakpoint(medium) {
+            padding: 0 30px 0 50px;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+        }
+    }
+
+    .colmn-text {
+        width: 50%;
+
+        @include breakpoint(medium) {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+        }
+
+        figure {
+            @include breakpoint(medium) {
+                padding-right: 20px;
+                margin-top: 50px;
+            }
+        }
+
+        .text-box {
+            text-align: right;
+            width: 450px;
+            margin-left: auto;
+            margin-top: 50px;
+
+            @include breakpoint(xmedium) {
+                width: 340px;
+            }
+
+            @include breakpoint(medium) {
+                width: 100%;
+                text-align: left;
+                margin-top: 20px;
+            }
+
+            p {
+                margin-bottom: 30px;
+
+                @include breakpoint(medium) {
+                    font-size: 14px;
+                    line-height: 2em;
+                    margin-bottom: 8px;
+                    padding-left: 100px;
+                }
+            }
+
+            .btn-underline {
+                font-size: 16px !important;
+                padding-left: 100px;
+            }
+
+        }
+    }
+
+    .colmn-heading {
+        width: 50%;
+        padding-left: 200px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+
+        @include breakpoint(large) {
+            padding-left: 100px;
+        }
+
+        @include breakpoint(xmedium) {
+            padding-left: 40px;
+        }
+
+        @include breakpoint(medium) {
+            width: 100%;
+            padding-left: 95px;
+        }
+
+        h2 {
+            position: absolute;
+            font-size: 165px;
+            -webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            left: 75px;
+            top: 25px;
+
+            @include breakpoint(large) {
+                left: 35px;
+                font-size: 130px;
+            }
+
+            @include breakpoint(large) {
+                font-size: 100px;
+            }
+
+            @include breakpoint(medium) {
+                left: -20px;
+                font-size: 60px;
+                top: auto;
+                bottom: -110%;
+            }
+        }
+
+        figure {
+            margin-top: auto;
+
+            @include breakpoint(medium) {
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+
+.promo-box {
+    position: fixed;
+    // top: calc(100% + 90px);
+    right: 15px;
+    bottom: 15px;
+    z-index: 9;
+    opacity: 0;
+    @include transition(all 0.5s);
+
+    @include breakpoint(xsml) {
+        width: calc(100% - 30px);
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    &.hide {
+        opacity: 0 !important;
+        visibility: hidden;
+        z-index: -111;
+
+    }
+
+    .promo-content {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 630px;
+        height: 620px;
+        background-color: $color-white;
+        z-index: 9;
+        border: solid 1px $color-black;
+        display: none;
+
+        @include breakpoint(large) {
+            width: 400px;
+            height: 400px
+        }
+
+        @include breakpoint(xsml) {
+            width: 100%;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+
+
+        .btn-close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            cursor: pointer;
+        }
+
+        .text-box {
+            width: 100%;
+            padding: 0 110px;
+            text-align: center;
+            max-width: unset;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            height: 100%;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+
+            @include breakpoint(large) {
+                padding: 0px 50px;
+            }
+
+            h4 {
+                padding: 40px 0 50px;
+                font-size: 40px;
+
+                @include breakpoint(large) {
+                    padding: 20px 0 20px;
+                    font-size: 30px;
+                }
+            }
+
+            h5 {
+                font-family: $font-brandon-medium;
+                text-transform: capitalize;
+                font-size: 20px;
+                letter-spacing: 38px;
+
+                @include breakpoint(large) {
+                    letter-spacing: 20px;
+
+                }
+
+                @include breakpoint(xsml) {
+                    font-size: 14px;
+                    letter-spacing: 15px;
+                }
+            }
+        }
+    }
+
+    .promo-icon {
+        width: 87px;
+        height: 87px;
+        border: solid 1px $color-black;
+        background-color: $color-white;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        p {
+            font-family: $font-brandon-medium;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+    }
+
+}

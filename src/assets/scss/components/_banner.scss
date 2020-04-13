@@ -1,0 +1,180 @@
+.cover-banner,
+.inner-banner {
+    position: relative;
+    height: 100vh;
+
+    figure {
+        width: 100%;
+        height: 100%;
+
+        img,
+        video {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
+    .text-layer {
+        @include center(both);
+
+        h2,
+        h3 {
+            font-size: 150px;
+            line-height: 1;
+            -webkit-clip-path: inset(0% 0 28.5% 0);
+            clip-path: inset(0% 0 28.5% 0%);
+            font-weight: 400;
+            font-family: $font-lust;
+
+            @include breakpoint(large) {
+                font-size: 120px;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 80px;
+            }
+
+            @include breakpoint(xsml) {
+                font-size: 60px;
+            }
+        }
+
+        h3 {
+            margin-left: 360px;
+            margin-top: -15px;
+
+            @include breakpoint(xmedium) {
+                margin-left: 300px;
+            }
+
+            @include breakpoint(medium) {
+                margin-left: 190px;
+            }
+
+            @include breakpoint(xsml) {
+                margin-left: 80px;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .logo {
+        @include center(horizontal);
+        bottom: -60px;
+        width: 120px;
+
+        a {
+            display: block;
+
+            img {
+                width: 100%;
+
+            }
+        }
+
+        @include breakpoint(medium) {
+            width: 70px;
+            bottom: -35px;
+        }
+    }
+}
+
+.inner-banner {
+    height: 660px;
+
+    @include breakpoint(xmedium) {
+        height: 500px;
+    }
+
+    @include breakpoint(medium) {
+        height: 450px
+    }
+
+    @include breakpoint(xsml) {
+        height: 380px;
+    }
+
+    h3 {
+        margin-right: auto !important;
+        margin-left: auto !important;
+        color: $color-black !important;
+    }
+
+    .text-layer {
+
+        h3,
+        h2 {
+            color: $color-white;
+
+            @include breakpoint(medium) {
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+
+.detail-banner {
+    height: 100vh;
+    position: relative;
+
+    figure {
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
+
+
+    .text-box {
+        @include center(both);
+        text-align: center;
+        max-width: 800px;
+
+        @include breakpoint(xmedium) {
+            width: 700px;
+        }
+
+        @include breakpoint(medium) {
+            width: 100%;
+            padding: 0px 30px;
+
+            p {
+                font-size: 14px;
+
+            }
+        }
+
+        h5 {
+            font-family: $font-brandon-medium;
+            text-transform: uppercase;
+            letter-spacing: 30px;
+            margin-bottom: 20px;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                letter-spacing: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        p {
+            line-height: 2;
+        }
+
+        span {
+            i {
+                font-size: 40px;
+                margin-top: 10px;
+            }
+        }
+    }
+}

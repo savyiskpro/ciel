@@ -1,0 +1,215 @@
+.update-form {
+    margin: 100px 0 100px;
+    padding: 230px 0;
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint(xlarge) {
+        margin: 80px 0 20px;
+    }
+
+    @include breakpoint(large) {
+        padding: 180px 0;
+    }
+
+    @include breakpoint(xmedium) {
+        padding: 140px 0;
+    }
+
+    @include breakpoint(medium) {
+        padding: 80px 0;
+        margin: 50px 0 20px;
+
+        .container {
+            padding: 0 40px;
+        }
+    }
+
+    .section-text {
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: -1;
+
+        h2 {
+            font-size: 150px;
+            line-height: 1;
+
+            @include breakpoint(large) {
+                font-size: 120px;
+            }
+
+            @include breakpoint(xmedium) {
+                font-size: 100px;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 60px;
+            }
+
+            // &:first-letter {
+            //     -webkit-clip-path: inset(0% 0 50% 0);
+            //     clip-path: inset(0% 0 50% 0%);
+            //     color: #000;
+            //     line-height: 1;
+            // }
+        }
+
+        &.top {
+            top: 0;
+
+            h2 {
+                color: $color-gray;
+            }
+        }
+
+        &.middle {
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            h2 {
+                color: $color-gray;
+            }
+        }
+
+        &.bottom {
+            bottom: 0;
+        }
+    }
+
+    .form-box {
+        max-width: 750px;
+        position: relative;
+        margin: 0 auto;
+
+        @include breakpoint(xmedium) {
+            max-width: 680px;
+        }
+
+        .btn-underline {
+            @include center(vertical);
+            right: 15px;
+
+            @include breakpoint(medium) {
+                background-color: transparent;
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 20px;
+            font-size: 22px;
+            font-family: $font-family-body;
+            border: solid 1px #979797;
+
+            @include breakpoint(medium) {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            &::-webkit-input-placeholder {
+                opacity: 1;
+                color: $color-gray;
+                font-family: $font-family-body;
+            }
+
+            &::-ms-input-placeholder {
+                opacity: 1;
+                color: $color-gray;
+                font-family: $font-family-body;
+            }
+
+            &::-moz-placeholder {
+                opacity: 1;
+                color: $color-gray;
+                font-family: $font-family-body;
+            }
+
+            &:-ms-input-placeholder {
+                opacity: 1;
+                color: $color-gray;
+                font-family: $font-family-body;
+            }
+
+            &::placeholder {
+                opacity: 1;
+                color: $color-gray;
+                font-family: $font-family-body;
+            }
+        }
+    }
+}
+
+
+footer {
+    padding: 100px 0;
+
+    @include breakpoint(xlarge) {
+        padding: 100px 0 50px;
+    }
+
+    @include breakpoint(medium) {
+        padding: 70px 0 30px;
+    }
+
+    .colmn-box {
+        @include breakpoint(medium) {
+            width: 100%;
+            text-align: center;
+            margin-top: 45px;
+
+            &:first-of-type {
+                margin-top: 20px;
+            }
+        }
+
+        img {
+            @include breakpoint(medium) {
+                width: 75px;
+                height: 75px;
+            }
+        }
+    }
+
+    h5 {
+        font-size: 16px;
+        letter-spacing: 16px;
+        // color: $cl
+        text-transform: uppercase;
+        font-family: $font-brandon-medium;
+        margin-bottom: 30px;
+
+        @include breakpoint(medium) {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    }
+
+    ul {
+        li {
+            list-style: none;
+            margin-bottom: 20px;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+        }
+
+        &.social-nav {
+            li {
+                display: inline-block;
+                margin-bottom: 0;
+                margin-left: 20px;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

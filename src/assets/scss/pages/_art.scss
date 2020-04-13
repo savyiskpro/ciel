@@ -1,0 +1,319 @@
+.artist-section {
+    padding: 100px 0 0;
+
+    @include breakpoint(large) {
+        padding-top: 80px;
+    }
+
+    @include breakpoint(medium) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .container {
+        max-width: 730px;
+    }
+
+    .text-box {
+        text-align: center;
+
+        h5 {
+            font-size: 18px;
+            letter-spacing: 30px;
+            font-family: $font-brandon-medium;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+
+            @include breakpoint(large) {
+                margin-bottom: 20px;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                letter-spacing: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        p {
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 2;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    .art-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-top: 100px;
+
+        @include breakpoint(large) {
+            margin-top: 70px;
+        }
+
+        @include breakpoint(medium) {
+            max-width: 400px;
+            margin: 70px auto 30px;
+        }
+
+        @include breakpoint(xsml) {
+            max-width: unset;
+        }
+
+        .box {
+            width: calc(50% - 90px);
+            margin-bottom: 100px;
+
+            @include breakpoint(medium) {
+                width: calc(50% - 30px);
+                margin-bottom: 50px;
+            }
+
+            @include breakpoint(xsml) {
+                width: 250px;
+                margin: 0 auto 50px;
+            }
+
+            figure {
+                height: 320px;
+                @extend %flexCenter;
+                margin-bottom: 40px;
+
+                @include breakpoint(medium) {
+                    height: 200px;
+                    margin-bottom: 30px;
+                }
+
+                @include breakpoint(xsml) {
+                    height: unset;
+                }
+
+                img {
+                    max-height: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                }
+            }
+
+            h6 {
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                font-family: $font-brandon-medium;
+            }
+
+            li {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+        }
+
+    }
+}
+
+.ciel-section {
+    padding-top: 220px;
+    padding-bottom: 200px;
+
+    @include breakpoint(xlarge) {
+        .container {
+            max-width: 1000px
+        }
+
+    }
+
+    @include breakpoint(large) {
+        padding: 180px 0;
+
+        .container {
+            max-width: 900px;
+        }
+    }
+
+    @include breakpoint(xmedium) {
+        padding-left: 50px;
+        padding-right: 50px;
+
+        .container {
+            max-width: unset;
+            padding: 0;
+        }
+    }
+
+    @include breakpoint(medium) {
+        padding: 100px 50px 50px;
+    }
+
+    .text-box {
+        position: absolute;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+
+        h2 {
+            font-size: 300px;
+
+            @include breakpoint(large) {
+                font-size: 140px;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 60px;
+            }
+        }
+
+        &.top {
+            top: 0;
+            left: 0;
+        }
+
+        &.right {
+            top: 0;
+            left: 100%;
+
+        }
+
+        &.left {
+            top: 100%;
+            left: 0;
+        }
+
+        &.bottom {
+            left: 100%;
+            top: 100%;
+        }
+    }
+
+    .bg-section {
+        padding: 200px 0;
+        position: relative;
+
+        @include breakpoint(medium) {
+            padding: 135px 15px;
+        }
+
+        .text-section {
+            position: relative;
+
+            @include breakpoint(medium) {
+                padding-bottom: 75px;
+            }
+        }
+
+        h3 {
+            margin-bottom: 30px;
+
+            @include breakpoint(medium) {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .btn {
+            background-color: transparent;
+            white-space: nowrap;
+
+            @include breakpoint(medium) {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                min-width: 300px;
+            }
+
+            &:hover {
+                background-color: $color-black;
+            }
+        }
+    }
+}
+
+
+
+
+.background-image-seciton {
+    padding: 100px 0 100px;
+    margin: 0;
+    position: relative;
+
+    @include breakpoint(xlarge) {
+        padding: 100px 0;
+        margin-top: 50px;
+    }
+
+    @include breakpoint(large) {
+        padding: 150px 0;
+        margin: 80px 0;
+    }
+
+    @include breakpoint(medium) {
+        background-position-x: -100px;
+        margin-top: 20px;
+        padding: 50px 0;
+    }
+
+
+
+    .text-box {
+        max-width: 630px;
+        margin: 0 auto;
+        text-align: center;
+
+        @include breakpoint(medium) {
+            padding: 0px 15px;
+        }
+
+        figure {
+            margin-bottom: 30px;
+
+            img {
+                width: auto;
+            }
+        }
+
+        h4 {
+            font-family: $font-brandon-medium;
+
+            text-transform: uppercase;
+            line-height: 2;
+            font-size: 18px;
+            letter-spacing: 30px;
+            margin-bottom: 30px;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                letter-spacing: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        p {
+            margin-bottom: 30px;
+
+            p {
+                padding: 0px 50px;
+                line-height: 2;
+                font-size: 18px;
+                margin-bottom: 20px;
+
+                @include breakpoint(medium) {
+                    padding: 0px 15px;
+                    margin-bottom: 10px;
+                }
+            }
+
+        }
+    }
+}

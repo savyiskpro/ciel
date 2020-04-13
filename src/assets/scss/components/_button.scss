@@ -1,0 +1,35 @@
+.btn {
+    font-family: $font-brandon-medium;
+    font-size: $font-size-sm;
+    letter-spacing: 19.07px;
+    text-align: center;
+    color: $color-black;
+    display: inline-block;
+    min-width: 361px;
+    padding: 22px 20px;
+    border: 2px solid $color-black;
+    background: $color-white;
+    outline: none;
+    text-transform: uppercase;
+
+    &:hover {
+        background: $color-black;
+        color: $color-white;
+    }
+
+    &-underline {
+        font-family: $font-brandon-medium;
+        font-size: 18px !important;
+        text-decoration: underline;
+        letter-spacing: 1px !important;
+        border: none;
+        outline: none
+    }
+
+    @include breakpoint(medium) {
+        font-size: 12px;
+        min-width: 250px;
+        padding: 20px;
+        letter-spacing: 16px;
+    }
+}

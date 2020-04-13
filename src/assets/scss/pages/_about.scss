@@ -1,0 +1,405 @@
+.founder-detail,
+.team-section,
+.about-video,
+.partner-section,
+.happenings-section {
+    .container {
+        max-width: 900px;
+    }
+}
+
+.founder-detail {
+    @include breakpoint(large) {
+        padding-top: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    @include breakpoint(medium) {
+        padding-top: 20px;
+    }
+
+    .detail-box {
+        margin-bottom: 140px;
+
+        &:nth-of-type(2n) {
+            .colmn-text {
+                z-index: -1;
+
+                @include breakpoint(medium) {
+                    z-index: unset;
+                    ;
+                }
+            }
+        }
+
+        @include breakpoint(xmedium) {
+            margin-bottom: 100px;
+        }
+
+        @include breakpoint(medium) {
+            margin-bottom: 70px;
+        }
+    }
+
+
+
+    h5 {
+        text-align: center;
+        font-size: 18px;
+        letter-spacing: 30px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        font-family: $font-brandon-medium;
+
+        @include breakpoint(xmedium) {
+            margin-bottom: 30px;
+        }
+
+        @include breakpoint(medium) {
+            display: none;
+        }
+    }
+
+    .colmn-img {
+        width: 380px;
+
+        @include breakpoint(medium) {
+            width: 100%;
+
+        }
+    }
+
+    .colmn-text {
+        width: calc(100% - 380px);
+        padding-left: 80px;
+
+        h5 {
+            display: none;
+
+            @include breakpoint(medium) {
+                display: block;
+                margin-bottom: 10px;
+                font-size: 14px;
+                letter-spacing: 20px;
+            }
+        }
+
+        @include breakpoint(xmedium) {
+            padding-left: 0px;
+        }
+
+        @include breakpoint(medium) {
+            width: 100%;
+            padding-left: 0;
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        p {
+            line-height: 2.5;
+            font-size: 16px;
+
+            @include breakpoint(xmedium) {
+                line-height: 2;
+            }
+        }
+    }
+}
+
+.team-section {
+    @include breakpoint(xmedium) {
+        padding: 0px 15px;
+    }
+
+    h4 {
+        font-size: 18px;
+        letter-spacing: 30px;
+        font-family: $font-brandon-medium;
+        text-align: center;
+        margin-bottom: 80px;
+
+        @include breakpoint(xmedium) {
+            margin-bottom: 40px;
+        }
+
+        @include breakpoint(xsml) {
+            font-size: 14px;
+            letter-spacing: 20px;
+        }
+    }
+
+    .colmn-box {
+        width: calc(25% - 40px);
+        text-align: center;
+        margin-bottom: 80px;
+        text-align: center;
+
+        @include breakpoint(xmedium) {
+            margin-bottom: 40px;
+        }
+
+        @include breakpoint(xmedium) {
+            width: calc(25% - 20px);
+        }
+
+        @include breakpoint(medium) {
+            width: calc(33.33% - 20px);
+        }
+
+        @include breakpoint(xsml) {
+            width: 100%;
+            text-align: left;
+            padding-left: 130px;
+            position: relative;
+            min-height: 100px;
+            margin-bottom: 25px;
+        }
+
+        figure {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            @include breakpoint(medium) {
+                margin-bottom: 10px;
+            }
+
+            @include breakpoint(xsml) {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+
+            @include breakpoint(medium) {
+                margin-bottom: 5px;
+            }
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+    }
+
+}
+
+.about-video {
+    padding-top: 50px;
+
+    @include breakpoint(xmedium) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .text-box {
+        padding: 0px 80px 40px;
+        text-align: center;
+
+        @include breakpoint(xmedium) {
+            padding: 0px 0px 30px;
+        }
+
+        h5 {
+            font-family: $font-brandon-medium;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 30px;
+
+            @include breakpoint(xmedium) {
+                letter-spacing: 20px;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 2.5;
+            letter-spacing: 0.35px;
+
+            @include breakpoint(medium) {
+                line-height: 2;
+            }
+        }
+
+    }
+
+    figure {
+        width: 100%;
+        height: 538px;
+
+        @include breakpoint(medium) {
+            height: 400px;
+        }
+
+        @include breakpoint(xsml) {
+            height: 250px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.partner-section {
+    padding-top: 100px;
+
+    @include breakpoint(xmedium) {
+        padding-top: 80px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .partner-group {
+        padding: 0px 100px 100px;
+        text-align: center;
+
+        @include breakpoint(xmedium) {
+            padding: 0 50px 70px;
+        }
+
+        @include breakpoint(medium) {
+            padding: 0 0 70px;
+        }
+
+        h5 {
+            font-family: $font-brandon-medium;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 30px;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                letter-spacing: 20px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        p {
+            @include breakpoint(medium) {
+                font-size: 14px;
+            }
+        }
+
+        ul {
+            font-size: 0;
+        }
+
+        li {
+            display: inline-block;
+            list-style: none;
+            margin-top: 40px;
+            vertical-align: middle;
+            width: 33.33%;
+            text-align: center;
+
+            @include breakpoint(xmedium) {
+                margin-top: 25px;
+
+            }
+
+            @include breakpoint(medium) {
+                padding: 0px 10px;
+            }
+
+            figure {
+                margin: 0 auto;
+            }
+
+            img {
+                width: auto;
+                max-width: 200px;
+
+                @include breakpoint(medium) {
+                    max-width: 100%;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+.happenings-section {
+    @include breakpoint(medium) {
+        padding-bottom: 40px;
+    }
+
+    h5 {
+        font-family: $font-brandon-medium;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 50px;
+        letter-spacing: 30px;
+        text-align: center;
+
+        @include breakpoint(medium) {
+            font-size: 14px;
+            letter-spacing: 20px;
+            margin-bottom: 30px;
+        }
+    }
+
+    ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        li {
+            width: calc(33.33% - 20px);
+            margin-right: 30px;
+            margin-bottom: 30px;
+
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+
+            @include breakpoint(xmedium) {
+                width: calc(33.33% - 10px);
+                margin-right: 15px;
+                margin-bottom: 15px;
+
+                &:nth-of-type(3n) {
+                    margin-right: 0;
+                }
+            }
+
+            figure,
+            img {
+                width: 100%;
+                height: 100%;
+
+            }
+
+            img {
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+        }
+    }
+}

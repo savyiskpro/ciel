@@ -1,0 +1,416 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: $font-size-body;
+    color: $color-black;
+    background-color: $color-white;
+    font-family: $font-family-body;
+    -webkit-text-size-adjust: none;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+
+    &.doNot-scroll {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.active-popup {
+        overflow: hidden;
+
+    }
+
+    &.active-nav {
+        // position: fixed;
+        // width: 100%;
+        // height: 100%;
+        overflow: hidden;
+    }
+
+}
+
+figure {
+    img {
+        width: 100%;
+    }
+}
+
+p {
+    a {
+        color: $color-black;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $color-black;
+    @extend %transition-2s;
+}
+
+.container {
+    max-width: $container;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    &-sm {
+        padding: 0px 15px;
+        margin: 0 auto;
+        max-width: $container-sm;
+    }
+
+    @include breakpoint(large) {
+        max-width: 950px;
+    }
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+.color-white {
+    * {
+        color: $color-white;
+    }
+}
+
+.bg-control {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.slick-slide {
+    outline: none;
+}
+
+.section {
+    padding: 100px 0;
+
+    &-lg {
+        padding: 110px 0;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+
+
+.loading-group {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 9999;
+    width: 100%;
+    display: block;
+    // cursor: url(../../images/cursor.svg);
+    cursor: none;
+
+    @include breakpoint(xmedium) {
+        cursor: default;
+    }
+
+    .btn-box {
+        position: absolute;
+        bottom: 100px;
+        right: 155px;
+        z-index: 10;
+
+        @include breakpoint(large) {
+            right: 50px;
+            bottom: 50px;
+        }
+
+        @include breakpoint(xsml) {
+            right: 30px;
+            bottom: 30px;
+        }
+    }
+
+    .open-btn {
+        width: 130px;
+        height: 130px;
+        border: solid 3px $color-black;
+        color: $color-black;
+        font-family: $font-brandon-medium;
+        text-transform: uppercase;
+        font-size: 16px;
+        outline: none;
+        border-radius: 50%;
+        @extend %flexCenter;
+        @include transition(all 0.5s);
+        cursor: pointer;
+        background-color: transparent;
+        display: none;
+
+        &.active {
+            opacity: 0;
+            -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+        }
+
+        @include breakpoint(large) {
+            width: 100px;
+            height: 100px;
+            font-size: 14px;
+            border: solid 2px $color-black;
+        }
+
+        @include breakpoint(xmedium) {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        @include breakpoint(medium) {
+            width: 70px;
+            height: 70px;
+            border: solid 1px $color-black;
+            font-size: 12px;
+
+        }
+
+    }
+
+    .background {
+        z-index: 9;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-position: center;
+
+        @include breakpoint(xmedium) {
+            background-size: contain;
+        }
+
+        @include breakpoint(medium) {
+            display: none;
+        }
+
+
+    }
+
+    .background-mobile {
+        display: none;
+
+        @include breakpoint(medium) {
+            display: block;
+            z-index: 9;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-position: center;
+            background-size: cover;
+        }
+    }
+
+    .video-group {
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+
+        video {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            @include transition(all 0.5s);
+
+            &.active {
+                opacity: 0;
+            }
+        }
+    }
+
+}
+
+
+.slick-vertical .slick-slide {
+    border: none;
+}
+
+figure {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+/* Slider */
+.slick-slider {
+    position: relative;
+
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+.slick-dots {
+    text-align: center;
+    margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex !important;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        margin: 0px 5px;
+
+        button {
+            display: inline-block;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $color-gray;
+            font-size: 0;
+            border-radius: 50%;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        &.slick-active {
+
+            button {
+                background-color: $color-black;
+            }
+        }
+    }
+}

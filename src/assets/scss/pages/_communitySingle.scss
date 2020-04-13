@@ -1,0 +1,131 @@
+.community-banner {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @include breakpoint(medium) {
+        margin-bottom: 30px;
+    }
+
+    .event-box {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #f5f5f5;
+
+        @include breakpoint(large) {
+            -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+        }
+
+        .colmn-img {
+            width: 50%;
+
+            figure {
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                }
+            }
+
+            @include breakpoint(xmedium) {
+                width: 100%;
+                -webkit-box-ordinal-group: unset;
+                -ms-flex-order: unset;
+                order: unset;
+            }
+        }
+
+        .colmn-text {
+            width: 50%;
+            padding: 0 170px;
+
+            @include breakpoint(xlarge) {
+                padding: 0px 100px;
+            }
+
+            @include breakpoint(large) {
+                padding: 50px 80px;
+
+                h4 {
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    margin-bottom: 10px;
+                }
+
+                .time-details {
+                    margin-bottom: 10px;
+                }
+            }
+
+            @include breakpoint(xmedium) {
+                padding: 30px;
+            }
+
+            @include breakpoint(medium) {
+                width: 100%;
+                -webkit-box-ordinal-group: unset;
+                -ms-flex-order: unset;
+                order: unset;
+                padding: 50px 30px;
+
+                p {
+                    font-size: 14px;
+                }
+
+                li {
+                    font-size: 14px;
+                }
+
+                .btn-underline {
+                    font-size: 14px;
+                }
+            }
+
+            h2 {
+                background-color: transparent;
+                padding-top: 0;
+            }
+
+            .btn-box {
+                margin-top: 30px;
+
+                @include breakpoint(xmedium) {
+                    margin-top: 20px;
+                }
+
+                .btn {
+                    background-color: transparent;
+
+                    @include breakpoint(xmedium) {
+                        font-size: 12px;
+                        letter-spacing: 10px;
+                        min-width: unset;
+                        padding: 15px 20px;
+                    }
+
+                    &:hover {
+                        background-color: $color-black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.text-section {
+    text-align: center;
+}
+
+.community-single-page {
+    .studio-slider {
+        padding: 50px 0;
+    }
+}

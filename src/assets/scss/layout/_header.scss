@@ -1,0 +1,182 @@
+header {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    padding: 70px 0px;
+    @include transition(all 0.3s);
+    z-index: 998;
+
+    @include breakpoint(large) {
+        padding: 30px 0;
+    }
+
+    @include breakpoint(xmedium) {
+        padding: 15px 0;
+    }
+
+    &.header-fixed {
+        padding: 20px 0;
+        background-color: $color-white;
+
+        .navbar-brand {
+            opacity: 1;
+        }
+
+        @include breakpoint(large) {
+            padding: 10px 0;
+        }
+    }
+
+    .navbar-brand {
+        opacity: 0;
+        @include transition(all 0.3s);
+        width: 60px;
+
+        @include breakpoint(xmedium) {
+            width: 45px;
+        }
+
+        @include breakpoint(xsml) {
+            width: 30px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .container {
+        max-width: 1490px;
+
+        @include breakpoint(xxlarge) {
+            max-width: $container;
+        }
+
+        @include breakpoint(large) {
+            max-width: 950px;
+        }
+    }
+
+    &.fixed-header {
+        background: $color-white;
+        padding: 30px 0px;
+        @extend %transition-2s;
+    }
+
+    ul {
+        li {
+            a {
+                font-family: $font-brandon-medium;
+                color: $color-black;
+                display: block;
+                width: 44px;
+                line-height: 1.25;
+                text-align: center;
+
+
+                span {
+                    display: block;
+                }
+
+                @include breakpoint(xmedium) {
+                    line-height: 1;
+                }
+
+                @include breakpoint(medium) {
+                    font-size: 18px;
+                }
+
+                @include breakpoint(xsml) {
+                    font-size: 16px;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+
+    .toggle-btn {
+        @include breakpoint(medium) {
+            img {
+                width: 30px;
+            }
+        }
+    }
+}
+
+.navigation {
+    .close-btn {
+        position: absolute;
+        top: 70px;
+        left: 10px;
+        width: 50px;
+        height: 50px;
+        display: block;
+
+        @include breakpoint(large) {
+            top: 30px;
+        }
+
+        @include breakpoint(xmedium) {
+            top: 15px;
+        }
+
+        &:hover .leftright {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        &:hover .rightleft {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        &:hover label {
+            opacity: 1;
+        }
+
+        .leftright,
+        .rightleft {
+            height: 4px;
+            width: 50px;
+            position: absolute;
+            margin-top: 24px;
+            display: inline-block;
+            background-color: $color-black;
+            border-radius: 2px;
+            @extend %transition-2s;
+
+            @include breakpoint(medium) {
+                width: 35px;
+            }
+        }
+
+        .leftright {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .rightleft {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        label {
+            color: $color-black;
+            font-size: 0.8em;
+            font-family: $font-brandon-medium;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            @extend %transition-2s;
+            opacity: 0;
+        }
+
+        .close-label {
+            position: absolute;
+            bottom: -22px;
+            left: -4px;
+        }
+
+    }
+
+}
