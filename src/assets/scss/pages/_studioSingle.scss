@@ -475,6 +475,7 @@
         h2 {
             font-size: 80px;
             @include center(both);
+            text-align: center;
 
             @include breakpoint(large) {
                 font-size: 50px;

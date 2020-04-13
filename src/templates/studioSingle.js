@@ -4,6 +4,8 @@ import Helmet from 'react-helmet';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
+import navImage from '../assets/images/sidenav.png'
+import navImage2 from '../assets/images/sidenav-2.png'
 
 
 class studioSingleTemplate extends React.Component {
@@ -119,20 +121,20 @@ class studioSingleTemplate extends React.Component {
 							</div>
 						</div>
 					</div>
-					{/* <div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
+					<div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
 						<div className="colmn-box">
 							<figure>
-								<img src="app/images/sidenav.png" />
+								<img src={navImage} />
+							</figure>
+							<h2>studio 1</h2>
+						</div>
+						<div className="colmn-box">
+							<figure>
+								<img src={navImage2} />
 							</figure>
 							<h2>studio 2</h2>
 						</div>
-						<div className="colmn-box">
-							<figure>
-								<img src="app/images/sidenav-2.png" />
-							</figure>
-							<h2>studio 3</h2>
-						</div>
-					</div> */}
+					</div>
 				</div>
 			</DefaultLayout>
 		)

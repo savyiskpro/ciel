@@ -4,7 +4,8 @@ import Helmet from 'react-helmet';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
-
+import navImage from '../assets/images/sidenav.png'
+import navImage2 from '../assets/images/sidenav-2.png'
 
 class coworkingSingleTemplate extends React.Component {
 	settings = {
@@ -38,7 +39,7 @@ class coworkingSingleTemplate extends React.Component {
 
 	}
 	render() {
-		console.log(this.props.data.allContentfulCoworking.edges[0].node)
+		console.log(this.props.data.allContentfulCoworking.edges)
 		const pageDetail = this.props.data.allContentfulCoworking.edges[0].node;
 
 		return (
@@ -119,20 +120,20 @@ class coworkingSingleTemplate extends React.Component {
 							</div>
 						</div>
 					</div>
-					{/* <div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
+					<div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
 						<div className="colmn-box">
 							<figure>
-								<img src="app/images/sidenav.png" />
+								<img src={navImage} />
 							</figure>
-							<h2>studio 2</h2>
+							<h2>dedicated desks</h2>
 						</div>
 						<div className="colmn-box">
 							<figure>
-								<img src="app/images/sidenav-2.png" />
+								<img src={navImage2} />
 							</figure>
-							<h2>studio 3</h2>
+							<h2>office suites</h2>
 						</div>
-					</div> */}
+					</div>
 				</div>
 			</DefaultLayout>
 		)
@@ -235,6 +236,8 @@ export const pageQuery = graphql`
 		  }
 		}
 	  }
+	  
+	  
   }
 `
 
