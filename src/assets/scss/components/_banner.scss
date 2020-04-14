@@ -100,12 +100,15 @@
         margin-right: auto !important;
         margin-left: auto !important;
         color: $color-black !important;
+
     }
 
     .text-layer {
 
         h3,
         h2 {
+            -webkit-clip-path: inset(-2% 0 28.5% 0%);
+            clip-path: inset(-2% 0 28.5% 0%);
             color: $color-white;
 
             @include breakpoint(medium) {
