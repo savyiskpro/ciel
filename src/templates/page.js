@@ -251,6 +251,7 @@ export const pageQuery = graphql`
 						}
 						... on ContentfulCommunity {
 							id
+							url
 							subTitle
 							title
 							tag

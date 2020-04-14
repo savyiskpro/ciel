@@ -47,21 +47,22 @@ class coworkingSingleTemplate extends React.Component {
 				<Helmet title={"CIEL || " + this.props.data.allContentfulCoworking.edges[0].node.title}>
 					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 				</Helmet>
-				<div className="detail-banner">
-					<figure>
-						<img src={pageDetail.bannerImage.file.url} />
-					</figure>
-					<div className="text-box">
-						<h5 data-aos="fade-in" data-aos-duration="2000">{pageDetail.title}</h5>
-						<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
-							__html: pageDetail.description.childMarkdownRemark.html
-						}}></div>
 
-						<span data-aos="fade-in" data-aos-duration="2000"><i className="fa fa-angle-down"
-							aria-hidden="true"></i></span>
-					</div>
-				</div>
 				<div className="studio-single-page">
+					<div className="detail-banner">
+						<figure>
+							<img src={pageDetail.bannerImage.file.url} />
+						</figure>
+						<div className="text-box">
+							<h5 data-aos="fade-in" data-aos-duration="2000">{pageDetail.title}</h5>
+							<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
+								__html: pageDetail.description.childMarkdownRemark.html
+							}}></div>
+
+							<span data-aos="fade-in" data-aos-duration="2000"><i className="fa fa-angle-down"
+								aria-hidden="true"></i></span>
+						</div>
+					</div>
 					<div className="featured-section">
 						<h5 data-aos="fade-in" data-aos-duration="2000">Featureds</h5>
 						<div className="container">
