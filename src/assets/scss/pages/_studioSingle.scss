@@ -501,6 +501,13 @@
 
 
 .studio-single-page {
+    .detail-banner {
+        &+.book-section {
+            padding-top: 100px;
+        }
+    }
+
+
     .book-section h3 {
         @include breakpoint(medium) {
             font-size: 18px;

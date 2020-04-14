@@ -48,22 +48,23 @@ class studioSingleTemplate extends React.Component {
 				<Helmet title={"CIEL || " + this.props.data.allContentfulStudios.edges[0].node.title}>
 					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 				</Helmet>
-				<div className="detail-banner">
-					<figure>
-						<img src={pageDetail.bannerImage.file.url} />
-					</figure>
-					<div className="text-box">
-						<h5 data-aos="fade-in" data-aos-duration="2000">{pageDetail.title}</h5>
-						<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
-							__html: pageDetail.description.childMarkdownRemark.html
-						}}></div>
 
-						<span data-aos="fade-in" data-aos-duration="2000"><i className="fa fa-angle-down"
-							aria-hidden="true"></i></span>
-					</div>
-				</div>
 				<div className="studio-single-page">
-					<div className="featured-section">
+					<div className="detail-banner">
+						<figure>
+							<img src={pageDetail.bannerImage.file.url} />
+						</figure>
+						<div className="text-box">
+							<h5 data-aos="fade-in" data-aos-duration="2000">{pageDetail.title}</h5>
+							<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
+								__html: pageDetail.description.childMarkdownRemark.html
+							}}></div>
+
+							<span data-aos="fade-in" data-aos-duration="2000"><i className="fa fa-angle-down"
+								aria-hidden="true"></i></span>
+						</div>
+					</div>
+					{pageDetail.featureds ? <div className="featured-section">
 						<h5 data-aos="fade-in" data-aos-duration="2000">Featureds</h5>
 						<div className="container">
 							<div className="flex">
@@ -77,7 +78,8 @@ class studioSingleTemplate extends React.Component {
 								))}
 							</div>
 						</div>
-					</div>
+					</div> : null}
+
 					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
@@ -101,7 +103,7 @@ class studioSingleTemplate extends React.Component {
 								</Slider>
 							</div>
 						</div> : null}
-					<div className="video-section">
+					{pageDetail.video ? <div className="video-section">
 						<h5 data-aos="fade-in" data-aos-duration="2000">virtual tour</h5>
 						<figure data-aos="fade-in" data-aos-duration="2000">
 							<video autoPlay loop controls>
@@ -111,7 +113,8 @@ class studioSingleTemplate extends React.Component {
 							</video>
 
 						</figure>
-					</div>
+					</div> : null}
+
 					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
