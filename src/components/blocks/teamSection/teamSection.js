@@ -22,7 +22,7 @@ const teamSection = (props) => {
 
 				</div>
 				<div className="btn-box">
-					{/* <a href="#" className="btn-underline">view more</a> */}
+					<a href="#" className="btn-underline">view more</a>
 				</div>
 			</div>
 		</div>

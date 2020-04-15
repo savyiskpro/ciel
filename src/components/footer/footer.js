@@ -47,9 +47,9 @@ export default ({ footerData }) => (
 					))}
 					{footerData.socialLinks ? <div className="colmn-box">
 						<h5>{footerData.socialLinks[0].title} </h5>
-						<ul class="social-nav">
+						<ul className="social-nav">
 							{footerData.socialLinks[0].navigation.map((nav, key) => (
-								<li><a target="_blank" href={nav.url}><i class={"fa " + nav.title} aria-hidden="true"></i></a></li>
+								<li><a target="_blank" href={nav.url}><i className={"fa " + nav.title} aria-hidden="true"></i></a></li>
 							))}
 						</ul>
 

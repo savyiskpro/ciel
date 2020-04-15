@@ -117,8 +117,31 @@ class Header extends Component {
 		if (location.pathname !== '/') {
 			$('header').addClass('inner-header');
 		}
+		if (window.innerWidth <= 480) {
+			$('.team-section .colmn-box').each(function () {
+				// console.log($(this).index());
+				if ($(this).index() < 7) {
+					$(this).show()
+				}
 
-		var getCumminutyHeading = $('.community .inner-banner h2').textContent;
+			})
+			$('.team-section .btn-box .btn-underline').click(function (e) {
+				e.preventDefault();
+
+				$('.team-section .colmn-box').each(function () {
+					// console.log($(this).index());
+					if ($(this).index() > 7) {
+						$(this).slideToggle();
+
+					}
+
+				})
+				$('.team-section .flex').addClass('active')
+				$(this).hide();
+
+			})
+		}
+
 
 
 	}

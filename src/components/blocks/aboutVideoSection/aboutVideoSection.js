@@ -5,7 +5,7 @@ const aboutVideoSection = (props) => {
 		<div className="about-video">
 			<div className="container">
 				<div className="text-box">
-					<h5 data-aos="fade-in" data-aos-duration="2000">{props.title}</h5>
+					<h5 data-aos="fade-in" data-aos-duration="2000">{props.sectionDetail.title}</h5>
 					<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
 						__html: props.sectionDetail.blockItems[0].content.childMarkdownRemark.html
 					}}></div>
