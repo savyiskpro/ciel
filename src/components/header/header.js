@@ -118,6 +118,9 @@ class Header extends Component {
 			$('header').addClass('inner-header');
 		}
 
+		var getCumminutyHeading = $('.community .inner-banner h2').textContent;
+
+
 	}
 	render() {
 		console.log(this.props.headerData.navigationItems)

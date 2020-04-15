@@ -119,9 +119,6 @@ class studioSingleTemplate extends React.Component {
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
 							<a href={pageDetail.bookUrl} className="btn">Book now</a>
-							<div className="btn-box">
-								<a href="#" className="btn-underline">or get a quote</a>
-							</div>
 						</div>
 					</div>
 					<div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
@@ -172,6 +169,15 @@ export const pageQuery = graphql`
 				  }
 				  ... on ContentfulSeconderyNavigation {
 				  
+					title
+					url
+				  }
+				}
+			  }
+			  socialLinks {
+				title
+				navigation {
+				  ... on ContentfulSeconderyNavigation {
 					title
 					url
 				  }

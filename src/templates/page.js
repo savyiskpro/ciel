@@ -76,6 +76,15 @@ export const pageQuery = graphql`
 				  }
 				}
 			  }
+			  socialLinks {
+				title
+				navigation {
+				  ... on ContentfulSeconderyNavigation {
+					title
+					url
+				  }
+				}
+			  }
 			}
 			header {
 				rightNavigation {

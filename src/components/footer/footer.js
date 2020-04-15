@@ -3,6 +3,7 @@ import Holder from '../../hoc/holder';
 
 export default ({ footerData }) => (
 	<Holder>
+		{console.log(footerData)}
 		<div className="update-form" data-aos="fade-in" data-aos-duration="2000">
 			<div className="container">
 				<div className="form-section">
@@ -44,6 +45,16 @@ export default ({ footerData }) => (
 
 						</div>
 					))}
+					{footerData.socialLinks ? <div className="colmn-box">
+						<h5>{footerData.socialLinks[0].title} </h5>
+						<ul class="social-nav">
+							{footerData.socialLinks[0].navigation.map((nav, key) => (
+								<li><a target="_blank" href={nav.url}><i class={"fa " + nav.title} aria-hidden="true"></i></a></li>
+							))}
+						</ul>
+
+
+					</div> : null}
 
 				</div>
 			</div>

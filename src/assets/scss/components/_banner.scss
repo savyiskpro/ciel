@@ -103,6 +103,27 @@
 
     }
 
+    .community & {
+        .text-layer {
+
+            h2,
+            h3 {
+                -webkit-clip-path: none;
+                clip-path: none;
+                white-space: nowrap;
+
+                span {
+
+                    &:nth-of-type(1) {
+                        -webkit-clip-path: inset(-2% 0 28.5% 0%);
+                        clip-path: inset(-2% 0 28.5% 0%);
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
     .text-layer {
 
         h3,

@@ -1072,9 +1072,11 @@
                 text-transform: capitalize;
                 font-size: 20px;
                 letter-spacing: 38px;
+                padding-left: 30px;
 
                 @include breakpoint(large) {
                     letter-spacing: 20px;
+                    padding-left: 20px;
 
                 }
 
