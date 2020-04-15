@@ -4,9 +4,6 @@ import Helmet from 'react-helmet';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
-import navImage from '../assets/images/sidenav.png'
-import navImage2 from '../assets/images/sidenav-2.png';
-
 import { Link } from 'gatsby'
 
 

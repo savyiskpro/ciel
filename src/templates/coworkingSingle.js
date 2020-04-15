@@ -4,8 +4,7 @@ import Helmet from 'react-helmet';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
-import navImage from '../assets/images/sidenav.png'
-import navImage2 from '../assets/images/sidenav-2.png'
+import { Link } from 'gatsby'
 
 class coworkingSingleTemplate extends React.Component {
 	settings = {
@@ -81,7 +80,7 @@ class coworkingSingleTemplate extends React.Component {
 					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
-							<a href={pageDetail.bookUrl} className="btn">Book now</a>
+							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
 						</div>
 					</div>
 					{pageDetail.images ?
@@ -115,25 +114,20 @@ class coworkingSingleTemplate extends React.Component {
 					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
-							<a href={pageDetail.bookUrl} className="btn">Book now</a>
-							<div className="btn-box">
-								<a href="#" className="btn-underline">or get a quote</a>
-							</div>
+							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
 						</div>
 					</div>
 					<div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
-						<div className="colmn-box">
-							<figure>
-								<img src={navImage} />
-							</figure>
-							<h2>dedicated desks</h2>
-						</div>
-						<div className="colmn-box">
-							<figure>
-								<img src={navImage2} />
-							</figure>
-							<h2>office suites</h2>
-						</div>
+						{pageDetail.otherCoworking.map((other, key) => (
+							<Link to={other.url} key={key} className="colmn-box">
+								<figure>
+									<img src={other.images[0].file.url} />
+								</figure>
+								<h2>{other.title}</h2>
+							</Link>
+						))}
+
+
 					</div>
 				</div>
 			</DefaultLayout>
@@ -214,7 +208,16 @@ export const pageQuery = graphql`
 			title
 			url
 			bookUrl
-        	bookText
+			bookText
+			otherCoworking {
+				url
+				title
+				images {
+				  file {
+					url
+				  }
+				}
+			}
 			bannerImage {
 				file {
 					url
