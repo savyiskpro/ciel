@@ -112,6 +112,18 @@
         padding: 0px 15px;
     }
 
+    .btn-box {
+        text-align: center;
+
+        .btn-underline {
+            display: none;
+
+            @include breakpoint(xsml) {
+                display: inline-block;
+            }
+        }
+    }
+
     h4 {
         font-size: 18px;
         letter-spacing: 30px;
