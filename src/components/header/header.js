@@ -10,8 +10,11 @@ import loadingImgMobile from '../../assets/images/mobile-loading.png';
 import loadingVideo from '../../assets/video/ciel_hero_video.mp4';
 import cursorImg from '../../assets/images/cursor.png';
 import Loading from '../../../gatsby-node';
-window.loader = true;
 
+
+if (typeof window !== 'undefined') {
+	window.loader = true;
+}
 
 class Header extends Component {
 	state = {
@@ -30,8 +33,14 @@ class Header extends Component {
 			if (document.readyState === 'complete') {
 				clearInterval(interval);
 				console.log(document.readyState);
-				// $('.open-btn').fadeIn();
+				$('.open-btn').addClass('active');
 				$('.white-screen').fadeOut();
+				if (window.innerWidth >= 992) {
+					$('.loading-group').mousemove(function (e) {
+						$('.btn-box').css({ 'left': e.clientX, top: e.clientY })
+						// $('.open-btn').fadeIn();
+					})
+				}
 
 			}
 		}, 100);
@@ -98,12 +107,7 @@ class Header extends Component {
 
 
 
-		if (window.innerWidth >= 992) {
-			$('.loading-group').mousemove(function (e) {
-				$('.btn-box').css({ 'left': e.clientX, top: e.clientY })
-				$('.open-btn').fadeIn();
-			})
-		}
+
 
 
 		$('.loading-group').click(function () {

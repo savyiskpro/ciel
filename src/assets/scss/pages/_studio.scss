@@ -51,6 +51,40 @@
             margin-bottom: 50px;
         }
 
+        &.table-box {
+            @include breakpoint(medium) {
+                padding-right: 0;
+
+                h2 {
+                    display: none;
+                }
+
+                figure {
+                    overflow-x: auto;
+                    scrollbar-color: #000;
+                    scrollbar-width: 30px;
+
+                    table {
+                        width: 630px;
+
+                    }
+
+                    &::-webkit-scrollbar {
+                        width: 10px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background: #000000;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background: #555;
+                    }
+                }
+
+            }
+        }
+
         h2 {
             top: 0;
             right: -280px;
@@ -97,6 +131,52 @@
                 max-height: 620px;
                 -o-object-fit: cover;
                 object-fit: cover;
+            }
+
+            table {
+                width: 100%;
+                border-spacing: 0;
+
+                th {
+                    font-family: $font-brandon-medium;
+                    font-size: 18px;
+                    padding-bottom: 20px;
+                }
+
+                tr {
+                    &:first-of-type {
+                        td {
+                            border-top: solid 1px $color-black;
+                        }
+                    }
+                }
+
+                td {
+                    padding: 30px 20px;
+                    border: solid 1px $color-black;
+                    border-top: none;
+                    border-right: none;
+                    font-size: 16px;
+                    text-align: center;
+
+                    span {
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background-color: $color-black;
+                        display: inline-block;
+                    }
+
+                    &:last-of-type {
+                        border-right: solid 1px $color-black;
+                    }
+
+                    &:first-of-type {
+                        padding: 10px 20px;
+                        text-align: right;
+                        border: none !important;
+                    }
+                }
             }
         }
 
