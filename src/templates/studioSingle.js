@@ -65,7 +65,7 @@ class studioSingleTemplate extends React.Component {
 						</div>
 					</div>
 					{pageDetail.featureds ? <div className="featured-section">
-						<h5 data-aos="fade-in" data-aos-duration="2000">Featureds</h5>
+						<h5 data-aos="fade-in" data-aos-duration="2000">Features</h5>
 						<div className="container">
 							<div className="flex">
 								{pageDetail.featureds.map((featured, key) => (
