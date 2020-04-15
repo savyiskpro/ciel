@@ -171,10 +171,14 @@ class Header extends Component {
 
 	}
 	render() {
+		let showLoader = true
+		if (hasWindow) {
+			showLoader = window.loader
+		}
 		console.log(this.props.headerData.navigationItems)
 		return (
 			<Holder>
-				{window.loader ? <div className="loading-group">
+				{showLoader ? <div className="loading-group">
 					<div className="background" style={{ "backgroundImage": "url(" + loadingImg + ")" }}>
 					</div>
 					<div className="background-mobile" style={{ "backgroundImage": "url(" + loadingImgMobile + ")" }}>
