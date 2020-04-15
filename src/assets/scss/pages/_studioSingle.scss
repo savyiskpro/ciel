@@ -10,6 +10,62 @@
         padding-top: 80px;
     }
 
+    @include breakpoint(xsml) {
+        margin-bottom: 60px;
+    }
+
+    @include breakpoint(xsml) {
+        .flex {
+            position: relative;
+
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 25px;
+                left: 0;
+                width: 100%;
+                height: 128px;
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(-52%, rgba(255, 255, 255, 0)), color-stop(69%, #ffffff));
+                background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -52%, #ffffff 69%);
+            }
+
+            &.active {
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .btn-box {
+        text-align: center;
+
+        @include breakpoint(xsml) {
+            margin-top: -60px;
+        }
+
+        .btn-underline {
+            display: none;
+
+            @include breakpoint(xsml) {
+                display: inline-block;
+                position: relative;
+                padding-right: 20px;
+            }
+
+            &:after {
+                @include center(vertical);
+                right: 0;
+                content: "\f107";
+                font-family: FontAwesome;
+                font-size: 20px;
+
+            }
+        }
+    }
+
     h5 {
         font-size: 20px;
         font-family: $font-brandon-medium;
@@ -43,7 +99,8 @@
 
         @include breakpoint(xsml) {
             width: 50%;
-            margin-bottom: 40px
+            margin-bottom: 40px;
+            display: none;
         }
 
         figure {

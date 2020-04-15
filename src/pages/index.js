@@ -12,11 +12,38 @@ import $ from 'jquery';
 
 class RootIndex extends Component {
 	componentDidMount() {
-		if ($(window).width() >= 767) {
+		$('.tab-section li a').click(function (e) {
+			var getsection = $('.tab-section').offset().top;
+			e.preventDefault();
+			var getImage = $(this).attr('href');
+			$(getImage).addClass('active').siblings().removeClass('active');
+			$(this).parent().addClass('active');
+			$(this).parent().siblings().removeClass('active');
+			if (window.innerWidth >= 767) {
+				// if ($(this).parent().index())
+
+				console.log($(this).parent().index())
+				if ($(this).parent().index() == 0) {
+					$('body,html').animate({ scrollTop: getsection });
+				}
+				if ($(this).parent().index() == 1) {
+					$('body,html').animate({ scrollTop: getsection + 501 });
+				}
+				if ($(this).parent().index() == 2) {
+					$('body,html').animate({ scrollTop: getsection + 1001 });
+				}
+				if ($(this).parent().index() == 3) {
+					$('body,html').animate({ scrollTop: getsection + 1501 });
+				}
+
+			}
+
+		})
+		if (window.innerWidth >= 767) {
 
 			$(window).scroll(function () {
 				if ($('.tab-section') && $('.tab-section').length) {
-					console.log($('.tab-section'))
+
 					var getsection = $('.tab-section').offset().top;
 					if ($(this).scrollTop() > getsection) {
 						$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')

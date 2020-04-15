@@ -8,13 +8,13 @@ import AOS from 'aos';
 import loadingImg from '../../assets/images/loading.png';
 import loadingImgMobile from '../../assets/images/mobile-loading.png';
 import loadingVideo from '../../assets/video/ciel_hero_video.mp4';
-import cursorImg from '../../assets/images/cursor.png';
-import Loading from '../../../gatsby-node';
 
 
-if (typeof window !== 'undefined') {
-	window.loader = true;
-}
+
+const hasWindow = (typeof window !== 'undefined') ? window.loader = true : window.loader = false;
+
+
+
 
 class Header extends Component {
 	state = {
@@ -83,13 +83,7 @@ class Header extends Component {
 			)
 		}
 		// tab sections
-		$('.tab-section li a').click(function (e) {
-			e.preventDefault();
-			var getImage = $(this).attr('href');
-			$(getImage).addClass('active').siblings().removeClass('active');
-			$(this).parent().addClass('active');
-			$(this).parent().siblings().removeClass('active');
-		})
+
 		$('.tab-section li:first,.tab-section figure img:first,.navigation .colmn-img img:first').addClass('active');
 
 
@@ -134,10 +128,32 @@ class Header extends Component {
 				}
 
 			})
+			$('.featured-section .colmn-box').each(function () {
+				// console.log($(this).index());
+				if ($(this).index() < 8) {
+					$(this).show()
+				}
+
+			})
 			$('.team-section .btn-box .btn-underline').click(function (e) {
 				e.preventDefault();
 
 				$('.team-section .colmn-box').each(function () {
+					// console.log($(this).index());
+					if ($(this).index() > 6) {
+						$(this).slideToggle();
+
+					}
+
+				})
+				$('.team-section .flex').addClass('active')
+				$(this).hide();
+
+			})
+			$('.featured-section .btn-box .btn-underline').click(function (e) {
+				e.preventDefault();
+
+				$('.featured-section .colmn-box').each(function () {
 					// console.log($(this).index());
 					if ($(this).index() > 7) {
 						$(this).slideToggle();
@@ -145,7 +161,7 @@ class Header extends Component {
 					}
 
 				})
-				$('.team-section .flex').addClass('active')
+				$('.featured-section .flex').addClass('active')
 				$(this).hide();
 
 			})
