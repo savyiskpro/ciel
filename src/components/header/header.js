@@ -9,6 +9,7 @@ import loadingImg from '../../assets/images/loading.png';
 import loadingImgMobile from '../../assets/images/mobile-loading.png';
 import loadingVideo from '../../assets/video/ciel_hero_video.mp4';
 import cursorImg from '../../assets/images/cursor.png';
+import Loading from '../../../gatsby-node';
 
 
 
@@ -22,12 +23,15 @@ class Header extends Component {
 		}))
 	}
 	componentDidMount() {
-		$('body').addClass('doNot-scroll')
+		if (window.loader) {
+			$('body').addClass('doNot-scroll')
+		}
 		var interval = setInterval(function () {
 			if (document.readyState === 'complete') {
 				clearInterval(interval);
 				console.log(document.readyState);
 				// $('.open-btn').fadeIn();
+				$('.white-screen').fadeOut();
 
 			}
 		}, 100);
@@ -35,6 +39,7 @@ class Header extends Component {
 			$(this).addClass('active');
 			$('.loading-group video').addClass('active')
 			$('body').removeClass('doNot-scroll')
+			window.loader = false;
 			setTimeout(function () {
 				$(".loading-group").fadeOut(500);
 				AOS.init({
@@ -50,6 +55,7 @@ class Header extends Component {
 		$('.close-btn').click(function (e) {
 			e.preventDefault();
 			$('.navigation').fadeOut();
+
 		});
 		if (window.innerWidth >= 767) {
 			$('.navigation .colmn-text li').hover(
@@ -91,9 +97,7 @@ class Header extends Component {
 		})
 
 
-		$('.promo-box .promo-content .btn-close').click(function () {
-			$('.promo-box').addClass('hide');
-		})
+
 		if (window.innerWidth >= 992) {
 			$('.loading-group').mousemove(function (e) {
 				$('.btn-box').css({ 'left': e.clientX, top: e.clientY })
@@ -103,6 +107,7 @@ class Header extends Component {
 
 
 		$('.loading-group').click(function () {
+			window.loader = false;
 			$(this).addClass('active');
 			$('.loading-group video').addClass('active')
 			$('body').removeClass('doNot-scroll')
@@ -149,7 +154,7 @@ class Header extends Component {
 		console.log(this.props.headerData.navigationItems)
 		return (
 			<Holder>
-				<div className="loading-group">
+				{window.loader ? <div className="loading-group">
 					<div className="background" style={{ "backgroundImage": "url(" + loadingImg + ")" }}>
 					</div>
 					<div className="background-mobile" style={{ "backgroundImage": "url(" + loadingImgMobile + ")" }}>
@@ -165,12 +170,15 @@ class Header extends Component {
 					<div className="btn-box" id="openBtn">
 						<button type="button" className="open-btn">EXPLORE</button>
 					</div>
+				</div> : null}
+				<div className="white-screen">
+
 				</div>
 				<header>
 					<div className="container">
 						<ul className="flex space-between items-align-center">
 							<li><a href="" className="toggle-btn"><img src={menuBar} /></a></li>
-							<li><a href="/" className="navbar-brand"><img src={this.props.headerData.logo.file.url} /></a></li>
+							<li><Link to="/" className="navbar-brand"><img src={this.props.headerData.logo.file.url} /></Link></li>
 							<li><a className="book-btn" href={this.props.headerData.rightNavigation.title}>{this.props.headerData.rightNavigation.title}</a></li>
 						</ul>
 					</div>
@@ -193,7 +201,7 @@ class Header extends Component {
 							<div className="colmn-text">
 								<ul className="navbar-tabs">
 									{this.props.headerData.navigationItems.map((nav, key) => (
-										<li key={key}><a href={nav.url} data-img={nav.navigationImage ? encodeURI('#nav' + nav.title) : ''} className={nav.extraClass ? nav.extraClass : null}>{nav.title}</a></li>
+										<li key={key}><Link to={nav.url} data-img={nav.navigationImage ? encodeURI('#nav' + nav.title) : ''} className={nav.extraClass ? nav.extraClass : null}>{nav.title}</Link></li>
 									))}
 
 								</ul>

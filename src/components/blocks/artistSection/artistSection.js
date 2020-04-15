@@ -23,7 +23,7 @@ const artistSection = (props) => {
 						props.sectionDetail.blockItems.map((item, key) => {
 							if (item.__typename == "ContentfulSeconderyNavigation") {
 								return (
-									<a key={key} href={item.url} className="btn">{item.title}</a>
+									<a key={key} target="_blank" href={item.url} className="btn">{item.title}</a>
 								)
 							}
 						})

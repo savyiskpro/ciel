@@ -31,7 +31,7 @@ const joinSection = (props) => {
 
 						}}>
 						</div>
-						<a href={sectionLink.url} className="btn-underline">{sectionLink.title}</a>
+						<a target="_blank" href={sectionLink.url} className="btn-underline">{sectionLink.title}</a>
 					</div>
 				</div>
 				<div className="colmn-heading" data-aos="fade-in" data-aos-duration="2000">

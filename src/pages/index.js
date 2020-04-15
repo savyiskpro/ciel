@@ -8,49 +8,57 @@ import BannerSection from '../components/blocks/bannerSection/bannerSection';
 import Block from '../components/blocks/block';
 import $ from 'jquery';
 
+
+
 class RootIndex extends Component {
 	componentDidMount() {
 		if ($(window).width() >= 767) {
+
 			$(window).scroll(function () {
-				var getsection = $('.tab-section').offset().top;
-				if ($(this).scrollTop() > getsection) {
-					$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
-					$('.tab-section .colmn-text li:nth-child(1), .tab-section .colmn-img figure img:nth-child(1)').addClass('active')
-				}
-				if ($(this).scrollTop() > getsection + 500) {
-					$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
-					$('.tab-section .colmn-text li:nth-child(2), .tab-section .colmn-img figure img:nth-child(2)').addClass('active')
+				if ($('.tab-section') && $('.tab-section').length) {
+					console.log($('.tab-section'))
+					var getsection = $('.tab-section').offset().top;
+					if ($(this).scrollTop() > getsection) {
+						$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
+						$('.tab-section .colmn-text li:nth-child(1), .tab-section .colmn-img figure img:nth-child(1)').addClass('active')
+					}
+					if ($(this).scrollTop() > getsection + 500) {
+						$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
+						$('.tab-section .colmn-text li:nth-child(2), .tab-section .colmn-img figure img:nth-child(2)').addClass('active')
 
-				}
-				if ($(this).scrollTop() > getsection + 1000) {
-					$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
-					$('.tab-section .colmn-text li:nth-child(3), .tab-section .colmn-img figure img:nth-child(3)').addClass('active')
-				}
-				if ($(this).scrollTop() > getsection + 1500) {
+					}
+					if ($(this).scrollTop() > getsection + 1000) {
+						$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
+						$('.tab-section .colmn-text li:nth-child(3), .tab-section .colmn-img figure img:nth-child(3)').addClass('active')
+					}
+					if ($(this).scrollTop() > getsection + 1500) {
 
-					$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
-					$('.tab-section .colmn-text li:nth-child(4), .tab-section .colmn-img figure img:nth-child(4)').addClass('active')
+						$('.tab-section .colmn-text li, .tab-section .colmn-img figure img').removeClass('active')
+						$('.tab-section .colmn-text li:nth-child(4), .tab-section .colmn-img figure img:nth-child(4)').addClass('active')
 
+					}
 				}
+
 
 
 			})
 		}
 		$(window).scroll(function () {
+			if ($('.pardon-seciton') && $('.pardon-seciton').length) {
+				if ($(this).scrollTop() > $('.pardon-seciton').offset().top - 1000) {
+					$('.promo-box').addClass('active');
 
-
-			if ($(this).scrollTop() > $('.pardon-seciton').offset().top - 1000) {
-				$('.promo-box').addClass('active');
-
-			}
-			if ($(this).scrollTop() > $('.pardon-seciton').offset().top) {
-				$('.promo-box .promo-content').fadeIn();
-
+				}
 			}
 
 
 
-
+		})
+		$('.promo-box .promo-icon').click(function () {
+			$('.promo-box .promo-content').addClass('active')
+		})
+		$('.promo-box .promo-content .btn-close').click(function () {
+			$('.promo-box .promo-content').removeClass('active');
 		})
 	}
 	render() {
@@ -76,6 +84,7 @@ class RootIndex extends Component {
 		})
 		return (
 			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+
 				<Helmet title="CIEL || Home">
 					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 				</Helmet>

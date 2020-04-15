@@ -16,7 +16,7 @@ const bannerSection = (props) => {
 				<h3 data-aos="fade-left" data-aos-duration="2000">{props.sectionDetail.subtitle}</h3>
 			</div>
 			<div className="logo">
-				<a href=""><img src={props.sectionDetail.logo.file.url} alt="logo" /></a>
+				<img src={props.sectionDetail.logo.file.url} alt="logo" />
 			</div>
 		</div>
 	)

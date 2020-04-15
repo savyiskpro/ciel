@@ -5,7 +5,9 @@ import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
 import navImage from '../assets/images/sidenav.png'
-import navImage2 from '../assets/images/sidenav-2.png'
+import navImage2 from '../assets/images/sidenav-2.png';
+
+import { Link } from 'gatsby'
 
 
 class studioSingleTemplate extends React.Component {
@@ -83,7 +85,7 @@ class studioSingleTemplate extends React.Component {
 					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
-							<a href={pageDetail.bookUrl} className="btn">Book now</a>
+							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
 						</div>
 					</div>
 					{pageDetail.images ?
@@ -118,22 +120,20 @@ class studioSingleTemplate extends React.Component {
 					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
-							<a href={pageDetail.bookUrl} className="btn">Book now</a>
+							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
 						</div>
 					</div>
 					<div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
-						<div className="colmn-box">
-							<figure>
-								<img src={navImage} />
-							</figure>
-							<h2>studio 1</h2>
-						</div>
-						<div className="colmn-box">
-							<figure>
-								<img src={navImage2} />
-							</figure>
-							<h2>studio 2</h2>
-						</div>
+						{pageDetail.otherStudios.map((other, key) => (
+							<Link to={other.url} key={key} className="colmn-box">
+								<figure>
+									<img src={other.images[0].file.url} />
+								</figure>
+								<h2>{other.title}</h2>
+							</Link>
+						))}
+
+
 					</div>
 				</div>
 			</DefaultLayout>
@@ -214,7 +214,16 @@ export const pageQuery = graphql`
 			title
 			url
 			bookUrl
-        	bookText
+			bookText
+			otherStudios {
+				url
+				title
+				images {
+				  file {
+					url
+				  }
+				}
+			  }
 			bannerImage {
 				file {
 					url

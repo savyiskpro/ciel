@@ -1008,9 +1008,16 @@
         width: 630px;
         height: 620px;
         background-color: $color-white;
-        z-index: 9;
+
         border: solid 1px $color-black;
-        display: none;
+        -webkit-transform: scale(00);
+        transform: scale(00);
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom right;
+        opacity: 0;
+        z-index: -1;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
 
         @include breakpoint(large) {
             width: 400px;
@@ -1023,6 +1030,9 @@
 
         &.active {
             opacity: 1;
+            z-index: 9;
+            -webkit-transform: scale(1);
+            transform: scale(1);
         }
 
 
@@ -1109,6 +1119,7 @@
         position: absolute;
         bottom: 0;
         right: 0;
+        cursor: pointer;
 
         p {
             font-family: $font-brandon-medium;

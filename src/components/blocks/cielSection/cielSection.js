@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'gatsby';
 const cielSection = (props) => {
 	console.log(props)
 	return (
@@ -25,7 +25,7 @@ const cielSection = (props) => {
 							props.sectionDetail.blockItems.map((item, key) => {
 								if (item.__typename == "ContentfulSeconderyNavigation") {
 									return (
-										<a key={key} href={item.url} className="btn">{item.title}</a>
+										<Link key={key} to={item.url} className="btn">{item.title}</Link>
 									)
 								}
 							})

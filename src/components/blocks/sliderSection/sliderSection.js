@@ -37,8 +37,8 @@ class sliderSection extends Component {
 												<h4>{slide.subTitle} </h4>
 												<p>{slide.sortText}</p>
 												<ul>
-													<li><a href={slide.url} className="btn-underline">learn more</a></li>
-													<li><a href='/community' className="btn-underline">see all events</a></li>
+													<li><Link to={slide.url} className="btn-underline">learn more</Link></li>
+													<li><Link to='/community' className="btn-underline">see all events</Link></li>
 												</ul>
 											</div>
 										</div>

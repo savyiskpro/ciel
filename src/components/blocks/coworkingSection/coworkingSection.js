@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 const coworkingSection = (props) => {
 	console.log(props)
@@ -18,8 +19,8 @@ const coworkingSection = (props) => {
 
 						</div>
 						<ul>
-							<li><a href={item.url} className="btn-underline">learn more</a></li>
-							<li><a href={item.bookUrl} className="btn-underline">book now</a></li>
+							<li><Link to={item.url} className="btn-underline">learn more</Link></li>
+							<li><Link to={item.bookUrl} className="btn-underline">book now</Link></li>
 						</ul>
 					</div>
 				))}

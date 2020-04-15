@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from "react-slick";
 import $ from 'jquery';
+import { Link } from 'gatsby';
 // import slick from 'slick-carousel';
 
 class communitySection extends Component {
@@ -11,7 +12,8 @@ class communitySection extends Component {
 			<div className="event-section">
 				<div className="container">
 					{this.props.sectionDetail.blockItems.map((item, key) => (
-						<a href={item.url} key={key} className="event-box" data-aos="fade-in" data-aos-duration="2000">
+						<Link to={item.url} key={key} className="event-box" data-aos="fade-in" data-aos-duration="2000">
+
 							<div className="colmn-img">
 								<figure>
 									<img src={item.image.file.url} />
@@ -31,7 +33,7 @@ class communitySection extends Component {
 									<li><a href="#" className="btn-underline">iCal</a></li>
 								</ul>
 							</div>
-						</a>
+						</Link>
 					))}
 
 				</div>
