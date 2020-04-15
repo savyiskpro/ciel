@@ -1,7 +1,7 @@
 const Promise = require('bluebird')
 const path = require('path')
 
-window.loader = true;
+
 
 
 exports.createPages = ({ graphql, actions }) => {

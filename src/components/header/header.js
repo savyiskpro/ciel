@@ -10,7 +10,7 @@ import loadingImgMobile from '../../assets/images/mobile-loading.png';
 import loadingVideo from '../../assets/video/ciel_hero_video.mp4';
 import cursorImg from '../../assets/images/cursor.png';
 import Loading from '../../../gatsby-node';
-
+window.loader = true;
 
 
 class Header extends Component {
