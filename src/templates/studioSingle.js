@@ -123,7 +123,7 @@ class studioSingleTemplate extends React.Component {
 							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
 						</div>
 					</div>
-					<div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
+					{pageDetail.otherStudios ? <div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
 						{pageDetail.otherStudios.map((other, key) => (
 							<Link to={other.url} key={key} className="colmn-box">
 								<figure>
@@ -134,7 +134,8 @@ class studioSingleTemplate extends React.Component {
 						))}
 
 
-					</div>
+					</div> : null}
+
 				</div>
 			</DefaultLayout>
 		)

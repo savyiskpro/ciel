@@ -117,7 +117,7 @@ class coworkingSingleTemplate extends React.Component {
 							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
 						</div>
 					</div>
-					<div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
+					{pageDetail.otherCoworking ? <div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
 						{pageDetail.otherCoworking.map((other, key) => (
 							<Link to={other.url} key={key} className="colmn-box">
 								<figure>
@@ -128,7 +128,8 @@ class coworkingSingleTemplate extends React.Component {
 						))}
 
 
-					</div>
+					</div> : null}
+
 				</div>
 			</DefaultLayout>
 		)
