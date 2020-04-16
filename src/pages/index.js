@@ -227,6 +227,18 @@ export const pageQuery = graphql`
 						}
 					}
 					blockItems {
+						... on ContentfulPromo {
+							id
+							title
+							internal {
+								type
+							  }
+							subTitle
+							link {
+							  title
+							  url
+							}
+						  }
 						... on ContentfulSeconderyNavigation {
 							url
 							title
