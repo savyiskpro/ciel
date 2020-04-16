@@ -22,7 +22,8 @@ const backgroundImageSection = (props) => {
 									<div className="text-box">
 										<h5>{item.title}</h5>
 										<h4>{item.subTitle}</h4>
-										<a target="_blank" href={item.link.url} className="btn-underline">{item.link.title}</a>
+										{/* <a target="_blank" href={item.link.url} className="btn-underline">{item.link.title}</a> */}
+										<a href="/" className="btn-underline">learn more</a>
 									</div>
 								</div>
 								<span className="promo-icon">
