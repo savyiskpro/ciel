@@ -82,10 +82,13 @@ class RootIndex extends Component {
 
 		})
 		$('.promo-box .promo-icon').click(function () {
-			$('.promo-box .promo-content').addClass('active')
+			$('.promo-box .promo-content').addClass('active open')
+			$('.promo-box .promo-content').removeClass('close');
+
 		})
 		$('.promo-box .promo-content .btn-close').click(function () {
-			$('.promo-box .promo-content').removeClass('active');
+			$('.promo-box .promo-content').addClass('close');
+			$('.promo-box .promo-content').removeClass('active open');
 		})
 	}
 	render() {

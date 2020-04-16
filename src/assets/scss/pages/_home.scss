@@ -1005,34 +1005,58 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 630px;
-        height: 620px;
+        width: 89px;
+        height: 89px;
         background-color: $color-white;
-
         border: solid 1px $color-black;
-        -webkit-transform: scale(00);
-        transform: scale(00);
         -webkit-transform-origin: bottom right;
         transform-origin: bottom right;
-        opacity: 0;
-        z-index: -1;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
+        z-index: 2;
+        -webkit-transition: all 1s;
+        transition: all 1s;
 
-        @include breakpoint(large) {
-            width: 400px;
-            height: 400px
-        }
-
-        @include breakpoint(xsml) {
-            width: 100%;
-        }
 
         &.active {
-            opacity: 1;
-            z-index: 9;
-            -webkit-transform: scale(1);
-            transform: scale(1);
+
+            width: 630px;
+            height: 620px;
+
+            .btn-close {
+                opacity: 1;
+            }
+
+            .text-box {
+                opacity: 1;
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0)
+            }
+
+            @include breakpoint(large) {
+                width: 400px;
+                height: 400px
+            }
+
+            @include breakpoint(xsml) {
+                width: 100%;
+            }
+        }
+
+        &.close {
+            .text-box {
+                -webkit-transition-delay: 0;
+                transition-delay: 0;
+                -webkit-transition-duration: 0.2s;
+                transition-duration: 0.2s;
+            }
+        }
+
+        &.open {
+            .text-box {
+                -webkit-transition-delay: 1s;
+                transition-delay: 1s;
+                -webkit-transition-duration: 0.5s;
+                transition-duration: 0.5s;
+            }
         }
 
 
@@ -1041,6 +1065,15 @@
             top: 15px;
             left: 15px;
             cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+
+            -webkit-transition-delay: 1s;
+            transition-delay: 1s;
+            -webkit-transition-property: all;
+            transition-property: all;
+            -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
         }
 
         .text-box {
@@ -1062,6 +1095,12 @@
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
+            opacity: 0;
+            -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+            -webkit-transition-property: all;
+            transition-property: all;
+
 
             @include breakpoint(large) {
                 padding: 0px 50px;
@@ -1101,7 +1140,6 @@
     .promo-icon {
         width: 87px;
         height: 87px;
-        border: solid 1px $color-black;
         background-color: $color-white;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -1117,9 +1155,10 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: 1px;
+        right: 1px;
         cursor: pointer;
+        z-index: 3;
 
         p {
             font-family: $font-brandon-medium;

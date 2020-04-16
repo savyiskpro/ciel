@@ -38,7 +38,11 @@ class Header extends Component {
 				if (document.readyState === 'complete') {
 					clearInterval(interval);
 					console.log(document.readyState);
-					$('.open-btn').addClass('active');
+					$('.loading-group').addClass('active');
+					setTimeout(function () {
+						$('.open-btn').addClass('active');
+					}, 1000)
+
 					$('.white-screen').fadeOut();
 					if (window.innerWidth >= 992) {
 						$('.loading-group').mousemove(function (e) {
