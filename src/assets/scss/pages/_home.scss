@@ -1055,20 +1055,35 @@
         }
 
         &.close {
+            -webkit-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+
             .text-box {
                 -webkit-transition-delay: 0;
                 transition-delay: 0;
-                -webkit-transition-duration: 0.2s;
-                transition-duration: 0.2s;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+            }
+
+            .btn-close {
+                -webkit-transition-delay: 0;
+                transition-delay: 0;
             }
         }
 
         &.open {
+
+
             .text-box {
                 -webkit-transition-delay: 1s;
                 transition-delay: 1s;
                 -webkit-transition-duration: 0.5s;
                 transition-duration: 0.5s;
+            }
+
+            .btn-close {
+                -webkit-transition-delay: 1s;
+                transition-delay: 1s;
             }
         }
 
@@ -1081,8 +1096,7 @@
             z-index: 99;
             opacity: 0;
 
-            -webkit-transition-delay: 1s;
-            transition-delay: 1s;
+
             -webkit-transition-property: all;
             transition-property: all;
             -webkit-transition-duration: 0.5s;
