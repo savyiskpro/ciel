@@ -363,8 +363,21 @@
 
 }
 
+.outer-group {
+    padding: 160px 0;
+    overflow: hidden;
+
+    @include breakpoint(large) {
+        padding: 80px 0;
+    }
+
+    @include breakpoint(medium) {
+        padding: 70px 0;
+    }
+}
+
 .pardon-seciton {
-    margin: 160px 0;
+
     padding: 260px 0;
     position: relative;
 
@@ -374,12 +387,12 @@
 
     @include breakpoint(large) {
         padding: 150px 0;
-        margin: 80px 0;
+
     }
 
     @include breakpoint(medium) {
         background-position-x: -100px;
-        margin: 70px 0;
+
     }
 
 
