@@ -111,12 +111,13 @@ class coworkingSingleTemplate extends React.Component {
 
 						</figure>
 					</div>
-					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
+					{pageDetail.secondBookText ? <div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
-							<h3>{pageDetail.bookText} </h3>
+							<h3>{pageDetail.secondBookText} </h3>
 							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
 						</div>
-					</div>
+					</div> : null}
+
 					{pageDetail.otherCoworking ? <div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
 						{pageDetail.otherCoworking.map((other, key) => (
 							<Link to={other.url} key={key} className="colmn-box">
@@ -210,6 +211,7 @@ export const pageQuery = graphql`
 			url
 			bookUrl
 			bookText
+			secondBookText
 			otherCoworking {
 				url
 				title

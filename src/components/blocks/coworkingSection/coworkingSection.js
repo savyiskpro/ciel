@@ -9,7 +9,9 @@ const coworkingSection = (props) => {
 				{props.sectionDetail.blockItems.map((item, key) => (
 					<div key={key} className="studio-box" data-aos="fade-in" data-aos-duration="2000">
 						<figure>
-							<img src={item.images[0].file.url} />
+							<Link to={item.url} >
+								<img src={item.images[0].file.url} />
+							</Link>
 						</figure>
 						<h2>{item.title}</h2>
 						<div className="text-box">
