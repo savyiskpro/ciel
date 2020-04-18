@@ -8,7 +8,9 @@ class sliderSection extends Component {
 		arrows: true,
 		autoplay: true,
 		autoplaySpeed: 10000,
-		fade: true
+		fade: true,
+		pauseOnHover: false,
+		pauseOnFocus: false,
 	};
 	componentDidMount() {
 

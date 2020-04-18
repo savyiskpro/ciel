@@ -161,13 +161,13 @@ img {
     }
 
     .open-btn {
-        width: 130px;
-        height: 130px;
+        width: 110px;
+        height: 110px;
         border: none;
         color: $color-black;
         font-family: $font-brandon-medium;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 14px;
         outline: none;
         border-radius: 50%;
         @extend %flexCenter;

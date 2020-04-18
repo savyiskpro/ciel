@@ -1,5 +1,6 @@
 import React from 'react';
 import Holder from '../../hoc/holder';
+import { Link } from 'gatsby'
 
 export default ({ footerData }) => (
 	<Holder>
@@ -29,9 +30,9 @@ export default ({ footerData }) => (
 			<div className="container">
 				<div className="flex space-between">
 					<div className="colmn-box">
-						<a href="#">
+						<Link to="/">
 							<img src={footerData.logo.file.url} />
-						</a>
+						</Link>
 					</div>
 					{footerData.navigationGroups.map((group, key) => (
 						<div key={key} className="colmn-box">

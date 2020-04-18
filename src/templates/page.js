@@ -148,6 +148,14 @@ export const pageQuery = graphql`
 						}
 					}
 					blockItems {
+						... on ContentfulAssets {
+							title
+							items {
+							  childMarkdownRemark {
+								html
+							  }
+							}
+						}
 						... on ContentfulPromo {
 							id
 							title
