@@ -1,0 +1,45 @@
+.contact-form-section {
+    padding: 100px 0 50px;
+
+    .container {
+        width: 900px;
+
+    }
+
+    .btn-box {
+        text-align: center;
+        width: 100%;
+    }
+
+    .form-group {
+        width: 48%;
+        margin-bottom: 40px;
+
+        .css-1wa3eu0-placeholder {
+            font-family: $font-bodoni-book;
+            font-size: 20px;
+        }
+
+        &.full {
+            width: 100%;
+        }
+
+        .form-control,
+        input {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            border-bottom: solid 1px $color-black;
+            font-size: 20px;
+            resize: none;
+            font-family: $font-bodoni-book;
+            outline: none;
+        }
+
+        textarea {
+            height: 100px;
+        }
+    }
+
+
+}
