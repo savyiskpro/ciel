@@ -7,7 +7,7 @@ class sliderSection extends Component {
 		dots: true,
 		arrows: true,
 		autoplay: true,
-		autoplaySpeed: 10000,
+		autoplaySpeed: 4000,
 		fade: true,
 		pauseOnHover: false,
 		pauseOnFocus: false,

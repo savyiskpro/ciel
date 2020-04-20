@@ -188,7 +188,7 @@ class ContactUs extends Component {
 									<Select value={this.state.paymentType} onChange={this.paymentTypeChangeHandler} options={paymentTypeOptions} />
 								</div>
 								<div className="form-heading">
-									<h4>Billing Contact</h4>
+									<h4>Billing Details</h4>
 								</div>
 								<div className="form-group full">
 									<label>Name</label>

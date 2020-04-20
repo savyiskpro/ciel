@@ -1,16 +1,16 @@
 $filePath: "../../";
 
 @font-face {
-    font-family: "LustSlim-Regular";
-    src: url($filePath+"assets/fonts/LustSlim-Regular.eot");
+    font-family: "Lust-Regular";
+    src: url($filePath+"assets/fonts/Lust-Regular.eot");
     /* IE9 Compat Modes */
-    src: url($filePath+"assets/fonts/LustSlim-Regular.woff2") format("woff2"),
+    src: url($filePath+"assets/fonts/Lust-Regular.woff2") format("woff2"),
         /* Super Modern Browsers */
-        url($filePath+"assets/fonts/LustSlim-Regular.woff") format("woff"),
+        url($filePath+"assets/fonts/Lust-Regular.woff") format("woff"),
         /* Pretty Modern Browsers */
-        url($filePath+"assets/fonts/LustSlim-Regular.ttf") format("truetype"),
+        url($filePath+"assets/fonts/Lust-Regular.ttf") format("truetype"),
         /* Safari, Android, iOS */
-        url($filePath+"assets/fonts/LustSlim-Regular.svg") format("svg");
+        url($filePath+"assets/fonts/Lust-Regular.svg") format("svg");
     /* Legacy iOS */
     font-weight: normal;
     font-style: normal;
