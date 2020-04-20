@@ -2,6 +2,15 @@
 .book-form-section {
     padding: 100px 0 50px;
 
+    .success-message {
+        width: 100%;
+        text-align: left;
+        margin-top: 30px;
+        font-size: 18px;
+        font-family: $font-brandon-medium;
+        color: #6cc04a;
+    }
+
     .container {
         width: 900px;
 
@@ -15,6 +24,17 @@
     .form-group {
         width: 48%;
         margin-bottom: 40px;
+        position: relative;
+
+        .error-message {
+            position: absolute;
+            font-size: 14px;
+            color: #E03A3E;
+            padding-top: 5px;
+            width: 100%;
+            top: 100%;
+            left: 0;
+        }
 
         * {
             font-family: $font-brandon-medium;

@@ -39,11 +39,16 @@ export default ({ footerData }) => (
 							<h5>{group.title} </h5>
 							{group.navigation ?
 								<ul>
-									{group.navigation.map((nav, key) => (
-										<li key={key}><a href={nav.url}>{nav.title}</a></li>
-									))}
-								</ul> : ''}
+									{group.navigation.map((nav, key) => {
+										if (nav.__typename == 'ContentfulNavigation') {
+											return <li key={key}><Link to={nav.url}>{nav.title}</Link></li>
+										}
+										else {
+											return <li key={key}><a href={nav.url}>{nav.title}</a></li>
+										}
 
+									})}
+								</ul> : ''}
 						</div>
 					))}
 					{footerData.socialLinks ? <div className="colmn-box">

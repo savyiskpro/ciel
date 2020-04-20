@@ -80,7 +80,7 @@ class coworkingSingleTemplate extends React.Component {
 					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.bookText} </h3>
-							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
+							<a href={pageDetail.bookUrl} target="_blank" className="btn">Book now</a>
 						</div>
 					</div>
 					{pageDetail.images ?
@@ -114,7 +114,7 @@ class coworkingSingleTemplate extends React.Component {
 					{pageDetail.secondBookText ? <div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 						<div className="container">
 							<h3>{pageDetail.secondBookText} </h3>
-							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
+							<a href={pageDetail.bookUrl} target="_blank" className="btn">Book now</a>
 						</div>
 					</div> : null}
 

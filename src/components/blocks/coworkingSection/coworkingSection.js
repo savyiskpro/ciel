@@ -22,7 +22,7 @@ const coworkingSection = (props) => {
 						</div>
 						<ul>
 							<li><Link to={item.url} className="btn-underline">learn more</Link></li>
-							<li><Link to={item.bookUrl} className="btn-underline">book now</Link></li>
+							<li><a href={item.bookUrl} target="_blank" className="btn-underline">book now</a></li>
 						</ul>
 					</div>
 				))}

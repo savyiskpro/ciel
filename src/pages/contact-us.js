@@ -6,6 +6,7 @@ import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import '../assets/scss/style.scss';
 import InnerBanner from "../components/blocks/innerBanner/innerBanner";
 import Select from 'react-select';
+import axios from 'axios';
 
 const reasonOptions = [
 	{ value: 'Book a tour', label: 'Book a tour' },
@@ -16,22 +17,145 @@ const reasonOptions = [
 
 class ContactUs extends Component {
 	state = {
+		regexp: /^[0-9\b]+$/,
 		name: '',
 		reason: '',
 		email: '',
 		phone: '',
-		subject: ''
+		subject: '',
+		message: '',
+		nameError: '',
+		reasonError: '',
+		emailError: '',
+		phoneError: '',
+		subjectError: '',
+		messageError: ''
 	}
+	checkValidity = (value, rules) => {
+		let isvalid = null;
+		rules.forEach(rule => {
+			if (rule['type'] == 'required') {
+				if (value.length == 0) {
+					isvalid = { 'error': rule['message'] }
+				}
+			}
+			if (rule['type'] == 'isEmail') {
+				if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value) == false) {
+					isvalid = { 'error': rule['message'] }
+				}
+
+			}
+
+		})
+		return isvalid;
+	}
+
+
+
+	validateCheck = [
+		{
+			field: 'name',
+			rules: [
+
+				{ type: 'required', message: 'This field is required' }
+
+			]
+		},
+		{
+			field: 'reason',
+			rules: [
+				{ type: 'required', message: 'This field is required' },
+
+			]
+		},
+		{
+			field: 'email',
+			rules: [
+				{ type: 'isEmail', message: 'Enter a valid email address.' },
+
+			]
+		},
+		{
+			field: 'phone',
+			rules: [
+				{ type: 'required', message: 'This field is required' },
+
+			]
+		},
+		{
+			field: 'subject',
+			rules: [
+				{ type: 'required', message: 'This field is required' },
+
+			]
+		},
+		{
+			field: 'message',
+			rules: [
+				{ type: 'required', message: 'This field is required' },
+
+			]
+		}
+
+	]
+	checkField = (...para) => {
+		let that = this
+		// console.log(para)
+		this.validateCheck.forEach(field => {
+			let value = that.state[field['field']]
+			let isvalid = this.checkValidity(value, field['rules'])
+			para.map(test => {
+				if (isvalid != null) {
+					if (field['field'] == test) {
+						this.setState({
+							[`${test}Error`]: isvalid.error,
+						})
+					}
+				}
+			})
+		});
+	}
+
 	inputHandler = (e) => {
 		this.setState({
-			[e.target.name]: e.target.value
+			[e.target.name]: e.target.value,
+			[e.target.name + 'Error']: null
 		})
+	}
+	numberHendler = (e) => {
+		if (e.target.value === '' || this.state.regexp.test(e.target.value)) {
+			this.setState({
+				[e.target.name]: e.target.value,
+				[e.target.name + 'Error']: null
+			})
+		}
 	}
 
 	reasonChangeHandler = reason => {
 		this.setState(
-			{ reason });
+			{ reason, reasonError: null });
 	};
+	blurHendler = (e) => {
+		this.checkField(e.target.name)
+	}
+	submitHandler = (e) => {
+		e.preventDefault();
+		this.checkField('name', 'reason', 'email', 'phone', 'subject', 'message')
+		const { nameError, reasonError, emailError, phonerError, messageError, subjectError } = this.state;
+		if (nameError == null && reasonError == null && emailError == null && phonerError == null && messageError == null && subjectError == null) {
+			this.setState({
+				submiting: true,
+			})
+			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Contact&reason=${this.state.reason.value}&name=${this.state.name}&email=${this.state.email}&phone=${this.state.phone}&subject=${this.state.subject}`)
+				.then(res => {
+					this.setState({
+						sentMessage: 'Thank you! Your message has been successfully sent.',
+						submiting: false,
+					})
+				})
+		}
+
+	}
 	render() {
 		console.log(this.props.data)
 		const sectionDetails = this.props.data.allContentfulNavigation.edges[0].node.page.blocks;
@@ -55,31 +179,41 @@ class ContactUs extends Component {
 				{blocks}
 				<div className="contact-form-section">
 					<div className="container">
-						<div className="form">
+						<form onSubmit={this.submitHandler}>
 							<div className="flex space-between">
 								<div className="form-group full">
 									<Select placeholder="Select a contact reason" value={this.state.reason} onChange={this.reasonChangeHandler} options={reasonOptions} />
+									{this.state.reasonError ? <span className="error-message">{this.state.reasonError}</span> : null}
 								</div>
 								<div className="form-group">
-									<input type="text" className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} placeholder="Name" />
+									<input type="text" onBlur={this.blurHendler} className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} placeholder="Name" />
+									{this.state.nameError ? <span className="error-message">{this.state.nameError}</span> : null}
 								</div>
 								<div className="form-group">
-									<input type="text" className="form-control" name="email" value={this.state.email} onChange={this.inputHandler} placeholder="Email" />
+									<input type="text" onBlur={this.blurHendler} className="form-control" name="email" value={this.state.email} onChange={this.inputHandler} placeholder="Email" />
+									{this.state.emailError ? <span className="error-message">{this.state.emailError}</span> : null}
 								</div>
 								<div className="form-group">
-									<input type="text" className="form-control" name="phone" value={this.state.phone} onChange={this.inputHandler} placeholder="Phone Number" />
+									<input type="text" onBlur={this.blurHendler} className="form-control" name="phone" value={this.state.phone} onChange={this.numberHendler} placeholder="Phone Number" />
+									{this.state.phoneError ? <span className="error-message">{this.state.phoneError}</span> : null}
 								</div>
 								<div className="form-group">
-									<input type="text" className="form-control" name="subject" value={this.state.subject} onChange={this.inputHandler} placeholder="Subject" />
+									<input type="text" onBlur={this.blurHendler} className="form-control" name="subject" value={this.state.subject} onChange={this.inputHandler} placeholder="Subject" />
+									{this.state.subjectError ? <span className="error-message">{this.state.subjectError}</span> : null}
 								</div>
 								<div className="form-group full">
-									<textarea className="form-control" name="message" value={this.state.message} onChange={this.inputHandler} placeholder="Message"></textarea>
+									<textarea onBlur={this.blurHendler} className="form-control" name="message" value={this.state.message} onChange={this.inputHandler} placeholder="Message"></textarea>
+									{this.state.messageError ? <span className="error-message">{this.state.messageError}</span> : null}
 								</div>
 								<div className="btn-box">
-									<button type="submit" className="btn">Submit</button>
+									<button type="submit" disabled={this.state.submiting} className="btn">{this.state.submiting ? 'Submiting...' : 'Submit'}</button>
 								</div>
+								{this.state.sentMessage ? <div className="success-message">
+									<p>{this.state.sentMessage}</p>
+								</div> : null}
+
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</DefaultLayout>
