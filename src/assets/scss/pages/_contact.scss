@@ -1,4 +1,5 @@
-.contact-form-section {
+.contact-form-section,
+.book-form-section {
     padding: 100px 0 50px;
 
     .container {
@@ -15,12 +16,57 @@
         width: 48%;
         margin-bottom: 40px;
 
+        * {
+            font-family: $font-brandon-medium;
+        }
+
+        label {
+            font-family: $font-brandon-medium;
+        }
+
+        .css-yk16xz-control {
+            border: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-bottom: solid 1px $color-black;
+            border-radius: 0;
+        }
+
+        .css-g1d714-ValueContainer {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .css-1pahdxg-control {
+            border: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-bottom: solid 1px $color-black;
+            border-radius: 0;
+        }
+
+        .css-1okebmr-indicatorSeparator {
+            display: none;
+
+        }
+
         .css-1wa3eu0-placeholder {
-            font-family: $font-bodoni-book;
+            font-family: $font-brandon-medium;
             font-size: 20px;
         }
 
+        label {
+            width: 100%;
+            text-transform: capitalize;
+        }
+
         &.full {
+            width: 100%;
+        }
+
+        .react-datepicker-wrapper {
             width: 100%;
         }
 
@@ -32,14 +78,31 @@
             border-bottom: solid 1px $color-black;
             font-size: 20px;
             resize: none;
-            font-family: $font-bodoni-book;
+            font-family: $font-brandon-medium;
             outline: none;
         }
 
         textarea {
             height: 100px;
         }
+
+        .note-text {
+            font-size: 14px;
+        }
     }
 
+    .form-heading {
+        h4 {
+            font-family: $font-brandon-medium;
+            margin-bottom: 10px;
+        }
+    }
+
+}
+
+.book-form-section {
+    label {
+        font-family: $font-brandon-medium;
+    }
 
 }

@@ -6,6 +6,9 @@ import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import '../assets/scss/style.scss';
 import InnerBanner from "../components/blocks/innerBanner/innerBanner";
 import Select from 'react-select';
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const studioOptions = [
 	{ value: 'Studio 1', label: 'Studio 1' },
@@ -71,7 +74,9 @@ class ContactUs extends Component {
 		crewSize: '',
 		reservedParking: '',
 		message: '',
-		equipmentRentals: ''
+		equipmentRentals: '',
+		startDate: new Date(),
+		endDate: new Date()
 	}
 	inputHandler = (e) => {
 		this.setState({
@@ -120,12 +125,12 @@ class ContactUs extends Component {
 					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 				</Helmet>
 				{blocks}
-				<div className="contact-form-section">
+				<div className="book-form-section">
 					<div className="container">
 						<div className="form">
 							<div className="flex space-between">
 								<div className="form-group">
-									<lable>Name</lable>
+									<label>Name</label>
 									<input type="text" className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} />
 								</div>
 								<div className="form-group">
@@ -152,6 +157,28 @@ class ContactUs extends Component {
 									<label>Studio</label>
 									<Select isMulti={true} value={this.state.studio} onChange={this.studioChangeHandler} options={studioOptions} />
 								</div>
+								<div className="form-group">
+									<label>start Date</label>
+									<DatePicker
+										selectsStart
+										selected={this.state.startDate}
+										onChange={date => this.setState({ startDate: date })}
+										startDate={this.state.startDate}
+										minDate={new Date()}
+										endDate={this.state.endDate}
+									/>
+								</div>
+								<div className="form-group">
+									<label>end Date</label>
+									<DatePicker
+										selectsEnd
+										selected={this.state.endDate}
+										onChange={date => this.setState({ endDate: date })}
+										startDate={this.state.startDate}
+										minDate={new Date()}
+										endDate={this.state.endDate}
+									/>
+								</div>
 								<div className="form-group full">
 									<label>Project Type</label>
 									<Select isMulti={true} value={this.state.projectType} onChange={this.projectTypeChangeHandler} options={projectTypeOptions} />
@@ -160,11 +187,11 @@ class ContactUs extends Component {
 									<label>Method of Payment for deposit</label>
 									<Select value={this.state.paymentType} onChange={this.paymentTypeChangeHandler} options={paymentTypeOptions} />
 								</div>
-								<div className="forr-heading">
+								<div className="form-heading">
 									<h4>Billing Contact</h4>
 								</div>
 								<div className="form-group full">
-									<lable>Name</lable>
+									<label>Name</label>
 									<input type="text" className="form-control" name="BillingName" value={this.state.BillingName} onChange={this.inputHandler} />
 								</div>
 								<div className="form-group full">
@@ -182,7 +209,7 @@ class ContactUs extends Component {
 								<div className="form-group full">
 									<label>Reserved parking</label>
 									<Select value={this.state.reservedParking} onChange={this.reservedParkingChangeHandler} options={reservedParkingOptions} />
-									<span>note: of additional parking spaces needed. Each space is $15/each/day </span>
+									<span className="note-text">note: Each space is $15/each/day </span>
 								</div>
 								<div className="form-group full">
 									<label>Equipment rentals</label>
@@ -191,7 +218,7 @@ class ContactUs extends Component {
 								</div>
 								<div className="form-group full">
 									<label>messages</label>
-									<textarea className="form-control" name="message" value={this.state.message} onChange={this.inputHandler} placeholder="Message"></textarea>
+									<textarea className="form-control" name="message" value={this.state.message} onChange={this.inputHandler}></textarea>
 								</div>
 								<div className="btn-box">
 									<button type="submit" className="btn">Submit</button>
