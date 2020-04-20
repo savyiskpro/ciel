@@ -206,7 +206,7 @@ class ContactUs extends Component {
 									{this.state.messageError ? <span className="error-message">{this.state.messageError}</span> : null}
 								</div>
 								<div className="btn-box">
-									<button type="submit" disabled={this.state.submiting} className="btn">{this.state.submiting ? 'Submiting...' : 'Submit'}</button>
+									<button type="submit" disabled={this.state.submiting} className="btn">{this.state.submiting ? 'Wait...' : 'Submit'}</button>
 								</div>
 								{this.state.sentMessage ? <div className="success-message">
 									<p>{this.state.sentMessage}</p>
