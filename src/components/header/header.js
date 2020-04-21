@@ -54,10 +54,21 @@ class Header extends Component {
 				}
 			}, 100);
 			$('.open-btn').click(function () {
-				$(this).addClass('active');
-				$('.loading-group video').addClass('active')
+				$(this).removeClass('active');
 				$('body').removeClass('doNot-scroll')
 				window.loader = false;
+				setTimeout(function () {
+					$(".loading-group").fadeOut(500);
+					AOS.init({
+						once: true,
+						// disable: 'mobile',
+					});
+				}, 500)
+			})
+			$('.loading-group').click(function () {
+				window.loader = false;
+				$('.open-btn').removeClass('active');
+				$('body').removeClass('doNot-scroll')
 				setTimeout(function () {
 					$(".loading-group").fadeOut(500);
 					AOS.init({
@@ -113,19 +124,7 @@ class Header extends Component {
 
 
 
-			$('.loading-group').click(function () {
-				window.loader = false;
-				$(this).addClass('active');
-				$('.loading-group video').addClass('active')
-				$('body').removeClass('doNot-scroll')
-				setTimeout(function () {
-					$(".loading-group").fadeOut(500);
-					AOS.init({
-						once: true,
-						// disable: 'mobile',
-					});
-				}, 500)
-			})
+
 			if (location.pathname !== '/') {
 				$('header').addClass('inner-header');
 			}
