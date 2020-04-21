@@ -27,6 +27,7 @@
             clip-path: inset(0% 0 28.5% 0%);
             font-weight: 400;
             font-family: $font-lust;
+            white-space: nowrap;
 
             @include breakpoint(large) {
                 font-size: 120px;
@@ -100,6 +101,8 @@
         margin-right: auto !important;
         margin-left: auto !important;
         color: $color-black !important;
+
+
 
     }
 
