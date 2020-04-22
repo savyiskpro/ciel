@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 export default ({ footerData }) => (
 	<Holder>
 		{console.log(footerData)}
-		<div className="update-form" data-aos="fade-in" data-aos-duration="2000">
+		{/* <div className="update-form" data-aos="fade-in" data-aos-duration="2000">
 			<div className="container">
 				<div className="form-section">
 					<div className="section-text top">
@@ -25,7 +25,7 @@ export default ({ footerData }) => (
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> */}
 		<footer>
 			<div className="container">
 				<div className="flex space-between">
