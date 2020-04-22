@@ -87,7 +87,8 @@ class RootIndex extends Component {
 					e.preventDefault();
 					var scrollDistance = 50;
 					var scrollTime = 0.3;
-					var delta = e.originalEvent.wheelDelta / 120 || -event.originalEvent.detail / 3;
+					var delta = e.originalEvent.wheelDelta / 120 || -e.originalEvent.detail / 3;
+					// console.log(-e.originalEvent.detail)
 					var scrollTop = $(window).scrollTop();
 					console.log(scrollTop)
 					var finalScroll = scrollTop - parseInt(delta * scrollDistance);
