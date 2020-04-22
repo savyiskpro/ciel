@@ -61,21 +61,12 @@ export const pageQuery = graphql`
 				  url
 				}
 			  }
-			  navigationGroups {
-				title
-				navigation {
-				  ... on ContentfulNavigation {
-				  
-					title
-					url
-				  }
-				  ... on ContentfulSecondaryNavigation {
-				  
-					title
-					url
-				  }
-				}
-			  }
+			phoneNumber
+			studioEmail
+			googleMapUrl
+			address
+			generalEmail
+			  
 			  socialLinks {
 				title
 				navigation {
@@ -153,6 +144,18 @@ export const pageQuery = graphql`
 							items {
 							  childMarkdownRemark {
 								html
+							  }
+							}
+						}
+						... on ContentfulArtist {
+                  
+							email
+							website
+							name
+							instagramHandle
+							image {
+							  file {
+								url
 							  }
 							}
 						}

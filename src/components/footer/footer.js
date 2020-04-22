@@ -34,9 +34,27 @@ export default ({ footerData }) => (
 							<img src={footerData.logo.file.url} />
 						</Link>
 					</div>
-					{footerData.navigationGroups.map((group, key) => (
+					<div className="colmn-box">
+						<h5>Contact </h5>
+						<ul>
+							<li><Link to="/contact-us">Contact us</Link></li>
+							<li><a href={"mailto:" + footerData.generalEmail}>General:{footerData.generalEmail}</a></li>
+							<li><a href={"mailto:" + footerData.studioEmail}>Studios:{footerData.studioEmail}</a></li>
+						</ul>
+					</div>
+					<div className="colmn-box">
+						<h5>Location </h5>
+						<ul>
+							<li><a href={footerData.googleMapUrl} target="_blank">Studios:{footerData.address}</a></li>
+							<li><Link to="/contact-us">contact us for exact address</Link></li>
+						</ul>
+					</div>
+					{/* {footerData.navigationGroups.map((group, key) => (
 						<div key={key} className="colmn-box">
 							<h5>{group.title} </h5>
+							<ul>
+								<li><a href={}></a></li>
+							</ul>
 							{group.navigation ?
 								<ul>
 									{group.navigation.map((nav, key) => {
@@ -50,7 +68,7 @@ export default ({ footerData }) => (
 									})}
 								</ul> : ''}
 						</div>
-					))}
+					))} */}
 					{footerData.socialLinks ? <div className="colmn-box">
 						<h5>{footerData.socialLinks[0].title} </h5>
 						<ul className="social-nav">

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const artistSection = (props) => {
-
+	console.log(props)
 	return (
 		<div className="artist-section">
 			<div className="container">
@@ -34,32 +34,20 @@ const artistSection = (props) => {
 				<div className="art-box">
 					{
 						props.sectionDetail.blockItems.map((item, key) => {
-							if (item.__typename == "ContentfulSectionBlock") {
+							if (item.__typename == "ContentfulArtist") {
 								return (
 									<div key={key} className="box" data-aos="fade-in" data-aos-duration="2000">
-										{item.blockItems.map((image, key) => {
-											if (image.__typename == "ContentfulImageHolder") {
-												return (
-													<figure key={key}>
-														<img src={image.image.file.url} />
-													</figure>
-												)
-											}
-										})}
+										<figure>
+											<img src={item.image.file.url} />
+										</figure>
 
-										<h6>{item.title}</h6>
+										<h6>{item.name}</h6>
+										<ul>
+											<li>{item.website}</li>
+											<li><a href={"mailto:" + item.email}>{item.email}</a></li>
+											<li>{item.instagramHandle}</li>
+										</ul>
 
-										{item.blockItems.map((links, key) => {
-											if (links.__typename == "ContentfulNavigationGroup") {
-												return (
-													<ul key={key}>
-														{links.navigation.map((nav, key) => (
-															<li key={key}><a href={nav.url}>{nav.title}</a></li>
-														))}
-													</ul>
-												)
-											}
-										})}
 
 
 									</div>
