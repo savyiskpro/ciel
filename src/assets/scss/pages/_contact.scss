@@ -14,6 +14,14 @@
     .container {
         width: 900px;
 
+        @include breakpoint(xmedium) {
+            max-width: 750px;
+        }
+
+        @include breakpoint(medium) {
+            width: 100%;
+            padding: 0px 30px;
+        }
     }
 
     .btn-box {
@@ -25,6 +33,10 @@
         width: 48%;
         margin-bottom: 40px;
         position: relative;
+
+        @include breakpoint(medium) {
+            width: 100%;
+        }
 
         .error-message {
             position: absolute;
@@ -122,6 +134,11 @@
             font-size: 18px;
             margin-bottom: 20px;
             letter-spacing: 30px;
+
+            @include breakpoint(medium) {
+                font-size: 14px;
+                letter-spacing: 20px;
+            }
         }
     }
 
