@@ -314,130 +314,132 @@ class ContactUs extends Component {
 		})
 
 		return (
-			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+			<div className="inner-page">
+				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 
-				<Helmet title="CIEL || Book Now">
-					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-				</Helmet>
-				{blocks}
-				<div className="book-form-section">
-					<div className="container">
-						<form onSubmit={this.submitHandler}>
-							<div className="flex space-between">
-								<div className="form-group">
-									<label>Name</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} />
-									{this.state.nameError ? <span className="error-message">{this.state.nameError}</span> : null}
-								</div>
-								<div className="form-group">
-									<label>Email</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="email" value={this.state.email} onChange={this.inputHandler} />
-									{this.state.emailError ? <span className="error-message">{this.state.emailError}</span> : null}
-								</div>
-								<div className="form-group">
-									<label>Phone Number</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="phone" value={this.state.phone} onChange={this.inputHandler} />
-									{this.state.phoneError ? <span className="error-message">{this.state.phoneError}</span> : null}
-								</div>
-								<div className="form-group">
-									<label>Project Name</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="project" value={this.state.project} onChange={this.inputHandler} />
-									{this.state.projectError ? <span className="error-message">{this.state.projectError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Production/Company Name</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="companyName" value={this.state.companyName} onChange={this.inputHandler} />
-									{this.state.companyNameError ? <span className="error-message">{this.state.companyNameError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Production/Company Address</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="companyAddress" value={this.state.companyAddress} onChange={this.inputHandler} />
-									{this.state.companyAddressError ? <span className="error-message">{this.state.companyAddressError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Studio</label>
-									<Select isMulti={true} value={this.state.studio} onChange={this.studioChangeHandler} options={studioOptions} />
-									{this.state.studioError ? <span className="error-message">{this.state.studioError}</span> : null}
-								</div>
-								<div className="form-group">
-									<label>start Date</label>
-									<DatePicker
-										selectsStart
-										selected={this.state.startDate}
-										onChange={date => this.setState({ startDate: date })}
-										startDate={this.state.startDate}
-										minDate={new Date()}
-										endDate={this.state.endDate}
-									/>
-									{this.state.startDateError ? <span className="error-message">{this.state.startDateError}</span> : null}
-								</div>
-								<div className="form-group">
-									<label>end Date</label>
-									<DatePicker
-										selectsEnd
-										selected={this.state.endDate}
-										onChange={date => this.setState({ endDate: date })}
-										startDate={this.state.startDate}
-										minDate={new Date()}
-										endDate={this.state.endDate}
-									/>
-									{this.state.endDateError ? <span className="error-message">{this.state.endDateError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Project Type</label>
-									<Select isMulti={true} value={this.state.projectType} onChange={this.projectTypeChangeHandler} options={projectTypeOptions} />
-									{this.state.projectTypeError ? <span className="error-message">{this.state.projectTypeError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Method of Payment for deposit</label>
-									<Select value={this.state.paymentType} onChange={this.paymentTypeChangeHandler} options={paymentTypeOptions} />
-									{this.state.paymentTypeError ? <span className="error-message">{this.state.paymentTypeError}</span> : null}
-								</div>
-								<div className="form-heading">
-									<h4>Billing Details</h4>
-								</div>
-								<div className="form-group full">
-									<label>Name</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingName" value={this.state.BillingName} onChange={this.inputHandler} />
-									{this.state.BillingNameError ? <span className="error-message">{this.state.BillingNameError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Email</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingEmail" value={this.state.BillingEmail} onChange={this.inputHandler} />
-									{this.state.BillingEmailError ? <span className="error-message">{this.state.BillingEmailError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Phone Number</label>
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingPhone" value={this.state.BillingPhone} onChange={this.inputHandler} />
-									{this.state.BillingPhoneError ? <span className="error-message">{this.state.BillingPhoneError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<label>Crew or Event size each day</label>
-									<input type="text" className="form-control" name="crewSize" value={this.state.crewSize} onChange={this.inputHandler} />
+					<Helmet title="CIEL || Book Now">
+						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+					</Helmet>
+					{blocks}
+					<div className="book-form-section">
+						<div className="container">
+							<form onSubmit={this.submitHandler}>
+								<div className="flex space-between">
+									<div className="form-group">
+										<label>Name</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} />
+										{this.state.nameError ? <span className="error-message">{this.state.nameError}</span> : null}
+									</div>
+									<div className="form-group">
+										<label>Email</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="email" value={this.state.email} onChange={this.inputHandler} />
+										{this.state.emailError ? <span className="error-message">{this.state.emailError}</span> : null}
+									</div>
+									<div className="form-group">
+										<label>Phone Number</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="phone" value={this.state.phone} onChange={this.inputHandler} />
+										{this.state.phoneError ? <span className="error-message">{this.state.phoneError}</span> : null}
+									</div>
+									<div className="form-group">
+										<label>Project Name</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="project" value={this.state.project} onChange={this.inputHandler} />
+										{this.state.projectError ? <span className="error-message">{this.state.projectError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Production/Company Name</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="companyName" value={this.state.companyName} onChange={this.inputHandler} />
+										{this.state.companyNameError ? <span className="error-message">{this.state.companyNameError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Production/Company Address</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="companyAddress" value={this.state.companyAddress} onChange={this.inputHandler} />
+										{this.state.companyAddressError ? <span className="error-message">{this.state.companyAddressError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Studio</label>
+										<Select isMulti={true} value={this.state.studio} onChange={this.studioChangeHandler} options={studioOptions} />
+										{this.state.studioError ? <span className="error-message">{this.state.studioError}</span> : null}
+									</div>
+									<div className="form-group">
+										<label>start Date</label>
+										<DatePicker
+											selectsStart
+											selected={this.state.startDate}
+											onChange={date => this.setState({ startDate: date })}
+											startDate={this.state.startDate}
+											minDate={new Date()}
+											endDate={this.state.endDate}
+										/>
+										{this.state.startDateError ? <span className="error-message">{this.state.startDateError}</span> : null}
+									</div>
+									<div className="form-group">
+										<label>end Date</label>
+										<DatePicker
+											selectsEnd
+											selected={this.state.endDate}
+											onChange={date => this.setState({ endDate: date })}
+											startDate={this.state.startDate}
+											minDate={new Date()}
+											endDate={this.state.endDate}
+										/>
+										{this.state.endDateError ? <span className="error-message">{this.state.endDateError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Project Type</label>
+										<Select isMulti={true} value={this.state.projectType} onChange={this.projectTypeChangeHandler} options={projectTypeOptions} />
+										{this.state.projectTypeError ? <span className="error-message">{this.state.projectTypeError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Method of Payment for deposit</label>
+										<Select value={this.state.paymentType} onChange={this.paymentTypeChangeHandler} options={paymentTypeOptions} />
+										{this.state.paymentTypeError ? <span className="error-message">{this.state.paymentTypeError}</span> : null}
+									</div>
+									<div className="form-heading">
+										<h4>Billing Details</h4>
+									</div>
+									<div className="form-group full">
+										<label>Name</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingName" value={this.state.BillingName} onChange={this.inputHandler} />
+										{this.state.BillingNameError ? <span className="error-message">{this.state.BillingNameError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Email</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingEmail" value={this.state.BillingEmail} onChange={this.inputHandler} />
+										{this.state.BillingEmailError ? <span className="error-message">{this.state.BillingEmailError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Phone Number</label>
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingPhone" value={this.state.BillingPhone} onChange={this.inputHandler} />
+										{this.state.BillingPhoneError ? <span className="error-message">{this.state.BillingPhoneError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<label>Crew or Event size each day</label>
+										<input type="text" className="form-control" name="crewSize" value={this.state.crewSize} onChange={this.inputHandler} />
 
-								</div>
-								<div className="form-group full">
-									<label>Reserved parking</label>
-									<Select value={this.state.reservedParking} onChange={this.reservedParkingChangeHandler} options={reservedParkingOptions} />
-									<span className="note-text">note: Each space is $15/each/day </span>
-								</div>
-								<div className="form-group full">
-									<label>messages</label>
-									<textarea className="form-control" name="message" value={this.state.message} onChange={this.inputHandler}></textarea>
-									{this.state.messageError ? <span className="error-message">{this.state.messageError}</span> : null}
-								</div>
-								<div className="btn-box">
-									<button type="submit" className="btn">{this.state.submiting ? 'Wait...' : 'Submit'}</button>
+									</div>
+									<div className="form-group full">
+										<label>Reserved parking</label>
+										<Select value={this.state.reservedParking} onChange={this.reservedParkingChangeHandler} options={reservedParkingOptions} />
+										<span className="note-text">note: Each space is $15/each/day </span>
+									</div>
+									<div className="form-group full">
+										<label>messages</label>
+										<textarea className="form-control" name="message" value={this.state.message} onChange={this.inputHandler}></textarea>
+										{this.state.messageError ? <span className="error-message">{this.state.messageError}</span> : null}
+									</div>
+									<div className="btn-box">
+										<button type="submit" className="btn">{this.state.submiting ? 'Wait...' : 'Submit'}</button>
 
+									</div>
+									{this.state.sentMessage ? <div className="success-message">
+										<p>{this.state.sentMessage}</p>
+									</div> : null}
 								</div>
-								{this.state.sentMessage ? <div className="success-message">
-									<p>{this.state.sentMessage}</p>
-								</div> : null}
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
-				</div>
-			</DefaultLayout>
+				</DefaultLayout>
+			</div>
 		)
 	}
 }

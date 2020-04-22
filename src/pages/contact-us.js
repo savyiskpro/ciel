@@ -171,52 +171,54 @@ class ContactUs extends Component {
 		})
 
 		return (
-			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+			<div className="inner-page">
+				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 
-				<Helmet title="CIEL || Contact Us">
-					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-				</Helmet>
-				{blocks}
-				<div className="contact-form-section">
-					<div className="container">
-						<form onSubmit={this.submitHandler}>
-							<div className="flex space-between">
-								<div className="form-group full">
-									<Select placeholder="Select a contact reason" value={this.state.reason} onChange={this.reasonChangeHandler} options={reasonOptions} />
-									{this.state.reasonError ? <span className="error-message">{this.state.reasonError}</span> : null}
-								</div>
-								<div className="form-group">
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} placeholder="Name" />
-									{this.state.nameError ? <span className="error-message">{this.state.nameError}</span> : null}
-								</div>
-								<div className="form-group">
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="email" value={this.state.email} onChange={this.inputHandler} placeholder="Email" />
-									{this.state.emailError ? <span className="error-message">{this.state.emailError}</span> : null}
-								</div>
-								<div className="form-group">
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="phone" value={this.state.phone} onChange={this.numberHendler} placeholder="Phone Number" />
-									{this.state.phoneError ? <span className="error-message">{this.state.phoneError}</span> : null}
-								</div>
-								<div className="form-group">
-									<input type="text" onBlur={this.blurHendler} className="form-control" name="subject" value={this.state.subject} onChange={this.inputHandler} placeholder="Subject" />
-									{this.state.subjectError ? <span className="error-message">{this.state.subjectError}</span> : null}
-								</div>
-								<div className="form-group full">
-									<textarea onBlur={this.blurHendler} className="form-control" name="message" value={this.state.message} onChange={this.inputHandler} placeholder="Message"></textarea>
-									{this.state.messageError ? <span className="error-message">{this.state.messageError}</span> : null}
-								</div>
-								<div className="btn-box">
-									<button type="submit" disabled={this.state.submiting} className="btn">{this.state.submiting ? 'Wait...' : 'Submit'}</button>
-								</div>
-								{this.state.sentMessage ? <div className="success-message">
-									<p>{this.state.sentMessage}</p>
-								</div> : null}
+					<Helmet title="CIEL || Contact Us">
+						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+					</Helmet>
+					{blocks}
+					<div className="contact-form-section">
+						<div className="container">
+							<form onSubmit={this.submitHandler}>
+								<div className="flex space-between">
+									<div className="form-group full">
+										<Select placeholder="Select a contact reason" value={this.state.reason} onChange={this.reasonChangeHandler} options={reasonOptions} />
+										{this.state.reasonError ? <span className="error-message">{this.state.reasonError}</span> : null}
+									</div>
+									<div className="form-group">
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} placeholder="Name" />
+										{this.state.nameError ? <span className="error-message">{this.state.nameError}</span> : null}
+									</div>
+									<div className="form-group">
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="email" value={this.state.email} onChange={this.inputHandler} placeholder="Email" />
+										{this.state.emailError ? <span className="error-message">{this.state.emailError}</span> : null}
+									</div>
+									<div className="form-group">
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="phone" value={this.state.phone} onChange={this.numberHendler} placeholder="Phone Number" />
+										{this.state.phoneError ? <span className="error-message">{this.state.phoneError}</span> : null}
+									</div>
+									<div className="form-group">
+										<input type="text" onBlur={this.blurHendler} className="form-control" name="subject" value={this.state.subject} onChange={this.inputHandler} placeholder="Subject" />
+										{this.state.subjectError ? <span className="error-message">{this.state.subjectError}</span> : null}
+									</div>
+									<div className="form-group full">
+										<textarea onBlur={this.blurHendler} className="form-control" name="message" value={this.state.message} onChange={this.inputHandler} placeholder="Message"></textarea>
+										{this.state.messageError ? <span className="error-message">{this.state.messageError}</span> : null}
+									</div>
+									<div className="btn-box">
+										<button type="submit" disabled={this.state.submiting} className="btn">{this.state.submiting ? 'Wait...' : 'Submit'}</button>
+									</div>
+									{this.state.sentMessage ? <div className="success-message">
+										<p>{this.state.sentMessage}</p>
+									</div> : null}
 
-							</div>
-						</form>
+								</div>
+							</form>
+						</div>
 					</div>
-				</div>
-			</DefaultLayout>
+				</DefaultLayout>
+			</div>
 		)
 	}
 }

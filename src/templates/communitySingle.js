@@ -45,66 +45,68 @@ class communitySingleTemplate extends React.Component {
 		let getDate = new Date(pageDetail.eventDate)
 
 		return (
-			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
-				<div className="community-single-page">
-					<Helmet title={"CIEL || " + this.props.data.allContentfulCommunity.edges[0].node.title}>
-						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-					</Helmet>
+			<div className="inner-page">
+				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+					<div className="community-single-page">
+						<Helmet title={"CIEL || " + this.props.data.allContentfulCommunity.edges[0].node.title}>
+							<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+						</Helmet>
 
-					<div className="community-banner event-section">
-						<div className="event-box">
-							<div className="colmn-img">
-								<figure>
-									<img src={pageDetail.image.file.url} />
-								</figure>
-							</div>
-							<div className="colmn-text">
-								<h2>{pageDetail.title}</h2>
-								<h4>{pageDetail.subTitle}</h4>
-								<p>{pageDetail.sortText}</p>
-								<ul className="time-details">
-									<li>{getDate.toDateString()}</li>
-									<li>{pageDetail.eventTiming}</li>
-								</ul>
-								<ul>
-									<li><a href="#" className="btn-underline">google calendar</a></li>
-									<li><a href="#" className="btn-underline">iCal</a></li>
-								</ul>
-								<div className="btn-box">
-									<a href="#" className="btn">Black Vines</a>
+						<div className="community-banner event-section">
+							<div className="event-box">
+								<div className="colmn-img">
+									<figure>
+										<img src={pageDetail.image.file.url} />
+									</figure>
+								</div>
+								<div className="colmn-text">
+									<h2>{pageDetail.title}</h2>
+									<h4>{pageDetail.subTitle}</h4>
+									<p>{pageDetail.sortText}</p>
+									<ul className="time-details">
+										<li>{getDate.toDateString()}</li>
+										<li>{pageDetail.eventTiming}</li>
+									</ul>
+									<ul>
+										<li><a href="#" className="btn-underline">google calendar</a></li>
+										<li><a href="#" className="btn-underline">iCal</a></li>
+									</ul>
+									<div className="btn-box">
+										<a href="#" className="btn">Black Vines</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<main>
-						{pageDetail.moreDescription ? <div className="page-content">
-							<div className="container">
-								<h3 data-aos="fade-in" data-aos-duration="2000">MORE INFO</h3>
-								<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
-									__html: pageDetail.moreDescription.childMarkdownRemark.html
-								}}></div>
+						<main>
+							{pageDetail.moreDescription ? <div className="page-content">
+								<div className="container">
+									<h3 data-aos="fade-in" data-aos-duration="2000">MORE INFO</h3>
+									<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
+										__html: pageDetail.moreDescription.childMarkdownRemark.html
+									}}></div>
 
-							</div>
-						</div> : null}
-						{pageDetail.moreImages ?
-							<div className="studio-slider" data-aos="fade-in" data-aos-duration="2000">
-								<h5>PICS FROM LAST YEAR</h5>
-								<div className="slider-group">
-
-									<Slider {...this.settings}>
-										{pageDetail.moreImages.map((image, key) => (
-											<div key={key}>
-												<figure>
-													<img src={image.file.url} />
-												</figure>
-											</div>
-										))}
-									</Slider>
 								</div>
 							</div> : null}
-					</main>
-				</div>
-			</DefaultLayout>
+							{pageDetail.moreImages ?
+								<div className="studio-slider" data-aos="fade-in" data-aos-duration="2000">
+									<h5>PICS FROM LAST YEAR</h5>
+									<div className="slider-group">
+
+										<Slider {...this.settings}>
+											{pageDetail.moreImages.map((image, key) => (
+												<div key={key}>
+													<figure>
+														<img src={image.file.url} />
+													</figure>
+												</div>
+											))}
+										</Slider>
+									</div>
+								</div> : null}
+						</main>
+					</div>
+				</DefaultLayout>
+			</div>
 		)
 	}
 }

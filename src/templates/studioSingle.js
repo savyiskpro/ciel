@@ -43,101 +43,103 @@ class studioSingleTemplate extends React.Component {
 		const pageDetail = this.props.data.allContentfulStudios.edges[0].node;
 
 		return (
-			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
-				<Helmet title={"CIEL || " + this.props.data.allContentfulStudios.edges[0].node.title}>
-					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-				</Helmet>
+			<div className="inner-page">
+				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+					<Helmet title={"CIEL || " + this.props.data.allContentfulStudios.edges[0].node.title}>
+						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+					</Helmet>
 
-				<div className="studio-single-page">
-					<div className="detail-banner">
-						<figure>
-							<img src={pageDetail.bannerImage.file.url} />
-						</figure>
-						<div className="text-box">
-							<h5 data-aos="fade-in" data-aos-duration="2000">{pageDetail.title}</h5>
-							<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
-								__html: pageDetail.description.childMarkdownRemark.html
-							}}></div>
+					<div className="studio-single-page">
+						<div className="detail-banner">
+							<figure>
+								<img src={pageDetail.bannerImage.file.url} />
+							</figure>
+							<div className="text-box">
+								<h5 data-aos="fade-in" data-aos-duration="2000">{pageDetail.title}</h5>
+								<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
+									__html: pageDetail.description.childMarkdownRemark.html
+								}}></div>
 
-							<span data-aos="fade-in" data-aos-duration="2000"><i className="fa fa-angle-down"
-								aria-hidden="true"></i></span>
-						</div>
-					</div>
-					{pageDetail.featureds ? <div className="featured-section">
-						<h5 data-aos="fade-in" data-aos-duration="2000">Features</h5>
-						<div className="container">
-							<div className="flex">
-								{pageDetail.featureds.map((featured, key) => (
-									<div key={key} className="colmn-box" data-aos="fade-in" data-aos-duration="2000">
-										<figure>
-											<img src={featured.image.file.url} />
-										</figure>
-										<p>{featured.title} </p>
-									</div>
-								))}
-							</div>
-							<div className="btn-box">
-								<a href="#" className="btn-underline">view more</a>
+								<span data-aos="fade-in" data-aos-duration="2000"><i className="fa fa-angle-down"
+									aria-hidden="true"></i></span>
 							</div>
 						</div>
-					</div> : null}
-
-					<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
-						<div className="container">
-							<h3>{pageDetail.bookText} </h3>
-							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
-						</div>
-					</div>
-					{pageDetail.images ?
-						<div className="studio-slider" data-aos="fade-in" data-aos-duration="2000">
-							<div className="slider-group">
-
-								<Slider {...this.settings}>
-									{pageDetail.images.map((image, key) => (
-										<div key={key}>
+						{pageDetail.featureds ? <div className="featured-section">
+							<h5 data-aos="fade-in" data-aos-duration="2000">Features</h5>
+							<div className="container">
+								<div className="flex">
+									{pageDetail.featureds.map((featured, key) => (
+										<div key={key} className="colmn-box" data-aos="fade-in" data-aos-duration="2000">
 											<figure>
-												<img src={image.file.url} />
+												<img src={featured.image.file.url} />
 											</figure>
+											<p>{featured.title} </p>
 										</div>
 									))}
-
-
-								</Slider>
+								</div>
+								<div className="btn-box">
+									<a href="#" className="btn-underline">view more</a>
+								</div>
 							</div>
 						</div> : null}
-					{pageDetail.video ? <div className="video-section">
-						<h5 data-aos="fade-in" data-aos-duration="2000">virtual tour</h5>
-						<figure data-aos="fade-in" data-aos-duration="2000">
-							<video autoPlay loop controls>
-								{/* <source src="app/video/ciel_hero_video.webm" type="video/webm" /> */}
-								<source src={pageDetail.video.file.url} type="video/mp4" />
-								{/* <source src="app/video/ciel_hero_video.ogv" type="video/ogv" /> */}
-							</video>
 
-						</figure>
-					</div> : null}
-					{pageDetail.secondBookText ? <div className="book-section" data-aos="fade-in" data-aos-duration="2000">
-						<div className="container">
-							<h3>{pageDetail.secondBookText} </h3>
-							<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
+						<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
+							<div className="container">
+								<h3>{pageDetail.bookText} </h3>
+								<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
+							</div>
 						</div>
-					</div> : null}
+						{pageDetail.images ?
+							<div className="studio-slider" data-aos="fade-in" data-aos-duration="2000">
+								<div className="slider-group">
 
-					{pageDetail.otherStudios ? <div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
-						{pageDetail.otherStudios.map((other, key) => (
-							<Link to={other.url} key={key} className="colmn-box">
-								<figure>
-									<img src={other.images[0].file.url} />
-								</figure>
-								<h2>{other.title}</h2>
-							</Link>
-						))}
+									<Slider {...this.settings}>
+										{pageDetail.images.map((image, key) => (
+											<div key={key}>
+												<figure>
+													<img src={image.file.url} />
+												</figure>
+											</div>
+										))}
 
 
-					</div> : null}
+									</Slider>
+								</div>
+							</div> : null}
+						{pageDetail.video ? <div className="video-section">
+							<h5 data-aos="fade-in" data-aos-duration="2000">virtual tour</h5>
+							<figure data-aos="fade-in" data-aos-duration="2000">
+								<video autoPlay loop controls>
+									{/* <source src="app/video/ciel_hero_video.webm" type="video/webm" /> */}
+									<source src={pageDetail.video.file.url} type="video/mp4" />
+									{/* <source src="app/video/ciel_hero_video.ogv" type="video/ogv" /> */}
+								</video>
 
-				</div>
-			</DefaultLayout>
+							</figure>
+						</div> : null}
+						{pageDetail.secondBookText ? <div className="book-section" data-aos="fade-in" data-aos-duration="2000">
+							<div className="container">
+								<h3>{pageDetail.secondBookText} </h3>
+								<Link to={pageDetail.bookUrl} className="btn">Book now</Link>
+							</div>
+						</div> : null}
+
+						{pageDetail.otherStudios ? <div className="other-studios" data-aos="fade-in" data-aos-duration="2000">
+							{pageDetail.otherStudios.map((other, key) => (
+								<Link to={other.url} key={key} className="colmn-box">
+									<figure>
+										<img src={other.images[0].file.url} />
+									</figure>
+									<h2>{other.title}</h2>
+								</Link>
+							))}
+
+
+						</div> : null}
+
+					</div>
+				</DefaultLayout>
+			</div>
 		)
 	}
 }

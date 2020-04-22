@@ -469,3 +469,20 @@ ul {
     background-color: $color-white;
     z-index: 999;
 }
+
+
+.inner-page {
+    padding-top: 100px;
+
+    @include breakpoint(large) {
+        padding-top: 80px;
+    }
+
+    @include breakpoint(xmedium) {
+        padding-top: 65px;
+    }
+
+    @include breakpoint(xsml) {
+        padding-top: 52px;
+    }
+}

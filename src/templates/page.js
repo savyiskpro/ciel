@@ -26,7 +26,7 @@ class PageTemplate extends React.Component {
 		})
 
 		return (
-			<div>
+			<div className="inner-page">
 
 				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 					<div className={this.props.data.allContentfulNavigation.edges[0].node.page.title}>
