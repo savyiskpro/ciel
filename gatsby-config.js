@@ -6,8 +6,9 @@ const contentfulConfig = {
 	spaceId: process.env.CONTENTFUL_SPACE_ID,
 	accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 	host: process.env.CONTENTFUL_HOST
+
 	// spaceId: '1rvskn64zaj3',
-	// accessToken: 'KqmTlkpMr54mlSAFGJeyya7_6vcw31mHhQp99hNAnJQ',
+	// accessToken: 'D5ffn2MrQ5mpWGYpTI6VbY05NT9XmrCqgX8Rrv5U8N8',
 }
 
 const { spaceId, accessToken } = contentfulConfig

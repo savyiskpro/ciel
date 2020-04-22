@@ -16,7 +16,8 @@ import ArtistSection from './artistSection/artistSection';
 import BookSection from './bookSection/bookSection';
 import CielSection from './cielSection/cielSection';
 import StudiosSection from './studiosSection/studiosSection';
-import CoworkingSection from './coworkingSection/coworkingSection'
+import CoworkingSection from './coworkingSection/coworkingSection';
+import StudioTable from './studioTable/studioTable'
 
 
 const block = (props) => {
@@ -80,6 +81,9 @@ const block = (props) => {
 		case 'coworking-section':
 			blockContent = <CoworkingSection sectionDetail={props.sectionDetail} />
 			return blockContent;
+		// case 'studio-table':
+		// 	blockContent = <StudioTable sectionDetail={props.sectionDetail} />
+		// 	return blockContent
 
 	}
 

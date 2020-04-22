@@ -325,11 +325,11 @@ class ContactUs extends Component {
 						<div className="container">
 							<form onSubmit={this.submitHandler}>
 								<div className="flex space-between">
-									<div className="form-group">
+									{/* <div className="form-group">
 										<label>Name</label>
 										<input type="text" onBlur={this.blurHendler} className="form-control" name="name" value={this.state.name} onChange={this.inputHandler} />
 										{this.state.nameError ? <span className="error-message">{this.state.nameError}</span> : null}
-									</div>
+									</div> */}
 									<div className="form-group">
 										<label>Email</label>
 										<input type="text" onBlur={this.blurHendler} className="form-control" name="email" value={this.state.email} onChange={this.inputHandler} />

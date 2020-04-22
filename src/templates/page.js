@@ -147,6 +147,18 @@ export const pageQuery = graphql`
 							  }
 							}
 						}
+						... on ContentfulTable {
+							title
+							tableHeadings {
+							  title
+							}
+							tableBody {
+							  featureds {
+								title
+							  }
+							  title
+							}
+						  }
 						... on ContentfulArtist {
                   
 							email
