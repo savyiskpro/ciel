@@ -13,7 +13,7 @@ const joinSection = (props) => {
 		}
 	})
 	let sectionLink = props.sectionDetail.blockItems.find(link => {
-		if (link.internal.type == "ContentfulSeconderyNavigation") {
+		if (link.internal.type == "ContentfulSecondaryNavigation") {
 			return link
 		}
 	})

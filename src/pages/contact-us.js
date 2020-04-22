@@ -247,7 +247,7 @@ export const pageQuery = graphql`
 					title
 					url
 				  }
-				  ... on ContentfulSeconderyNavigation {
+				  ... on ContentfulSecondaryNavigation {
 				  
 					title
 					url
@@ -257,7 +257,7 @@ export const pageQuery = graphql`
 			  socialLinks {
 				title
 				navigation {
-				  ... on ContentfulSeconderyNavigation {
+				  ... on ContentfulSecondaryNavigation {
 					title
 					url
 				  }

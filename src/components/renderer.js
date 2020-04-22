@@ -6,7 +6,7 @@ const components = {
 			__html: content.data.content.childMarkdownRemark.html
 		}}></div>
 	},
-	ContentfulSeconderyNavigation: function (nav) {
+	ContentfulSecondaryNavigation: function (nav) {
 		return <a href={nav.data.url} className="btn-underline">{nav.data.title}</a>
 	},
 	ContentfulNavigation: function (nav) {

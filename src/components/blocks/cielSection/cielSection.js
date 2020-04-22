@@ -23,7 +23,7 @@ const cielSection = (props) => {
 
 						{
 							props.sectionDetail.blockItems.map((item, key) => {
-								if (item.__typename == "ContentfulSeconderyNavigation") {
+								if (item.__typename == "ContentfulSecondaryNavigation") {
 									return (
 										<Link key={key} to={item.url} className="btn">{item.title}</Link>
 									)
