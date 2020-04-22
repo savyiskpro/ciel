@@ -42,6 +42,9 @@
 
         label {
             font-family: $font-brandon-medium;
+            font-size: 18px;
+            width: 100%;
+            text-transform: capitalize;
         }
 
         .css-yk16xz-control {
@@ -77,10 +80,6 @@
             font-size: 20px;
         }
 
-        label {
-            width: 100%;
-            text-transform: capitalize;
-        }
 
         &.full {
             width: 100%;
@@ -112,17 +111,18 @@
     }
 
     .form-heading {
+        width: 100%;
+        text-align: center;
+        padding-top: 30px;
+
         h4 {
             font-family: $font-brandon-medium;
-            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 30px;
         }
-    }
-
-}
-
-.book-form-section {
-    label {
-        font-family: $font-brandon-medium;
     }
 
 }
