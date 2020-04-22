@@ -211,7 +211,7 @@ class Header extends Component {
 						<ul className="flex space-between items-align-center">
 							<li><a href="" className="toggle-btn"><img src={menuBar} /></a></li>
 							<li><Link to="/" className="navbar-brand"><img src={this.props.headerData.logo.file.url} /></Link></li>
-							<li><a className="book-btn" href={this.props.headerData.rightNavigation.title}>{this.props.headerData.rightNavigation.title}</a></li>
+							<li><Link className="book-btn" to="/book-now">{this.props.headerData.rightNavigation.title}</Link></li>
 						</ul>
 					</div>
 				</header>
