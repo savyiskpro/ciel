@@ -129,11 +129,8 @@ export const pageQuery = graphql`
 				  url
 				}
 			  }
-			  phoneNumber
-			studioEmail
 			googleMapUrl
 			address
-			generalEmail
 			  socialLinks {
 				title
 				navigation {

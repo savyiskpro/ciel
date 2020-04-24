@@ -38,14 +38,15 @@ export default ({ footerData }) => (
 						<h5>Contact </h5>
 						<ul>
 							<li><Link to="/contact-us">Contact us</Link></li>
-							<li><a href={"mailto:" + footerData.generalEmail}>General:{footerData.generalEmail}</a></li>
-							<li><a href={"mailto:" + footerData.studioEmail}>Studios:{footerData.studioEmail}</a></li>
+							{footerData.generalEmail ? <li><a href={"mailto:" + footerData.generalEmail}>General:{footerData.generalEmail}</a></li> : null}
+							{footerData.studioEmail ? <li><a href={"mailto:" + footerData.studioEmail}>Studios:{footerData.studioEmail}</a></li> : null}
+							{footerData.phoneNumber ? <li><a href={"tel:" + footerData.phoneNumber}>{footerData.phoneNumber}</a></li> : null}
 						</ul>
 					</div>
 					<div className="colmn-box">
 						<h5>Location </h5>
 						<ul>
-							<li><a href={footerData.googleMapUrl} target="_blank">Studios:{footerData.address}</a></li>
+							<li><a href={footerData.googleMapUrl} target="_blank">{footerData.address}</a></li>
 							<li><Link to="/contact-us">contact us for exact address</Link></li>
 						</ul>
 					</div>
