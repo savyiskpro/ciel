@@ -29,7 +29,7 @@ const backgroundImageSection = (props) => {
 									</div>
 									<span className="promo-icon">
 										<img src={promoIcon} />
-										<p>feb deal</p>
+										<p>{item.buttonName}</p>
 									</span>
 								</div>
 							)

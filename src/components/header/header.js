@@ -226,15 +226,22 @@ class Header extends Component {
 							<div className="colmn-img">
 								<figure>
 									{this.props.headerData.navigationItems.map((navImg, key) => (
-										<img key={key} id={navImg.navigationImage ? encodeURI('nav' + navImg.title) : ''} src={navImg.navigationImage ? navImg.navigationImage.fluid.src : ''} />
+										<img key={key} id={navImg.navigationImage ? encodeURI('nav' + navImg.title) : ''} src={navImg.navigationImage ? navImg.navigationImage.file.url : ''} />
 									))}
 								</figure>
 							</div>
 							<div className="colmn-text">
 								<ul className="navbar-tabs">
-									{this.props.headerData.navigationItems.map((nav, key) => (
-										<li key={key}><Link to={nav.url} data-img={nav.navigationImage ? encodeURI('#nav' + nav.title) : ''} className={nav.extraClass ? nav.extraClass : null}>{nav.title}</Link></li>
-									))}
+									{this.props.headerData.navigationItems.map((nav, key) => {
+										if (nav.__typename == "ContentfulSecondaryNavigation") {
+											return <li key={key}><a href={nav.url} target="_blank" className="btn-underline">{nav.title}</a></li>
+										}
+										else {
+											return <li key={key}><Link to={nav.url} data-img={nav.navigationImage ? encodeURI('#nav' + nav.title) : ''} className={nav.extraClass ? nav.extraClass : null}>{nav.title}</Link></li>
+										}
+
+									})}
+
 
 								</ul>
 							</div>

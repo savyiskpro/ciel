@@ -619,14 +619,21 @@ export const pageQuery = graphql`
 				  url
 				}
 				navigationItems {
-				  title
-				  url
-				  extraClass
-				  navigationImage {
-						fluid {
-						src
+					... on ContentfulNavigation {
+						id
+						extraClass
+						url
+						title
+						navigationImage {
+						  file {
+							url
+						  }
 						}
-					}
+					  }
+					  ... on ContentfulSecondaryNavigation {
+						url
+						title
+					  }
 				  }
 				  logo {
 					file {
