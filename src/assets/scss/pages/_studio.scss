@@ -51,6 +51,81 @@
             margin-bottom: 50px;
         }
 
+        &.custom-layout {
+            figure {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+
+                .table-layout {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    width: calc(100% - 140px);
+
+                    ul {
+                        width: 120px;
+
+                        li {
+                            border: solid 1px $color-black;
+                            border-top: none;
+                            border-right: none;
+                            font-size: 16px;
+                            margin-left: 0;
+
+                            &:first-of-type {
+                                border: none;
+                                border-bottom: solid 1px $color-black;
+                                border-right: none !important;
+                                font-size: 18px;
+                                font-family: $font-brandon-medium;
+
+
+                            }
+                        }
+
+                        &:last-of-type {
+                            li {
+                                border-right: solid 1px $color-black;
+                            }
+                        }
+                    }
+                }
+
+                ul {
+                    li {
+
+                        height: 80px;
+                        width: 100%;
+                        text-align: center;
+                        padding: 20px;
+                        @extend %flexCenter;
+
+                        li {
+                            margin-left: 0;
+                        }
+                    }
+
+                    &.points {
+                        display: block;
+                        width: 140px;
+
+                        li {
+                            text-align: right;
+                            margin-left: 0;
+                            font-size: 16px;
+                            -webkit-box-pack: end;
+                            -ms-flex-pack: end;
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+
+
+
+            }
+        }
+
         &.table-box {
             @include breakpoint(medium) {
                 padding-right: 0;
@@ -59,28 +134,20 @@
                     display: none;
                 }
 
-                figure {
-                    overflow-x: auto;
-                    scrollbar-color: #000;
-                    scrollbar-width: 30px;
 
-                    table {
-                        width: 630px;
 
-                    }
+            }
 
-                    // &::-webkit-scrollbar {
-                    //     width: 10px;
-                    // }
+            figure {
+                overflow-x: auto;
+                scrollbar-color: #000;
+                scrollbar-width: 30px;
 
-                    // &::-webkit-scrollbar-track {
-                    //     background: #000000;
-                    // }
+                table {
+                    width: 480px;
 
-                    // &::-webkit-scrollbar-thumb {
-                    //     background: #555;
-                    // }
                 }
+
 
             }
         }
@@ -126,48 +193,46 @@
             }
 
             .points {
-                display: none;
+                display: block;
+                position: absolute;
+                z-index: 9;
+                bottom: 0;
+                left: 0;
+                height: 100%;
+                background-color: $color-white;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                justify-content: flex-end;
 
-                @include breakpoint(medium) {
+                li {
+                    height: 80px;
                     display: block;
-                    position: absolute;
-                    z-index: 9;
-                    bottom: 0;
-                    left: 0;
-                    height: 100%;
-                    background-color: $color-white;
+                    width: 135px;
+                    text-align: right;
+                    margin-right: 0;
+                    padding-right: 10px;
                     display: -webkit-box;
                     display: -ms-flexbox;
                     display: flex;
-                    -webkit-box-orient: vertical;
-                    -webkit-box-direction: normal;
-                    -ms-flex-direction: column;
-                    flex-direction: column;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
                     -webkit-box-pack: end;
                     -ms-flex-pack: end;
                     justify-content: flex-end;
+                    font-size: 16px;
+                    margin-left: 0;
 
-                    li {
-                        height: 80px;
-                        display: block;
-                        width: 140px;
-                        text-align: right;
-                        margin-right: 0;
-                        padding-right: 10px;
-                        display: -webkit-box;
-                        display: -ms-flexbox;
-                        display: flex;
-                        -webkit-box-align: center;
-                        -ms-flex-align: center;
-                        align-items: center;
-                        -webkit-box-pack: end;
-                        -ms-flex-pack: end;
-                        justify-content: flex-end;
-
-
-                    }
 
                 }
+
             }
 
             img {
@@ -180,11 +245,14 @@
             table {
                 width: 100%;
                 border-spacing: 0;
+                margin-left: 139px;
 
                 th {
                     font-family: $font-brandon-medium;
                     font-size: 18px;
                     padding-bottom: 20px;
+                    width: 120px;
+                    min-width: 120px;
                 }
 
                 tr {
@@ -196,30 +264,33 @@
                 }
 
                 td {
-                    padding: 30px 20px;
+                    padding: 0 5px;
                     border: solid 1px $color-black;
                     border-top: none;
                     border-right: none;
                     font-size: 16px;
                     text-align: center;
+                    width: 120px;
+                    min-width: 120px;
+                    height: 80px;
 
                     span {
                         width: 5px;
                         height: 5px;
                         border-radius: 50%;
-                        background-color: $color-black;
+                        background-color: transparent;
                         display: inline-block;
+
+                        &.active {
+                            background-color: $color-black;
+                        }
                     }
 
                     &:last-of-type {
                         border-right: solid 1px $color-black;
                     }
 
-                    &:first-of-type {
-                        padding: 10px 20px;
-                        text-align: right;
-                        border: none !important;
-                    }
+
                 }
             }
         }

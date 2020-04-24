@@ -81,9 +81,9 @@ const block = (props) => {
 		case 'coworking-section':
 			blockContent = <CoworkingSection sectionDetail={props.sectionDetail} />
 			return blockContent;
-		// case 'studio-table':
-		// 	blockContent = <StudioTable sectionDetail={props.sectionDetail} />
-		// 	return blockContent
+		case 'studio-table':
+			blockContent = <StudioTable sectionDetail={props.sectionDetail} />
+			return blockContent
 
 	}
 

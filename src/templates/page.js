@@ -685,17 +685,18 @@ export const pageQuery = graphql`
 							  }
 							}
 						}
-						... on ContentfulTable {
-							title
-							tableHeadings {
-							  title
-							}
+						... on ContentfulStudioTable {
+							id
 							tableBody {
-							  featureds {
-								title
-							  }
+							  ampsOfPower
+							  cycWall
+							  kitchenette
+							  lightingGrid
+							  squareFootage
+							  soundDampened
 							  title
 							}
+							title
 						  }
 						... on ContentfulArtist {
                   
