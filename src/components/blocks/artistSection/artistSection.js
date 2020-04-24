@@ -43,9 +43,8 @@ const artistSection = (props) => {
 
 										<h6>{item.name}</h6>
 										<ul>
-											<li>{item.website}</li>
-											<li><a href={"mailto:" + item.email}>{item.email}</a></li>
-											<li>{item.instagramHandle}</li>
+											{item.website ? <li><a href={'http://' + item.website} target="_blank">{item.website}</a></li> : null}
+											{item.instagramHandle ? <li><a href={'http://' + item.instagramUrl} target="_blank">{item.instagramHandle}</a></li> : null}
 										</ul>
 
 

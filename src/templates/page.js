@@ -704,11 +704,10 @@ export const pageQuery = graphql`
 							title
 						  }
 						... on ContentfulArtist {
-                  
-							email
 							website
 							name
 							instagramHandle
+							instagramUrl
 							image {
 							  file {
 								url
