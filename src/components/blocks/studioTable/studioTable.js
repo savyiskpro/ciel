@@ -41,18 +41,19 @@ const studioTable = (props) => {
 
 			</div> */}
 			<div className="container">
-				<div className="studio-box table-box" data-aos="fade-in" data-aos-duration="2000">
-					<figure>
-						<ul className="points">
-							<li>Square <br />Footage</li>
-							<li>Amps of power</li>
-							<li>Cyc wall</li>
-							<li>Sound<br /> Dampened</li>
-							<li>Lighting Grid</li>
-							<li>Kitchenette</li>
-						</ul>
-						{props.sectionDetail.blockItems.map((table, key) => (
-							<table key={key}>
+				{props.sectionDetail.blockItems.map((table, key) => (
+					<div key={key} className="studio-box table-box" data-aos="fade-in" data-aos-duration="2000">
+						<figure>
+							<ul className="points">
+								<li>Square <br />Footage</li>
+								<li>Amps of power</li>
+								<li>Cyc wall</li>
+								<li>Sound<br /> Dampened</li>
+								<li>Lighting Grid</li>
+								<li>Kitchenette</li>
+							</ul>
+
+							<table >
 								<thead>
 									<tr>
 										{table.tableBody.map((item, key) => (
@@ -93,11 +94,12 @@ const studioTable = (props) => {
 									</tr>
 								</tbody>
 							</table>
-						))}
-					</figure>
-					<h2>studios</h2>
 
-				</div>
+						</figure>
+						<h2>{table.title}</h2>
+
+					</div>
+				))}
 			</div>
 		</div>
 	)

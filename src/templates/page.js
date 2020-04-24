@@ -693,13 +693,26 @@ export const pageQuery = graphql`
 						... on ContentfulTable {
 							id
 							tableBody {
-							  ampsOfPower
-							  cycWall
-							  kitchenette
-							  lightingGrid
-							  squareFootage
-							  soundDampened
-							  title
+								... on ContentfulStudios {
+									id
+									ampsOfPower
+									cycWall
+									kitchenette
+									lightingGrid
+									soundDampened
+									squareFootage
+									title
+								  }
+								  ... on ContentfulCoworking {
+									id
+									ampsOfPower
+									cycWall
+									kitchenette
+									lightingGrid
+									soundDampened
+									squareFootage
+									title
+								  }
 							}
 							title
 						  }
