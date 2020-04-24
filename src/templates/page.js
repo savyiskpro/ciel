@@ -690,7 +690,7 @@ export const pageQuery = graphql`
 							  }
 							}
 						}
-						... on ContentfulStudioTable {
+						... on ContentfulTable {
 							id
 							tableBody {
 							  ampsOfPower
