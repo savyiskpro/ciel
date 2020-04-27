@@ -104,7 +104,7 @@ class Header extends Component {
 			}
 			// tab sections
 
-			$('.tab-section li:first,.tab-section figure img:first,.navigation .colmn-img img:first').addClass('active');
+			$('.tab-section li:first,.tab-section figure img:first,.navigation .colmn-img a:first').addClass('active');
 
 
 
@@ -225,8 +225,11 @@ class Header extends Component {
 						<div className="inner-wrapper">
 							<div className="colmn-img">
 								<figure>
+
 									{this.props.headerData.navigationItems.map((navImg, key) => (
-										<img key={key} id={navImg.navigationImage ? encodeURI('nav' + navImg.title) : ''} src={navImg.navigationImage ? navImg.navigationImage.file.url : ''} />
+										<Link to={navImg.url} id={navImg.navigationImage ? encodeURI('nav' + navImg.title) : ''} >
+											<img key={key} src={navImg.navigationImage ? navImg.navigationImage.file.url : ''} />
+										</Link>
 									))}
 								</figure>
 							</div>
