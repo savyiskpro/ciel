@@ -703,14 +703,19 @@ export const pageQuery = graphql`
 									squareFootage
 									title
 								  }
+								 
 								  ... on ContentfulCoworking {
-									id
-									ampsOfPower
-									cycWall
-									kitchenette
-									lightingGrid
-									soundDampened
-									squareFootage
+									artisanRoastedCoffee
+									fullyStockedKitchenette
+									discountedUseOfFirstFloorStudioeventSpaces
+									happyHourCocktailProgram
+									inHouseProductionServices
+									naturalLight
+									mailServices
+									vipAccessToCulturalEvents
+									wiFiPrintingItSupport
+									privatePhoneBooth
+									creativeSuites
 									title
 								  }
 							}
