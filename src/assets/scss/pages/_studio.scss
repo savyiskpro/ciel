@@ -142,6 +142,7 @@
                 overflow-x: auto;
                 scrollbar-color: #000;
                 scrollbar-width: 30px;
+                height: auto;
 
                 table {
                     width: 480px;
@@ -185,7 +186,27 @@
 
         figure {
             margin-bottom: 30px;
+            height: 600px;
 
+            @include breakpoint(medium) {
+                height: 400px;
+            }
+
+            @include breakpoint(xsml) {
+                height: 300px;
+            }
+
+            a {
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                }
+            }
 
             @include breakpoint(xsml) {
                 padding-right: 50px;

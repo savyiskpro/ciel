@@ -7,6 +7,7 @@ import '../assets/scss/style.scss';
 import BannerSection from '../components/blocks/bannerSection/bannerSection';
 import Block from '../components/blocks/block';
 import $ from 'jquery';
+import favIcon from '../assets/images/fav.png';
 
 const hasWindow = (typeof window !== 'undefined') ? true : false;
 if (hasWindow) {
@@ -148,6 +149,7 @@ class RootIndex extends Component {
 
 				<Helmet title="CIEL || Home">
 					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+					<link rel="icon" href={favIcon} type="image/x-icon" />
 				</Helmet>
 				{blocks}
 

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
-
+import favIcon from '../assets/images/fav.png';
 
 class communitySingleTemplate extends React.Component {
 	settings = {
@@ -50,6 +50,7 @@ class communitySingleTemplate extends React.Component {
 					<div className="community-single-page">
 						<Helmet title={"CIEL || " + this.props.data.allContentfulCommunity.edges[0].node.title}>
 							<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+							<link rel="icon" href={favIcon} type="image/x-icon" />
 						</Helmet>
 
 						<div className="community-banner event-section">

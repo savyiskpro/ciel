@@ -4,7 +4,8 @@ import Helmet from 'react-helmet';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
-import { Link } from 'gatsby'
+import { Link } from 'gatsby';
+import favIcon from '../assets/images/fav.png';
 
 class coworkingSingleTemplate extends React.Component {
 	settings = {
@@ -46,6 +47,7 @@ class coworkingSingleTemplate extends React.Component {
 				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 					<Helmet title={"CIEL || " + this.props.data.allContentfulCoworking.edges[0].node.title}>
 						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+						<link rel="icon" href={favIcon} type="image/x-icon" />
 					</Helmet>
 
 					<div className="studio-single-page">

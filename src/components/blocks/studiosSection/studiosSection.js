@@ -11,7 +11,7 @@ const studiosSection = (props) => {
 
 						<figure>
 							<Link to={item.url}>
-								<img src={item.images[0].file.url} />
+								<img src={item.boxImage.file.url} />
 							</Link>
 						</figure>
 						<h2>{item.title}</h2>

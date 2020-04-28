@@ -8,6 +8,7 @@ import Select from 'react-select';
 import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import favIcon from '../assets/images/fav.png';
 
 const reasonOptions = [
 	{ value: 'Book a tour', label: 'Book a tour' },
@@ -25,6 +26,7 @@ const studioOptions = [
 	{ value: 'Cafe', label: 'Cafe' },
 ];
 const projectTypeOptions = [
+	{ value: 'Event', label: 'Event' },
 	{ value: 'Stills or Motion', label: 'Stills or Motion' },
 	{ value: 'Sync sound or Motion', label: 'Sync sound or Motion' },
 	{ value: 'MOS', label: 'MOS' },
@@ -203,41 +205,41 @@ class PageTemplate extends React.Component {
 
 			]
 		},
-		{
-			field: 'project',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// {
+		// 	field: 'project',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'message',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// 	]
+		// },
+		// {
+		// 	field: 'message',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'companyName',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// 	]
+		// },
+		// {
+		// 	field: 'companyName',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'companyAddress',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// 	]
+		// },
+		// {
+		// 	field: 'companyAddress',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'studio',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// 	]
+		// },
+		// {
+		// 	field: 'studio',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
+		// 	]
+		// },
 		{
 			field: 'projectType',
 			rules: [
@@ -245,49 +247,49 @@ class PageTemplate extends React.Component {
 
 			]
 		},
-		{
-			field: 'paymentType',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// {
+		// 	field: 'paymentType',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'BillingName',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// 	]
+		// },
+		// {
+		// 	field: 'BillingName',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'BillingEmail',
-			rules: [
-				{ type: 'isEmail', message: 'Enter a valid email address.' },
+		// 	]
+		// },
+		// {
+		// 	field: 'BillingEmail',
+		// 	rules: [
+		// 		{ type: 'isEmail', message: 'Enter a valid email address.' },
 
-			]
-		},
+		// 	]
+		// },
 
-		{
-			field: 'BillingPhone',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// {
+		// 	field: 'BillingPhone',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'startDate',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// 	]
+		// },
+		// {
+		// 	field: 'startDate',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		},
-		{
-			field: 'endDate',
-			rules: [
-				{ type: 'required', message: 'This field is required' },
+		// 	]
+		// },
+		// {
+		// 	field: 'endDate',
+		// 	rules: [
+		// 		{ type: 'required', message: 'This field is required' },
 
-			]
-		}
+		// 	]
+		// }
 
 	]
 	checkField = (...para) => {
@@ -354,9 +356,10 @@ class PageTemplate extends React.Component {
 	submitHandler = (e) => {
 		e.preventDefault()
 		console.log(this.state.startDate.toDateString())
-		this.checkField('name', 'email', 'phone', 'project', 'message', 'companyName', 'companyAddress', 'studio', 'projectType', 'paymentType', 'BillingName', 'BillingEmail', 'BillingPhone', 'startDate', 'endDate')
-		const { nameError, emailError, phoneError, messageError, projectError, companyNameError, companyAddressError, studioError, projectTypeError, BillingNameError, BillingEmailError, BillingPhoneError, startDateError, endDateError } = this.state;
-		if (nameError == null && emailError == null && phoneError == null && messageError == null && projectError == null && companyNameError == null && companyAddressError == null && studioError == null && projectTypeError == null && BillingNameError == null && BillingEmailError == null && BillingPhoneError == null) {
+		// this.checkField('name', 'email', 'phone', 'project', 'message', 'companyName', 'companyAddress', 'studio', 'projectType', 'paymentType', 'BillingName', 'BillingEmail', 'BillingPhone', 'startDate', 'endDate')
+		this.checkField('name', 'email', 'phone', 'projectType')
+		const { nameError, emailError, phoneError, projectTypeError } = this.state;
+		if (nameError == null && emailError == null && phoneError == null && projectTypeError == null) {
 			// console.log('working');
 			this.setState({
 				submiting: true,
@@ -413,6 +416,7 @@ class PageTemplate extends React.Component {
 					<div className={this.props.data.allContentfulNavigation.edges[0].node.page.title}>
 						<Helmet title={"CIEL || " + this.props.data.allContentfulNavigation.edges[0].node.page.title}>
 							<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+							<link rel="icon" href={favIcon} type="image/x-icon" />
 						</Helmet>
 						{blocks}
 						{this.props.data.allContentfulNavigation.edges[0].node.url == '/contact-us' ?
@@ -523,15 +527,15 @@ class PageTemplate extends React.Component {
 											<Select isMulti={true} value={this.state.projectType} onChange={this.projectTypeChangeHandler} options={projectTypeOptions} />
 											{this.state.projectTypeError ? <span className="error-message">{this.state.projectTypeError}</span> : null}
 										</div>
-										<div className="form-group full">
+										{/* <div className="form-group full">
 											<label>Method of Payment for deposit</label>
 											<Select value={this.state.paymentType} onChange={this.paymentTypeChangeHandler} options={paymentTypeOptions} />
 											{this.state.paymentTypeError ? <span className="error-message">{this.state.paymentTypeError}</span> : null}
 										</div>
 										<div className="form-heading">
 											<h4>Billing Details</h4>
-										</div>
-										<div className="form-group full">
+										</div> */}
+										{/* <div className="form-group full">
 											<label>Name</label>
 											<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingName" value={this.state.BillingName} onChange={this.inputHandler} />
 											{this.state.BillingNameError ? <span className="error-message">{this.state.BillingNameError}</span> : null}
@@ -545,7 +549,7 @@ class PageTemplate extends React.Component {
 											<label>Phone Number</label>
 											<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingPhone" value={this.state.BillingPhone} onChange={this.inputHandler} />
 											{this.state.BillingPhoneError ? <span className="error-message">{this.state.BillingPhoneError}</span> : null}
-										</div>
+										</div> */}
 										<div className="form-group full">
 											<label>Crew or Event size each day</label>
 											<input type="text" className="form-control" name="crewSize" value={this.state.crewSize} onChange={this.inputHandler} />
@@ -767,6 +771,11 @@ export const pageQuery = graphql`
 								url
 							  }
 							}
+							boxImage {
+								file {
+								  url
+								}
+							  }
 							title
 							url
 							bookUrl
