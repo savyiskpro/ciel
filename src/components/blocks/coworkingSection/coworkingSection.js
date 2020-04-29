@@ -10,7 +10,7 @@ const coworkingSection = (props) => {
 					<div key={key} className="studio-box" data-aos="fade-in" data-aos-duration="2000">
 						<figure>
 							<Link to={item.url} >
-								<img src={item.images[0].file.url} />
+								<img src={item.boxImage.file.url} />
 							</Link>
 						</figure>
 						<h2>{item.title}</h2>

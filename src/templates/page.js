@@ -414,9 +414,13 @@ class PageTemplate extends React.Component {
 
 				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 					<div className={this.props.data.allContentfulNavigation.edges[0].node.page.title}>
-						<Helmet title={"CIEL || " + this.props.data.allContentfulNavigation.edges[0].node.page.title}>
+						<Helmet title={this.props.data.allContentfulNavigation.edges[0].node.page.metaTitle}>
 							<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 							<link rel="icon" href={favIcon} type="image/x-icon" />
+							{this.props.data.allContentfulNavigation.edges[0].node.page.metaDescription ? <meta name="description" content={this.props.data.allContentfulNavigation.edges[0].node.page.metaDescription} /> : null}
+							{this.props.data.allContentfulNavigation.edges[0].node.page.metaKeywords ? <meta name="keywords" content={this.props.data.allContentfulNavigation.edges[0].node.page.metaKeywords} /> : null}
+
+
 						</Helmet>
 						{blocks}
 						{this.props.data.allContentfulNavigation.edges[0].node.url == '/contact-us' ?
@@ -653,6 +657,9 @@ export const pageQuery = graphql`
 		  node {
 			url
 			page {
+				metaDescription
+			metaKeywords
+			metaTitle
 				title
 			  blocks {
 				  
@@ -755,6 +762,11 @@ export const pageQuery = graphql`
 								url
 							  }
 							}
+							boxImage {
+								file {
+								  url
+								}
+							  }
 							title
 							url
 							bookUrl

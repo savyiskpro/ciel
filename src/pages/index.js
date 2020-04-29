@@ -147,9 +147,12 @@ class RootIndex extends Component {
 		return (
 			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 
-				<Helmet title="CIEL || Home">
+				<Helmet title={this.props.data.allContentfulNavigation.edges[0].node.page.metaTitle}>
 					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 					<link rel="icon" href={favIcon} type="image/x-icon" />
+					{/* {this.props.data.allContentfulLayout.edges[0].node.page.metaDescription ? <meta name="description" content={this.props.data.allContentfulLayout.edges[0].node.page.metaDescription}></meta> : null} */}
+					{this.props.data.allContentfulNavigation.edges[0].node.page.metaDescription ? <meta name="description" content={this.props.data.allContentfulNavigation.edges[0].node.page.metaDescription} /> : null}
+					{this.props.data.allContentfulNavigation.edges[0].node.page.metaKeywords ? <meta name="keywords" content={this.props.data.allContentfulNavigation.edges[0].node.page.metaKeywords} /> : null}
 				</Helmet>
 				{blocks}
 
@@ -224,6 +227,9 @@ export const pageQuery = graphql`
 		  node {
 			url
 			page {
+				metaDescription
+        metaKeywords
+        metaTitle
 			  blocks {
 				  
 				... on ContentfulBannerSection {

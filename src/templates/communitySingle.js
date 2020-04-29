@@ -48,9 +48,11 @@ class communitySingleTemplate extends React.Component {
 			<div className="inner-page">
 				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 					<div className="community-single-page">
-						<Helmet title={"CIEL || " + this.props.data.allContentfulCommunity.edges[0].node.title}>
+						<Helmet title={"CIEL || " + this.props.data.allContentfulCommunity.edges[0].node.metaTitle}>
 							<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 							<link rel="icon" href={favIcon} type="image/x-icon" />
+							{this.props.data.allContentfulCommunity.edges[0].node.metaDescription ? <meta name="description" content={this.props.data.allContentfulCommunity.edges[0].node.metaDescription} /> : null}
+							{this.props.data.allContentfulCommunity.edges[0].node.metaKeywords ? <meta name="keywords" content={this.props.data.allContentfulCommunity.edges[0].node.metaKeywords} /> : null}
 						</Helmet>
 
 						<div className="community-banner event-section">
@@ -176,6 +178,9 @@ export const pageQuery = graphql`
 	  allContentfulCommunity(filter: {url: {eq: $slug}}) {
 		edges {
 		  node {
+			metaTitle
+			metaKeywords
+			metaDescription
 			title
 			sortText
 			subTitle

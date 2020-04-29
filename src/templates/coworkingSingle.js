@@ -45,9 +45,11 @@ class coworkingSingleTemplate extends React.Component {
 		return (
 			<div className="inner-page">
 				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
-					<Helmet title={"CIEL || " + this.props.data.allContentfulCoworking.edges[0].node.title}>
+					<Helmet title={this.props.data.allContentfulCoworking.edges[0].node.metaTitle}>
 						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 						<link rel="icon" href={favIcon} type="image/x-icon" />
+						{this.props.data.allContentfulCoworking.edges[0].node.metaDescription ? <meta name="description" content={this.props.data.allContentfulCoworking.edges[0].node.metaDescription} /> : null}
+						{this.props.data.allContentfulCoworking.edges[0].node.metaKeywords ? <meta name="keywords" content={this.props.data.allContentfulCoworking.edges[0].node.metaKeywords} /> : null}
 					</Helmet>
 
 					<div className="studio-single-page">
@@ -205,6 +207,9 @@ export const pageQuery = graphql`
 	  allContentfulCoworking(filter: {url: {eq: $slug}}) {
 		edges {
 		  node {
+			metaTitle
+			metaKeywords
+			metaDescription
 			title
 			url
 			bookUrl
