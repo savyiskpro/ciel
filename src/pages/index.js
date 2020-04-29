@@ -149,6 +149,7 @@ class RootIndex extends Component {
 
 				<Helmet title={this.props.data.allContentfulNavigation.edges[0].node.page.metaTitle}>
 					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 					<link rel="icon" href={favIcon} type="image/x-icon" />
 					{/* {this.props.data.allContentfulLayout.edges[0].node.page.metaDescription ? <meta name="description" content={this.props.data.allContentfulLayout.edges[0].node.page.metaDescription}></meta> : null} */}
 					{this.props.data.allContentfulNavigation.edges[0].node.page.metaDescription ? <meta name="description" content={this.props.data.allContentfulNavigation.edges[0].node.page.metaDescription} /> : null}
