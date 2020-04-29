@@ -211,10 +211,10 @@
                 @include breakpoint(medium) {
                     border-bottom: solid 5px $color-black;
                     color: $color-black;
-                    // font-family: $font-lustSlim;
+                    font-family: $font-lustSlim;
                     // line-height: 100px;
-                    display: inline-block;
-                    height: 60px;
+                    // display: inline-block;
+                    // height: 60px;
 
                 }
 
