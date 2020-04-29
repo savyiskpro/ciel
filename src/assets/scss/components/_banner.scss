@@ -19,6 +19,12 @@
     .text-layer {
         @include center(both);
 
+        @include breakpoint(medium) {
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
         h2,
         h3 {
             font-size: 150px;
@@ -85,6 +91,7 @@
 
 .inner-banner {
     height: 660px;
+    overflow: hidden;
 
     @include breakpoint(xmedium) {
         height: 500px;
