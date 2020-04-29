@@ -6,6 +6,10 @@ h5,
 h6 {
     &.lust-font {
         font-family: $font-lust;
+
+        @include breakpoint(medium) {
+            font-family: $font-lustSlim;
+        }
     }
 }
 
@@ -18,12 +22,20 @@ h2 {
     color: $color-black;
     font-family: $font-lust;
     font-weight: 400;
+
+    @include breakpoint(medium) {
+        font-family: $font-lustSlim;
+    }
 }
 
 h3 {
     font-size: $font-size-h3;
     color: $color-black;
     font-family: $font-lust;
+
+    @include breakpoint(medium) {
+        font-family: $font-lustSlim;
+    }
 
 }
 
