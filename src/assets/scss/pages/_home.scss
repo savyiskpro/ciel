@@ -273,6 +273,7 @@
 
     @include breakpoint(xmedium) {
         padding: 20px 0;
+        overflow: hidden;
     }
 
     @include breakpoint(xmedium) {
