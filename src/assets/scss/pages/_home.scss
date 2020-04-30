@@ -511,6 +511,10 @@
         opacity: 0;
         @include transition(all 0.5s);
 
+        @include breakpoint(medium) {
+            display: none !important;
+        }
+
         &:after {
             position: absolute;
             top: 50%;
@@ -802,6 +806,15 @@
         bottom: 0;
         @include center(horizontal);
         z-index: 1;
+        width: 750px;
+
+        @include breakpoint(medium) {
+            width: 450px;
+        }
+
+        @include breakpoint(xsml) {
+            width: 300px;
+        }
 
         &:after {
             position: absolute;
@@ -816,7 +829,9 @@
 
         li {
             display: inline-block;
-            width: 250px;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
             margin: 0;
             border-radius: 0;
             height: 6px;
@@ -831,13 +846,7 @@
 
             }
 
-            @include breakpoint(medium) {
-                width: 150px;
-            }
 
-            @include breakpoint(xsml) {
-                width: 100px;
-            }
 
             button {
                 font-size: 0;
