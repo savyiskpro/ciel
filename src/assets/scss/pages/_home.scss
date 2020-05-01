@@ -915,6 +915,26 @@
             width: 450px;
             margin-left: auto;
             margin-top: 50px;
+            position: relative;
+
+            h2 {
+                display: none;
+
+                @include breakpoint(medium) {
+                    position: absolute;
+                    -webkit-writing-mode: vertical-rl;
+                    -ms-writing-mode: tb-rl;
+                    writing-mode: vertical-rl;
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                    left: -20px;
+                    font-size: 60px;
+                    top: auto;
+                    bottom: 0;
+                    display: block;
+                    white-space: nowrap;
+                }
+            }
 
             @include breakpoint(xmedium) {
                 width: 340px;
@@ -976,6 +996,10 @@
             transform: rotate(180deg);
             left: 75px;
             top: 25px;
+
+            @include breakpoint(medium) {
+                display: none;
+            }
 
             @include breakpoint(large) {
                 left: 35px;

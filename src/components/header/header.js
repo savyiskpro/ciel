@@ -227,7 +227,7 @@ class Header extends Component {
 								<figure>
 
 									{this.props.headerData.navigationItems.map((navImg, key) => (
-										<Link to={navImg.url} id={navImg.navigationImage ? encodeURI('nav' + navImg.title) : ''} >
+										<Link to={navImg.url} id={navImg.navigationImage ? encodeURI('nav' + navImg.title.split(' ')[0]) : ''} >
 											<img key={key} src={navImg.navigationImage ? navImg.navigationImage.file.url : ''} />
 										</Link>
 									))}
@@ -240,7 +240,7 @@ class Header extends Component {
 											return <li key={key}><a href={nav.url} target="_blank" className="btn-underline">{nav.title}</a></li>
 										}
 										else {
-											return <li key={key}><Link to={nav.url} data-img={nav.navigationImage ? encodeURI('#nav' + nav.title) : ''} className={nav.extraClass ? nav.extraClass : null}>{nav.title}</Link></li>
+											return <li key={key}><Link to={nav.url} data-img={nav.navigationImage ? encodeURI('#nav' + nav.title.split(' ')[0]) : ''} className={nav.extraClass ? nav.extraClass : null}>{nav.title}</Link></li>
 										}
 
 									})}

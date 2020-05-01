@@ -24,7 +24,8 @@
         text-decoration: underline;
         letter-spacing: 1px !important;
         border: none;
-        outline: none
+        outline: none;
+        display: inline-block;
     }
 
     @include breakpoint(medium) {

@@ -26,6 +26,7 @@ const joinSection = (props) => {
 						<img src={sectionImages[0].image.file.url} />
 					</figure>
 					<div className="text-box" data-aos="fade-in" data-aos-duration="2000">
+						<h2>{props.sectionDetail.title}</h2>
 						<div dangerouslySetInnerHTML={{
 							__html: contentBox.content.childMarkdownRemark.html
 

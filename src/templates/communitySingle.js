@@ -92,7 +92,7 @@ class communitySingleTemplate extends React.Component {
 							</div> : null}
 							{pageDetail.moreImages ?
 								<div className="studio-slider" data-aos="fade-in" data-aos-duration="2000">
-									<h5>PICS FROM LAST YEAR</h5>
+									<h5>{pageDetail.carouselHeading}</h5>
 									<div className="slider-group">
 
 										<Slider {...this.settings}>
@@ -178,6 +178,7 @@ export const pageQuery = graphql`
 	  allContentfulCommunity(filter: {url: {eq: $slug}}) {
 		edges {
 		  node {
+			carouselHeading
 			metaTitle
 			metaKeywords
 			metaDescription

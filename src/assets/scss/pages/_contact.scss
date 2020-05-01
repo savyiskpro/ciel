@@ -38,6 +38,60 @@
             width: 100%;
         }
 
+        .check-group {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+
+            .check-box {
+                position: relative;
+                margin-top: 10px;
+
+                input {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 9;
+                    opacity: 0;
+                    height: 100%;
+
+                    &:checked+label {
+                        &:after {
+                            content: "\f046";
+                        }
+                    }
+
+                }
+
+                label {
+                    position: relative;
+                    padding-left: 20px;
+                    display: inline-block;
+
+                    &:after {
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        -webkit-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                        content: "\f096";
+                        font-family: fontawesome;
+
+
+                    }
+
+                    // &:after{
+                    // 	width: 15px;
+                    // 	height: 15px;
+                    // 	border: solid 1px $color-black;
+                    // 	border-radius: 2px;
+                    // }
+                }
+            }
+        }
+
         .error-message {
             position: absolute;
             font-size: 14px;

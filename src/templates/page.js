@@ -9,6 +9,7 @@ import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import favIcon from '../assets/images/fav.png';
+import { sortedIndexOf } from 'lodash';
 
 const reasonOptions = [
 	{ value: 'Book a tour', label: 'Book a tour' },
@@ -69,19 +70,19 @@ class PageTemplate extends React.Component {
 		contactReason: '',
 		contactEmail: '',
 		contactPhone: '',
-		contactSubject: '',
+		contactCompany: '',
 		contactMessage: '',
 		contactNameError: '',
 		contactReasonError: '',
 		contactEmailError: '',
 		contactPhoneError: '',
-		contactSubjectError: '',
+		contactCompanyError: '',
 		contactMessageError: '',
 		regexp: /^[0-9\b]+$/,
 		name: '',
 		email: '',
 		phone: '',
-		project: '',
+		company: '',
 		companyName: '',
 		companyAddress: '',
 		studio: '',
@@ -116,6 +117,26 @@ class PageTemplate extends React.Component {
 		projectTypes: '',
 		studios: '',
 		submiting: false,
+		studioOptions: [
+			{ value: 'Studio 1', checked: false },
+			{ value: 'Studio 2', checked: false },
+			{ value: 'Studio 3', checked: false },
+			{ value: 'Studio 4', checked: false },
+			{ value: 'Atelier', checked: false },
+			{ value: 'Cafe', checked: false },
+		],
+		projectTypeOptions: [
+			{ value: 'Event', checked: false },
+			{ value: 'Stills or Motion', checked: false },
+			{ value: 'Sync sound or Motion', checked: false },
+			{ value: 'MOS', checked: false },
+		],
+		reasonOptions: [
+			{ value: 'Book a tour', checked: false },
+			{ value: 'Host an event at CIEL', checked: false },
+			{ value: 'Exhibit your art', checked: false },
+			{ value: 'General inquiries', checked: false }
+		]
 
 	}
 	checkValidity = (value, rules) => {
@@ -170,7 +191,7 @@ class PageTemplate extends React.Component {
 			]
 		},
 		{
-			field: 'contactSubject',
+			field: 'contactCompany',
 			rules: [
 				{ type: 'required', message: 'This field is required' },
 
@@ -357,14 +378,30 @@ class PageTemplate extends React.Component {
 		e.preventDefault()
 		console.log(this.state.startDate.toDateString())
 		// this.checkField('name', 'email', 'phone', 'project', 'message', 'companyName', 'companyAddress', 'studio', 'projectType', 'paymentType', 'BillingName', 'BillingEmail', 'BillingPhone', 'startDate', 'endDate')
-		this.checkField('name', 'email', 'phone', 'projectType')
-		const { nameError, emailError, phoneError, projectTypeError } = this.state;
-		if (nameError == null && emailError == null && phoneError == null && projectTypeError == null) {
+		this.checkField('name', 'email', 'phone',)
+		const { nameError, emailError, phoneError } = this.state;
+		if (nameError == null && emailError == null && phoneError == null) {
 			// console.log('working');
+			let getStudios = this.state.studioOptions.filter(studio => {
+				if (studio.checked) {
+					return studio
+				}
+			})
+			let studios = getStudios.map(studio => {
+				return studio.value
+			})
+			let getProjectType = this.state.projectTypeOptions.filter(projectType => {
+				if (projectType.checked) {
+					return projectType
+				}
+			})
+			let projectType = getProjectType.map(projectType => {
+				return projectType.value
+			})
 			this.setState({
 				submiting: true,
 			})
-			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Booking&name=${this.state.name}&email=${this.state.email}&phone=${this.state.phone}&project=${this.state.project}&Company%20Name=${this.state.companyName}&Company%20Address=${this.state.companyAddress}&Studio=${this.state.studios}&Project%20Type=${this.state.projectTypes}&Payment%20Type=${this.state.paymentType}&Billing%20Name=${this.state.BillingName}&Billing%20Email=${this.state.BillingEmail}&Billing%20Phone=${this.state.BillingPhone}&Start%20Date=${this.state.startDate.toDateString()}&End%20Date=${this.state.endDate.toDateString()}`)
+			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Booking&name=${this.state.name}&email=${this.state.email}&phone=${this.state.phone}&project=${this.state.project}&Company%20Name=${this.state.companyName}&Company%20Address=${this.state.companyAddress}&Studio=${studios.join(',')}&Project%20Type=${projectType.join(',')}&Payment%20Type=${this.state.paymentType}&Billing%20Name=${this.state.BillingName}&Billing%20Email=${this.state.BillingEmail}&Billing%20Phone=${this.state.BillingPhone}&Start%20Date=${this.state.startDate.toDateString()}&End%20Date=${this.state.endDate.toDateString()}`)
 				.then(res => {
 					this.setState({
 						sentMessage: 'Thank you! Your message has been successfully sent.',
@@ -376,13 +413,23 @@ class PageTemplate extends React.Component {
 	}
 	contactSubmitHandler = (e) => {
 		e.preventDefault();
-		this.checkField('contactName', 'contactReason', 'contactEmail', 'contactPhone', 'contactSubject', 'contactMessage')
-		const { contactNameError, contactReasonError, contactEmailError, contactPhoneError, contactMessageError, contactSubjectError } = this.state;
-		if (contactNameError == null && contactReasonError == null && contactEmailError == null && contactPhoneError == null && contactMessageError == null && contactSubjectError == null) {
+
+		this.checkField('contactName', 'contactEmail', 'contactPhone', 'contactCompany', 'contactMessage')
+		const { contactNameError, contactEmailError, contactPhoneError, contactMessageError, contactCompanyError } = this.state;
+		if (contactNameError == null && contactEmailError == null && contactPhoneError == null && contactMessageError == null && contactCompanyError == null) {
+			let getContacReason = this.state.reasonOptions.filter(reason => {
+				if (reason.checked) {
+					return reason
+				}
+			})
+			let contactReason = getContacReason.map(reason => {
+				return reason.value
+			})
+
 			this.setState({
 				submiting: true,
 			})
-			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Contact&reason=${this.state.contactReason.value}&name=${this.state.contactName}&email=${this.state.contactEmail}&phone=${this.state.contactPhone}&subject=${this.state.contactSubject}&message=${this.state.contactMessage}`)
+			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Contact&reason=${contactReason.join(',')}&name=${this.state.contactName}&email=${this.state.contactEmail}&phone=${this.state.contactPhone}&subject=${this.state.contactCompany}&message=${this.state.contactMessage}`)
 				.then(res => {
 					this.setState({
 						sentMessage: 'Thank you! Your message has been successfully sent.',
@@ -392,8 +439,19 @@ class PageTemplate extends React.Component {
 		}
 
 	}
-	componentDidMount() {
 
+	checkHandler = (e, checkGroup) => {
+		let options = [...this.state[checkGroup]];
+
+		options.find(option => {
+			if (option.value == e.target.name) {
+				option.checked = !option.checked;
+			}
+		})
+		// console.log(options)
+		this.setState({
+			[checkGroup]: options
+		})
 	}
 	render() {
 		console.log(this.props.data)
@@ -429,8 +487,18 @@ class PageTemplate extends React.Component {
 									<form onSubmit={this.contactSubmitHandler}>
 										<div className="flex space-between">
 											<div className="form-group full">
-												<Select placeholder="Select a contact reason" value={this.state.contactReason} onChange={this.reasonChangeHandler} options={reasonOptions} />
-												{this.state.contactReasonError ? <span className="error-message">{this.state.contactReasonError}</span> : null}
+												<label>Select a contact reason</label>
+
+												<div className="check-group">
+													{this.state.reasonOptions.map((reason, key) => (
+														<div className="check-box" key={key}>
+															<input type="checkbox" checked={reason.checked} name={reason.value} onChange={(e) => this.checkHandler(e, 'reasonOptions')} />
+															<label>{reason.value}</label>
+														</div>
+													))}
+												</div>
+												{/* <Select placeholder="Select a contact reason" value={this.state.contactReason} onChange={this.reasonChangeHandler} options={reasonOptions} /> */}
+												{/* {this.state.contactReasonError ? <span className="error-message">{this.state.contactReasonError}</span> : null} */}
 											</div>
 											<div className="form-group">
 												<input type="text" onBlur={this.blurHendler} className="form-control" name="contactName" value={this.state.contactName} onChange={this.inputHandler} placeholder="Name" />
@@ -441,12 +509,12 @@ class PageTemplate extends React.Component {
 												{this.state.contactEmailError ? <span className="error-message">{this.state.contactEmailError}</span> : null}
 											</div>
 											<div className="form-group">
-												<input type="text" onBlur={this.blurHendler} className="form-control" name="contactPhone" value={this.state.contactPhone} onChange={this.numberHendler} placeholder="Phone Number" />
+												<input type="text" onBlur={this.blurHendler} className="form-control" name="contactPhone" value={this.state.contactPhone} onChange={this.numberHendler} placeholder="Phone" />
 												{this.state.contactPhoneError ? <span className="error-message">{this.state.contactPhoneError}</span> : null}
 											</div>
 											<div className="form-group">
-												<input type="text" onBlur={this.blurHendler} className="form-control" name="contactSubject" value={this.state.contactSubject} onChange={this.inputHandler} placeholder="Subject" />
-												{this.state.contactSubjectError ? <span className="error-message">{this.state.contactSubjectError}</span> : null}
+												<input type="text" onBlur={this.blurHendler} className="form-control" name="contactCompany" value={this.state.contactCompany} onChange={this.inputHandler} placeholder="Company" />
+												{this.state.contactCompanyError ? <span className="error-message">{this.state.contactCompanyError}</span> : null}
 											</div>
 											<div className="form-group full">
 												<textarea onBlur={this.blurHendler} className="form-control" name="contactMessage" value={this.state.contactMessage} onChange={this.inputHandler} placeholder="Message"></textarea>
@@ -478,16 +546,16 @@ class PageTemplate extends React.Component {
 											{this.state.emailError ? <span className="error-message">{this.state.emailError}</span> : null}
 										</div>
 										<div className="form-group">
-											<label>Phone Number</label>
+											<label>Phone</label>
 											<input type="text" onBlur={this.blurHendler} className="form-control" name="phone" value={this.state.phone} onChange={this.inputHandler} />
 											{this.state.phoneError ? <span className="error-message">{this.state.phoneError}</span> : null}
 										</div>
 										<div className="form-group">
-											<label>Project Name</label>
-											<input type="text" onBlur={this.blurHendler} className="form-control" name="project" value={this.state.project} onChange={this.inputHandler} />
+											<label>Company</label>
+											<input type="text" onBlur={this.blurHendler} className="form-control" name="company" value={this.state.company} onChange={this.inputHandler} />
 											{this.state.projectError ? <span className="error-message">{this.state.projectError}</span> : null}
 										</div>
-										<div className="form-group full">
+										{/* <div className="form-group full">
 											<label>Production/Company Name</label>
 											<input type="text" onBlur={this.blurHendler} className="form-control" name="companyName" value={this.state.companyName} onChange={this.inputHandler} />
 											{this.state.companyNameError ? <span className="error-message">{this.state.companyNameError}</span> : null}
@@ -496,11 +564,32 @@ class PageTemplate extends React.Component {
 											<label>Production/Company Address</label>
 											<input type="text" onBlur={this.blurHendler} className="form-control" name="companyAddress" value={this.state.companyAddress} onChange={this.inputHandler} />
 											{this.state.companyAddressError ? <span className="error-message">{this.state.companyAddressError}</span> : null}
+										</div> */}
+										<div className="form-group full">
+											<label>Studio(s)</label>
+											{/* <Select isMulti={true} value={this.state.studio} onChange={this.studioChangeHandler} options={studioOptions} /> */}
+											{this.state.studioError ? <span className="error-message">{this.state.studioError}</span> : null}
+											<div className="check-group">
+												{this.state.studioOptions.map((studio, key) => (
+													<div className="check-box" key={key}>
+														<input type="checkbox" checked={studio.checked} name={studio.value} onChange={(e) => this.checkHandler(e, 'studioOptions')} />
+														<label>{studio.value}</label>
+													</div>
+												))}
+											</div>
 										</div>
 										<div className="form-group full">
-											<label>Studio</label>
-											<Select isMulti={true} value={this.state.studio} onChange={this.studioChangeHandler} options={studioOptions} />
-											{this.state.studioError ? <span className="error-message">{this.state.studioError}</span> : null}
+											<label>Project Type</label>
+											{/* <Select isMulti={true} value={this.state.projectType} onChange={this.projectTypeChangeHandler} options={projectTypeOptions} /> */}
+											{this.state.projectTypeError ? <span className="error-message">{this.state.projectTypeError}</span> : null}
+											<div className="check-group">
+												{this.state.projectTypeOptions.map((studio, key) => (
+													<div className="check-box" key={key}>
+														<input type="checkbox" checked={studio.checked} name={studio.value} onChange={(e) => this.checkHandler(e, 'projectTypeOptions')} />
+														<label>{studio.value}</label>
+													</div>
+												))}
+											</div>
 										</div>
 										<div className="form-group">
 											<label>start Date</label>
@@ -526,11 +615,7 @@ class PageTemplate extends React.Component {
 											/>
 											{this.state.endDateError ? <span className="error-message">{this.state.endDateError}</span> : null}
 										</div>
-										<div className="form-group full">
-											<label>Project Type</label>
-											<Select isMulti={true} value={this.state.projectType} onChange={this.projectTypeChangeHandler} options={projectTypeOptions} />
-											{this.state.projectTypeError ? <span className="error-message">{this.state.projectTypeError}</span> : null}
-										</div>
+
 										{/* <div className="form-group full">
 											<label>Method of Payment for deposit</label>
 											<Select value={this.state.paymentType} onChange={this.paymentTypeChangeHandler} options={paymentTypeOptions} />
@@ -554,16 +639,16 @@ class PageTemplate extends React.Component {
 											<input type="text" onBlur={this.blurHendler} className="form-control" name="BillingPhone" value={this.state.BillingPhone} onChange={this.inputHandler} />
 											{this.state.BillingPhoneError ? <span className="error-message">{this.state.BillingPhoneError}</span> : null}
 										</div> */}
-										<div className="form-group full">
+										{/* <div className="form-group full">
 											<label>Crew or Event size each day</label>
 											<input type="text" className="form-control" name="crewSize" value={this.state.crewSize} onChange={this.inputHandler} />
 
-										</div>
-										<div className="form-group full">
+										</div> */}
+										{/* <div className="form-group full">
 											<label>Reserved parking</label>
 											<Select value={this.state.reservedParking} onChange={this.reservedParkingChangeHandler} options={reservedParkingOptions} />
 											<span className="note-text">note: Each space is $15/each/day </span>
-										</div>
+										</div> */}
 										<div className="form-group full">
 											<label>messages</label>
 											<textarea className="form-control" name="message" value={this.state.message} onChange={this.inputHandler}></textarea>
