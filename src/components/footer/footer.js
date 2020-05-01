@@ -37,7 +37,7 @@ export default ({ footerData }) => (
 					<div className="colmn-box">
 						<h5>Contact </h5>
 						<ul>
-							<li><Link to="/contact-us">Contact us</Link></li>
+							<li><Link to="/contact-us">email us</Link></li>
 							{footerData.generalEmail ? <li><a href={"mailto:" + footerData.generalEmail}>General:{footerData.generalEmail}</a></li> : null}
 							{footerData.studioEmail ? <li><a href={"mailto:" + footerData.studioEmail}>Studios:{footerData.studioEmail}</a></li> : null}
 							{footerData.phoneNumber ? <li><a href={"tel:" + footerData.phoneNumber}>{footerData.phoneNumber}</a></li> : null}
