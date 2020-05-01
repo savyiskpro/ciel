@@ -90,18 +90,25 @@ class Header extends Component {
 				$('.navigation .colmn-text li').hover(
 					function () {
 						$(this).children('a').addClass('active');
+						$(this).siblings().children('a').removeClass('active');
 						$(this).parent().addClass('active');
 						var getImg = $(this).children('a').attr('data-img');
 						$(getImg).addClass('active').siblings().removeClass('active');
 					},
 					function () {
-						$(this).children('a').removeClass('active');
-						$(this).parent().removeClass('active')
+						// $(this).siblings().children('a').removeClass('active');
+						// $(this).parent().removeClass('active')
+
 						// $('.navigation .colmn-img img:first').addClass('active');
 
 					}
 				)
+				$('.navigation .inner-wrapper').hover(function () { }, function () {
+					$('.navigation .colmn-text ul,.navigation .colmn-text ul li a').removeClass('active')
+					// $('.navigation .colmn-text ul').removeClass('active')
+				})
 			}
+
 			// tab sections
 
 			$('.tab-section li:first,.tab-section figure img:first,.navigation .colmn-img a:first').addClass('active');
