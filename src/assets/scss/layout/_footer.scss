@@ -192,7 +192,7 @@ footer {
     ul {
         li {
             list-style: none;
-            margin-bottom: 50px;
+            margin-bottom: 5px;
 
             @include breakpoint(medium) {
                 font-size: 14px;

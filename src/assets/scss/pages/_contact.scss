@@ -45,10 +45,22 @@
             -webkit-box-pack: justify;
             -ms-flex-pack: justify;
             justify-content: space-between;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
 
             .check-box {
                 position: relative;
                 margin-top: 10px;
+                margin-right: 10px;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                @include breakpoint(xsml) {
+                    width: 100%;
+                    margin-right: 0;
+                }
 
                 input {
                     position: absolute;
