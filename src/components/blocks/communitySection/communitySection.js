@@ -16,28 +16,33 @@ class communitySection extends Component {
 						let getDateSplit = getDate.split(' ')
 						console.log(getDateSplit)
 						return (
-							<Link to={item.url} key={key} className="event-box" data-aos="fade-in" data-aos-duration="2000">
 
+							<div key={key} className="event-box" data-aos="fade-in" data-aos-duration="2000" >
 								<div className="colmn-img">
-									<figure>
-										<img src={item.image.file.url} />
-									</figure>
+									<Link to={item.url} >
+										<figure>
+											<img src={item.image.file.url} />
+										</figure>
+									</Link>
 								</div>
 								<div className="colmn-text">
-									<h2>{item.title}</h2>
-									<h4>{item.subTitle}</h4>
-									<p>{item.sortText}</p>
+									<Link to={item.url} >
+										<h2>{item.title}</h2>
+										<h4>{item.subTitle}</h4>
+										<p>{item.sortText}</p>
 
-									<ul className="time-details">
-										<li>{getDateSplit[0] + ' ' + getDateSplit[1] + ' ' + getDateSplit[2] + ', ' + getDateSplit[3]} </li>
-										<li>{item.eventTiming}</li>
-									</ul>
+										<ul className="time-details">
+											<li>{getDateSplit[0] + ' ' + getDateSplit[1] + ' ' + getDateSplit[2] + ', ' + getDateSplit[3]} </li>
+											<li>{item.eventTiming}</li>
+										</ul>
+									</Link>
 									<ul>
-										<li><a href="#" className="btn-underline">google calendar</a></li>
+										<li><a href="https://calendar.google.com/calendar/r/eventedit" target="_blank" className="btn-underline">google calendar</a></li>
 										<li><a href="#" className="btn-underline">iCal</a></li>
 									</ul>
 								</div>
-							</Link>)
+							</div>
+						)
 					})}
 
 				</div>

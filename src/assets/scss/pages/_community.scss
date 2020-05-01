@@ -2,6 +2,12 @@
     .event-section {
         padding-top: 0;
 
+        .event-box .colmn-img figure {
+            @include breakpoint(xsml) {
+                height: auto
+            }
+        }
+
         @include breakpoint(xlarge) {
             padding-top: 50px;
         }
