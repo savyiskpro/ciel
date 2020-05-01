@@ -930,6 +930,7 @@ export const pageQuery = graphql`
 								... on ContentfulImageGroup {
 									id
 									images {
+										description
 									  file {
 										url
 									  }

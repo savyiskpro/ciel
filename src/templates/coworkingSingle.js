@@ -85,7 +85,7 @@ class coworkingSingleTemplate extends React.Component {
 						<div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 							<div className="container">
 								<h3>{pageDetail.bookText} </h3>
-								<a href={pageDetail.bookUrl} target="_blank" className="btn">Book now</a>
+								<a href={pageDetail.bookUrl} target="_blank" className="btn">{pageDetail.bookButtonName}</a>
 							</div>
 						</div>
 						{pageDetail.images ?
@@ -119,7 +119,7 @@ class coworkingSingleTemplate extends React.Component {
 						{pageDetail.secondBookText ? <div className="book-section" data-aos="fade-in" data-aos-duration="2000">
 							<div className="container">
 								<h3>{pageDetail.secondBookText} </h3>
-								<a href={pageDetail.bookUrl} target="_blank" className="btn">Book now</a>
+								<a href={pageDetail.bookUrl} target="_blank" className="btn">{pageDetail.bookButtonName}</a>
 							</div>
 						</div> : null}
 
@@ -210,6 +210,7 @@ export const pageQuery = graphql`
 			metaTitle
 			metaKeywords
 			metaDescription
+			bookButtonName
 			title
 			url
 			bookUrl

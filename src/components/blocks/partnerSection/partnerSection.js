@@ -1,6 +1,7 @@
 import React from 'react';
 
 const partnerSection = (props) => {
+	console.log(props)
 	return (
 		<div className="partner-section">
 			<div className="container">
@@ -22,9 +23,11 @@ const partnerSection = (props) => {
 									<ul key={key} data-aos="fade-in" data-aos-duration="2000">
 										{imageGroup.images.map((image, key) => (
 											<li key={key}>
-												<figure>
-													<img src={image.file.url} />
-												</figure>
+												<a href={image.description} target="_blank">
+													<figure>
+														<img src={image.file.url} />
+													</figure>
+												</a>
 											</li>
 										))}
 									</ul>
