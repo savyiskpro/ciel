@@ -71,12 +71,13 @@ class communitySingleTemplate extends React.Component {
 										<li>{pageDetail.eventTiming}</li>
 									</ul>
 									<ul>
-										<li><a href="#" className="btn-underline">google calendar</a></li>
+										<li><a href="https://calendar.google.com/calendar/r/eventedit" target="_blank" className="btn-underline">google calendar</a></li>
 										<li><a href="#" className="btn-underline">iCal</a></li>
 									</ul>
-									<div className="btn-box">
-										<a href="#" className="btn">Black Vines</a>
-									</div>
+									{pageDetail.buttonLink ? <div className="btn-box">
+										<a href={pageDetail.buttonLink.url} target="_blank" className="btn">{pageDetail.buttonLink.title}</a>
+									</div> : null}
+
 								</div>
 							</div>
 						</div>
@@ -178,6 +179,10 @@ export const pageQuery = graphql`
 	  allContentfulCommunity(filter: {url: {eq: $slug}}) {
 		edges {
 		  node {
+			buttonLink {
+				url
+				title
+			  }
 			carouselHeading
 			metaTitle
 			metaKeywords
