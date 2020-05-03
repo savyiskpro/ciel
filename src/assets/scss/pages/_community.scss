@@ -2,6 +2,22 @@
     .event-section {
         padding-top: 0;
 
+        .heading-box {
+            h5 {
+                text-align: center;
+                margin-bottom: 30px;
+                font-family: $font-brandon-medium;
+                text-transform: uppercase;
+                font-size: 18px;
+                letter-spacing: 30px;
+
+                @include breakpoint(medium) {
+                    font-size: 14px;
+                    letter-spacing: 20px;
+                }
+            }
+        }
+
         .event-box .colmn-img figure {
             @include breakpoint(xsml) {
                 height: auto

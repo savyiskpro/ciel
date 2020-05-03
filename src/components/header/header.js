@@ -108,6 +108,20 @@ class Header extends Component {
 					// $('.navigation .colmn-text ul').removeClass('active')
 				})
 			}
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > $(this).height()) {
+					$('.promo-box').addClass('active');
+				}
+			})
+			$('.promo-box .promo-icon').click(function () {
+				$('.promo-box .promo-content').addClass('active open')
+				$('.promo-box .promo-content').removeClass('close');
+
+			})
+			$('.promo-box .promo-content .btn-close').click(function () {
+				$('.promo-box .promo-content').addClass('close');
+				$('.promo-box .promo-content').removeClass('active open');
+			})
 
 			// tab sections
 

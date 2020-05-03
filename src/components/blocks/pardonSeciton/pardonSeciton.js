@@ -10,34 +10,7 @@ const backgroundImageSection = (props) => {
 	return (
 		<div className="outer-group">
 			<div className="pardon-seciton bg-control" style={{ "backgroundImage": "url(" + props.sectionDetail.backgroundImage.file.url + ")" }}>
-				{
-					props.sectionDetail.blockItems.map((item, key) => {
-						if (item.__typename == "ContentfulPromo") {
-							return (
-								<div key={key} className="promo-box">
-									<div className="promo-content">
-										<span className="btn-close">
-											<img src={closeIcon} />
-										</span>
 
-										<div className="text-box">
-											<h5>{item.title}</h5>
-											<h4>{item.subTitle}</h4>
-											{/* <a target="_blank" href={item.link.url} className="btn-underline">{item.link.title}</a> */}
-											<a href="/" className="btn-underline">learn more</a>
-										</div>
-									</div>
-									<span className="promo-icon">
-										<img src={promoIcon} />
-										<p>{item.buttonName}</p>
-									</span>
-								</div>
-							)
-
-
-						}
-					})
-				}
 
 
 				<div className="section-text left">

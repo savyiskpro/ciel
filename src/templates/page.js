@@ -10,6 +10,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import favIcon from '../assets/images/fav.png';
 import { sortedIndexOf } from 'lodash';
+import Promo from '../components/blocks/promo/promo';
 
 const reasonOptions = [
 	{ value: 'Book a tour', label: 'Book a tour' },
@@ -127,15 +128,15 @@ class PageTemplate extends React.Component {
 		],
 		projectTypeOptions: [
 			{ value: 'Event', checked: false },
-			{ value: 'Stills or Motion', checked: false },
-			{ value: 'Sync sound or Motion', checked: false },
-			{ value: 'MOS', checked: false },
+			{ value: 'Photography', checked: false },
+			{ value: 'Video - Sync Sound', checked: false },
+			{ value: 'Video - MOS', checked: false },
 		],
 		reasonOptions: [
 			{ value: 'Book a tour', checked: false },
-			{ value: 'Host an event at CIEL', checked: false },
-			{ value: 'Exhibit your art', checked: false },
-			{ value: 'General inquiries', checked: false }
+			{ value: 'Events', checked: false },
+			{ value: 'Art', checked: false },
+			{ value: 'General Inquiries', checked: false }
 		]
 
 	}
@@ -429,7 +430,7 @@ class PageTemplate extends React.Component {
 			this.setState({
 				submiting: true,
 			})
-			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Contact&reason=${contactReason.join(',')}&name=${this.state.contactName}&email=${this.state.contactEmail}&phone=${this.state.contactPhone}&subject=${this.state.contactCompany}&message=${this.state.contactMessage}`)
+			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Contact&reason=${contactReason.join(',')}&name=${this.state.contactName}&email=${this.state.contactEmail}&phone=${this.state.contactPhone}&company=${this.state.contactCompany}&message=${this.state.contactMessage}`)
 				.then(res => {
 					this.setState({
 						sentMessage: 'Thank you! Your message has been successfully sent.',
@@ -462,6 +463,8 @@ class PageTemplate extends React.Component {
 					return <InnerBanner sectionDetail={detail} />
 				case "ContentfulSectionBlock":
 					return <Block sectionDetail={detail} />
+				case "ContentfulPromo":
+					return <Promo sectionDetail={detail} />
 				default:
 					return detail;
 			}
@@ -592,7 +595,7 @@ class PageTemplate extends React.Component {
 											</div>
 										</div>
 										<div className="form-group">
-											<label>start Date</label>
+											<label>Start Date</label>
 											<DatePicker
 												selectsStart
 												selected={this.state.startDate}
@@ -604,7 +607,7 @@ class PageTemplate extends React.Component {
 											{this.state.startDateError ? <span className="error-message">{this.state.startDateError}</span> : null}
 										</div>
 										<div className="form-group">
-											<label>end Date</label>
+											<label>End Date</label>
 											<DatePicker
 												selectsEnd
 												selected={this.state.endDate}
@@ -650,7 +653,7 @@ class PageTemplate extends React.Component {
 											<span className="note-text">note: Each space is $15/each/day </span>
 										</div> */}
 										<div className="form-group full">
-											<label>messages</label>
+											<label>Message</label>
 											<textarea className="form-control" name="message" value={this.state.message} onChange={this.inputHandler}></textarea>
 											{this.state.messageError ? <span className="error-message">{this.state.messageError}</span> : null}
 										</div>
@@ -766,6 +769,19 @@ export const pageQuery = graphql`
 						url
 						contentType
 					  }
+					}
+				  }
+				  ... on ContentfulPromo {
+					id
+					title
+					internal {
+					  type
+					}
+					buttonName
+					subTitle
+					link {
+					  url
+					  title
 					}
 				  }
 				  ... on ContentfulSectionBlock {

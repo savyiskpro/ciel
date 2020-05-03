@@ -8,6 +8,7 @@ import BannerSection from '../components/blocks/bannerSection/bannerSection';
 import Block from '../components/blocks/block';
 import $ from 'jquery';
 import favIcon from '../assets/images/fav.png';
+import Promo from '../components/blocks/promo/promo';
 
 const hasWindow = (typeof window !== 'undefined') ? true : false;
 if (hasWindow) {
@@ -101,26 +102,21 @@ class RootIndex extends Component {
 
 				});
 			}
-			$(window).scroll(function () {
-				if ($('.pardon-seciton') && $('.pardon-seciton').length) {
-					if ($(this).scrollTop() > $('.pardon-seciton').offset().top - 1000) {
-						$('.promo-box').addClass('active');
+			// $(window).scroll(function () {
+			// 	// if ($('.pardon-seciton') && $('.pardon-seciton').length) {
+			// 	// 	if ($(this).scrollTop() > $('.pardon-seciton').offset().top - 1000) {
+			// 	// 		$('.promo-box').addClass('active');
 
-					}
-				}
+			// 	// 	}
+			// 	// }
+			// 	if ($(this).scrollTop() > $(this).height()) {
+			// 		$('.promo-box').addClass('active');
+			// 	}
 
 
 
-			})
-			$('.promo-box .promo-icon').click(function () {
-				$('.promo-box .promo-content').addClass('active open')
-				$('.promo-box .promo-content').removeClass('close');
+			// })
 
-			})
-			$('.promo-box .promo-content .btn-close').click(function () {
-				$('.promo-box .promo-content').addClass('close');
-				$('.promo-box .promo-content').removeClass('active open');
-			})
 		}
 	}
 	render() {
@@ -140,6 +136,8 @@ class RootIndex extends Component {
 					return "";
 				case "ContentfulSectionBlock":
 					return <Block sectionDetail={detail} />
+				case "ContentfulPromo":
+					return <Promo sectionDetail={detail} />
 				default:
 					return detail;
 			}
@@ -229,8 +227,8 @@ export const pageQuery = graphql`
 			url
 			page {
 				metaDescription
-        metaKeywords
-        metaTitle
+        	metaKeywords
+        	metaTitle
 			  blocks {
 				  
 				... on ContentfulBannerSection {
@@ -251,6 +249,19 @@ export const pageQuery = graphql`
 					  }
 					}
 				  }
+				  ... on ContentfulPromo {
+					id
+					title
+					internal {
+					  type
+					}
+					buttonName
+					subTitle
+					link {
+					  url
+					  title
+					}
+				  }
 				  ... on ContentfulSectionBlock {
 					id
 					blockClass
@@ -261,19 +272,7 @@ export const pageQuery = graphql`
 						}
 					}
 					blockItems {
-						... on ContentfulPromo {
-							id
-							title
-							internal {
-								type
-							  }
-							buttonName
-							subTitle
-							link {
-							  title
-							  url
-							}
-						  }
+						
 						... on ContentfulSecondaryNavigation {
 							url
 							title
