@@ -1,7 +1,6 @@
 import React from 'react';
 
 const partnerSection = (props) => {
-	console.log(props)
 	return (
 		<div className="partner-section">
 			<div className="container">

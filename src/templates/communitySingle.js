@@ -5,6 +5,8 @@ import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import Slider from "react-slick";
 import $ from 'jquery';
 import favIcon from '../assets/images/fav.png';
+import closeIcon from '../assets/images/close-icon.svg';
+import promoIcon from '../assets/images/lips.png';
 
 class communitySingleTemplate extends React.Component {
 	settings = {
@@ -39,8 +41,6 @@ class communitySingleTemplate extends React.Component {
 
 	}
 	render() {
-		console.log(this.props.data.allContentfulCommunity.edges[0].node)
-			;
 		const pageDetail = this.props.data.allContentfulCommunity.edges[0].node;
 		let getDate = new Date(pageDetail.eventDate)
 
@@ -108,6 +108,24 @@ class communitySingleTemplate extends React.Component {
 									</div>
 								</div> : null}
 						</main>
+						<div className="promo-box">
+							<div className="promo-content">
+								<span className="btn-close">
+									<img src={closeIcon} />
+								</span>
+
+								<div className="text-box">
+									<h5>{pageDetail.promo.title}</h5>
+									<h4>{pageDetail.promo.subTitle}</h4>
+									{/* <a target="_blank" href={item.link.url} className="btn-underline">{item.link.title}</a> */}
+									<a href="/" className="btn-underline">learn more</a>
+								</div>
+							</div>
+							<span className="promo-icon">
+								<img src={promoIcon} />
+								<p>{pageDetail.promo.buttonName}</p>
+							</span>
+						</div>
 					</div>
 				</DefaultLayout>
 			</div>
@@ -179,6 +197,18 @@ export const pageQuery = graphql`
 	  allContentfulCommunity(filter: {url: {eq: $slug}}) {
 		edges {
 		  node {
+			promo {
+				id
+				title
+				internal {
+					type
+				  }
+				subTitle
+				link {
+				  title
+				  url
+				}
+			  }
 			buttonLink {
 				url
 				title

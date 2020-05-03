@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 const cielSection = (props) => {
-	console.log(props)
 	return (
 		<div className="ciel-section" data-aos="fade-in" data-aos-duration="2000">
 			<div className="container">

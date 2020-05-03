@@ -27,17 +27,16 @@ class RootIndex extends Component {
 			getBody.appendChild(newScript);
 			getBody.appendChild(newScripts);
 
-			$('.tab-section li a').click(function (e) {
+			$('.tab-section li a').hover(function (e) {
 				var getsection = $('.tab-section').offset().top;
-				e.preventDefault();
-				var getImage = $(this).attr('href');
-				$(getImage).addClass('active').siblings().removeClass('active');
+				// e.preventDefault();
+				var getImage = $(this).attr('data-img');
+				$(getImage).addClass('active')
 				$(this).parent().addClass('active');
-				$(this).parent().siblings().removeClass('active');
+				// $(this).parent().siblings().removeClass('active');
 				if (window.innerWidth >= 767) {
 					// if ($(this).parent().index())
 
-					console.log($(this).parent().index())
 					if ($(this).parent().index() == 0) {
 						$('body,html').animate({ scrollTop: getsection });
 					}
@@ -53,6 +52,10 @@ class RootIndex extends Component {
 
 				}
 
+			}, function () {
+				var getImage = $(this).attr('data-img');
+				$(getImage).siblings().removeClass('active')
+				$(this).parent().siblings().removeClass('active')
 			})
 			if (window.innerWidth >= 767) {
 
@@ -90,9 +93,7 @@ class RootIndex extends Component {
 					var scrollDistance = 50;
 					var scrollTime = 0.3;
 					var delta = e.originalEvent.wheelDelta / 120 || -e.originalEvent.detail / 3;
-					// console.log(-e.originalEvent.detail)
 					var scrollTop = $(window).scrollTop();
-					console.log(scrollTop)
 					var finalScroll = scrollTop - parseInt(delta * scrollDistance);
 					TweenMax.to($(window), scrollTime, {
 						scrollTo: { y: finalScroll, autoKill: true },
@@ -120,7 +121,6 @@ class RootIndex extends Component {
 		}
 	}
 	render() {
-		console.log(this.props.data)
 		const sectionDetails = this.props.data.allContentfulNavigation.edges[0].node.page.blocks;
 		const blocks = sectionDetails.map(detail => {
 			switch (detail.internal.type) {
@@ -302,6 +302,7 @@ export const pageQuery = graphql`
 						}
 						... on ContentfulTabGroup {
 							title
+							url
 							internal {
 							  type
 							}

@@ -6,7 +6,6 @@ import { Link } from 'gatsby';
 
 class communitySection extends Component {
 	render() {
-		console.log(this.props.sectionDetail.blockItems)
 		let getPastEvents = this.props.sectionDetail.blockItems.filter(item => {
 			if (new Date(item.eventDate) < new Date()) {
 				return item

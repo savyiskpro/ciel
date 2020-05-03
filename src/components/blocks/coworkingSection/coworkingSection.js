@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 const coworkingSection = (props) => {
-	console.log(props)
 	return (
 		<div className="studio-section">
 			<div className="container">

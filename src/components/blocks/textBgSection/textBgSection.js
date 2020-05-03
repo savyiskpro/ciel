@@ -3,7 +3,6 @@ import textBg from '../../../assets/images/decorative-text-full.svg';
 
 
 const textBgSection = (props) => {
-	console.log(props);
 	let sectionImage = props.sectionDetail.blockItems.find(item => {
 		if (item.__typename == "ContentfulImageHolder") {
 			return item

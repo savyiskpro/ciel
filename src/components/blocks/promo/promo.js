@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import closeIcon from '../../../assets/images/close-icon.svg';
 import promoIcon from '../../../assets/images/lips.png';
 const promo = (props) => {
-	console.log(props)
 	return (
 		<div className="promo-box">
 			<div className="promo-content">

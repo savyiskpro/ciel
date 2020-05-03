@@ -22,7 +22,6 @@ import CoworkingTable from './coworkingTable/coworkingTable'
 
 
 const block = (props) => {
-	console.log(props)
 	let blockContent = "";
 	switch (props.sectionDetail.blockClass) {
 		case 'page-content':

@@ -8,7 +8,6 @@ class DefaultLayout extends React.Component {
 
 
 	render() {
-		console.log(this.props)
 		return <Holder>
 			<Header headerData={this.props.headerData} />
 			{this.props.children}

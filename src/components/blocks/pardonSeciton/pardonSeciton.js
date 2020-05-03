@@ -6,7 +6,6 @@ import { Link } from 'gatsby';
 
 
 const backgroundImageSection = (props) => {
-	console.log(props)
 	return (
 		<div className="outer-group">
 			<div className="pardon-seciton bg-control" style={{ "backgroundImage": "url(" + props.sectionDetail.backgroundImage.file.url + ")" }}>

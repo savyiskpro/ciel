@@ -9,7 +9,6 @@ import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import favIcon from '../assets/images/fav.png';
-import { sortedIndexOf } from 'lodash';
 import Promo from '../components/blocks/promo/promo';
 
 const reasonOptions = [
@@ -316,7 +315,6 @@ class PageTemplate extends React.Component {
 	]
 	checkField = (...para) => {
 		let that = this
-		// console.log(para)
 		this.validateCheck.forEach(field => {
 			let value = that.state[field['field']]
 			let isvalid = this.checkValidity(value, field['rules'])
@@ -377,12 +375,12 @@ class PageTemplate extends React.Component {
 	}
 	submitHandler = (e) => {
 		e.preventDefault()
-		console.log(this.state.startDate.toDateString())
+
 		// this.checkField('name', 'email', 'phone', 'project', 'message', 'companyName', 'companyAddress', 'studio', 'projectType', 'paymentType', 'BillingName', 'BillingEmail', 'BillingPhone', 'startDate', 'endDate')
 		this.checkField('name', 'email', 'phone',)
 		const { nameError, emailError, phoneError } = this.state;
 		if (nameError == null && emailError == null && phoneError == null) {
-			// console.log('working');
+
 			let getStudios = this.state.studioOptions.filter(studio => {
 				if (studio.checked) {
 					return studio
@@ -402,7 +400,7 @@ class PageTemplate extends React.Component {
 			this.setState({
 				submiting: true,
 			})
-			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Booking&name=${this.state.name}&email=${this.state.email}&phone=${this.state.phone}&project=${this.state.project}&Company%20Name=${this.state.companyName}&Company%20Address=${this.state.companyAddress}&Studio=${studios.join(',')}&Project%20Type=${projectType.join(',')}&Payment%20Type=${this.state.paymentType}&Billing%20Name=${this.state.BillingName}&Billing%20Email=${this.state.BillingEmail}&Billing%20Phone=${this.state.BillingPhone}&Start%20Date=${this.state.startDate.toDateString()}&End%20Date=${this.state.endDate.toDateString()}`)
+			axios.post(`https://d360v3wrocy350.cloudfront.net/mailer/mail.php?type=Booking&name=${this.state.name}&email=${this.state.email}&phone=${this.state.phone}&company=${this.state.company}&Studio=${studios.join(',')}&Project%20Type=${projectType.join(',')}&Start%20Date=${this.state.startDate.toDateString()}&End%20Date=${this.state.endDate.toDateString()}&Message=${this.state.message}`)
 				.then(res => {
 					this.setState({
 						sentMessage: 'Thank you! Your message has been successfully sent.',
@@ -449,13 +447,13 @@ class PageTemplate extends React.Component {
 				option.checked = !option.checked;
 			}
 		})
-		// console.log(options)
+
 		this.setState({
 			[checkGroup]: options
 		})
 	}
 	render() {
-		console.log(this.props.data)
+
 		const sectionDetails = this.props.data.allContentfulNavigation.edges[0].node.page.blocks;
 		const blocks = sectionDetails.map(detail => {
 			switch (detail.internal.type) {
@@ -838,6 +836,11 @@ export const pageQuery = graphql`
 							name
 							instagramHandle
 							instagramUrl
+							content {
+								childMarkdownRemark {
+								  html
+								}
+							  }
 							image {
 							  file {
 								url

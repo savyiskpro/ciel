@@ -4,7 +4,6 @@ import Holder from '../../../hoc/holder';
 
 
 const innerBanner = (props) => {
-	console.log(props)
 	return (
 		<div className="inner-banner">
 			<figure>

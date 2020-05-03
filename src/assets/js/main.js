@@ -4,7 +4,6 @@
 	var interval = setInterval(function () {
 		if (document.readyState === 'complete') {
 			clearInterval(interval);
-			console.log(document.readyState);
 
 			setTimeout(function () {
 				// $(".loading-group").fadeOut(500);
@@ -74,7 +73,6 @@
 		fade: true
 	});
 	$('.slider-section').on('afterChange', function (event, slick, currentSlide, nextSlide) {
-		// console.log(nextSlide);
 		$('.slider-group .active-bar').css('left', $('.slider-group li.slick-active').offset().left);
 	});
 

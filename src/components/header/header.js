@@ -37,7 +37,6 @@ class Header extends Component {
 			var interval = setInterval(function () {
 				if (document.readyState === 'complete') {
 					clearInterval(interval);
-					console.log(document.readyState);
 					$('.loading-group').addClass('active');
 					setTimeout(function () {
 						$('.open-btn').addClass('active');
@@ -125,7 +124,7 @@ class Header extends Component {
 
 			// tab sections
 
-			$('.tab-section li:first,.tab-section figure img:first,.navigation .colmn-img a:first').addClass('active');
+			$('.tab-section li:first,.tab-section figure a:first,.navigation .colmn-img a:first').addClass('active');
 
 
 
@@ -151,14 +150,12 @@ class Header extends Component {
 			}
 			if (window.innerWidth <= 480) {
 				$('.team-section .colmn-box').each(function () {
-					// console.log($(this).index());
 					if ($(this).index() < 7) {
 						$(this).show()
 					}
 
 				})
 				$('.featured-section .colmn-box').each(function () {
-					// console.log($(this).index());
 					if ($(this).index() < 8) {
 						$(this).show()
 					}
@@ -168,7 +165,6 @@ class Header extends Component {
 					e.preventDefault();
 
 					$('.team-section .colmn-box').each(function () {
-						// console.log($(this).index());
 						if ($(this).index() > 6) {
 							$(this).slideToggle();
 
@@ -183,7 +179,6 @@ class Header extends Component {
 					e.preventDefault();
 
 					$('.featured-section .colmn-box').each(function () {
-						// console.log($(this).index());
 						if ($(this).index() > 7) {
 							$(this).slideToggle();
 
@@ -204,7 +199,7 @@ class Header extends Component {
 		if (hasWindow) {
 			showLoader = window.loader
 		}
-		console.log(this.props.headerData.navigationItems)
+
 		return (
 			<Holder>
 				{showLoader ? <div className="loading-group">

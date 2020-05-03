@@ -6,6 +6,8 @@ import Slider from "react-slick";
 import $ from 'jquery';
 import { Link } from 'gatsby';
 import favIcon from '../assets/images/fav.png';
+import closeIcon from '../assets/images/close-icon.svg';
+import promoIcon from '../assets/images/lips.png';
 
 class coworkingSingleTemplate extends React.Component {
 	settings = {
@@ -39,7 +41,6 @@ class coworkingSingleTemplate extends React.Component {
 
 	}
 	render() {
-		console.log(this.props.data.allContentfulCoworking.edges)
 		const pageDetail = this.props.data.allContentfulCoworking.edges[0].node;
 
 		return (
@@ -135,6 +136,24 @@ class coworkingSingleTemplate extends React.Component {
 
 
 						</div> : null}
+						<div className="promo-box">
+							<div className="promo-content">
+								<span className="btn-close">
+									<img src={closeIcon} />
+								</span>
+
+								<div className="text-box">
+									<h5>{pageDetail.promo.title}</h5>
+									<h4>{pageDetail.promo.subTitle}</h4>
+									{/* <a target="_blank" href={item.link.url} className="btn-underline">{item.link.title}</a> */}
+									<a href="/" className="btn-underline">learn more</a>
+								</div>
+							</div>
+							<span className="promo-icon">
+								<img src={promoIcon} />
+								<p>{pageDetail.promo.buttonName}</p>
+							</span>
+						</div>
 
 					</div>
 				</DefaultLayout>
@@ -216,6 +235,18 @@ export const pageQuery = graphql`
 			bookUrl
 			bookText
 			secondBookText
+			promo {
+				id
+				title
+				internal {
+					type
+				  }
+				subTitle
+				link {
+				  title
+				  url
+				}
+			  }
 			otherCoworking {
 				url
 				title

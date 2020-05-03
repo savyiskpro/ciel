@@ -1,7 +1,6 @@
 import React from 'react';
 
 const aboutVideoSection = (props) => {
-	console.log(props)
 	return (
 		<div className="about-video">
 			<div className="container">

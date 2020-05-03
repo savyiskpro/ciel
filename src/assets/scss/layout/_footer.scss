@@ -99,6 +99,29 @@
             }
         }
 
+        .success-message {
+            width: 100%;
+            text-align: left;
+            margin-top: 30px;
+            font-size: 18px;
+            font-family: $font-brandon-medium;
+            color: #6cc04a;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .error-message {
+            position: absolute;
+            font-size: 14px;
+            color: #E03A3E;
+            padding-top: 5px;
+            width: 100%;
+            top: 100%;
+            left: 0;
+        }
+
         input {
             width: 100%;
             padding: 20px;
@@ -188,6 +211,7 @@ footer {
             margin-bottom: 20px;
         }
     }
+
 
     ul {
         li {

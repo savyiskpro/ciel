@@ -46,6 +46,10 @@ const artistSection = (props) => {
 											{item.website == "#" ? null : <li><a href={'http://' + item.website} target="_blank">{item.website}</a></li>}
 											{item.instagramHandle ? <li><a href={'http://' + item.instagramUrl} target="_blank">{item.instagramHandle}</a></li> : null}
 										</ul>
+										<div className="content-box" dangerouslySetInnerHTML={{
+											__html: item.content.childMarkdownRemark.html
+										}}>
+										</div>
 
 
 

@@ -2,13 +2,11 @@
 import React from 'react';
 
 const backgroundImageSectioon = (props) => {
-	console.log(props);
 	let getLogoUrl = props.sectionDetail.blockItems.find(getUrl => {
 		if (getUrl.__typename == 'ContentfulSecondaryNavigation') {
 			return getUrl
 		}
 	})
-	console.log(getLogoUrl)
 	return (
 		<div className="background-image-seciton bg-control" style={{ "backgroundImage": "url(" + props.sectionDetail.backgroundImage.file.url + ")" }}>
 			<div className="text-box">

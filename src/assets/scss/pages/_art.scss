@@ -85,6 +85,12 @@
                 margin: 0 auto 50px;
             }
 
+            .content-box {
+                p {
+                    font-size: 16px;
+                }
+            }
+
             figure {
                 height: 320px;
                 @extend %flexCenter;

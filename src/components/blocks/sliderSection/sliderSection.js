@@ -17,7 +17,6 @@ class sliderSection extends Component {
 	}
 
 	render() {
-		console.log(this.props.sectionDetail)
 		return (
 			<div className="event-section" data-aos="fade-in" data-aos-duration="2000">
 				<div className="container">
