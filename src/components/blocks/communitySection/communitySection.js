@@ -49,7 +49,7 @@ class communitySection extends Component {
 									</Link>
 									<ul>
 										<li><a href="https://calendar.google.com/calendar/r/eventedit" target="_blank" className="btn-underline">google calendar</a></li>
-										<li><a href="#" className="btn-underline">iCal</a></li>
+										<li><a href={item.uploadIcalFile ? item.uploadIcalFile.file.url : '#'} className="btn-underline">iCal</a></li>
 									</ul>
 								</div>
 							</div>
@@ -85,7 +85,7 @@ class communitySection extends Component {
 									</Link>
 									<ul>
 										<li><a href="https://calendar.google.com/calendar/r/eventedit" target="_blank" className="btn-underline">google calendar</a></li>
-										<li><a href="#" className="btn-underline">iCal</a></li>
+										<li><a href={item.uploadIcalFile ? item.uploadIcalFile.file.url : '#'} className="btn-underline">iCal</a></li>
 									</ul>
 								</div>
 							</div>

@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 
 const tabSection = (props) => {
+	console.log(props)
 	return (
 		<div className="tab-section">
 			<div className="container">
