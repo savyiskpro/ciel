@@ -31,7 +31,7 @@ const block = (props) => {
 					<div data-aos="fade-in" data-aos-duration="2000" dangerouslySetInnerHTML={{
 						__html: props.sectionDetail.blockItems[0].content.childMarkdownRemark.html
 					}}></div>
-					<Renderer views={props.sectionDetail.blockItems} />
+
 				</div>
 			</div>
 		case 'tab-section':

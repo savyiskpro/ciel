@@ -83,22 +83,13 @@
 
 .tab-section {
     // padding: 100px 0 150px;
-    height: calc(100vh + 1200px);
+    // height: calc(100vh + 1200px);
     position: relative;
-    padding: 0;
+    padding: 100px 0 150px;
+
 
     .container {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        width: 100%;
+
 
         .flex {
             width: 100%
