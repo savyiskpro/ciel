@@ -836,11 +836,8 @@ export const pageQuery = graphql`
 							name
 							instagramHandle
 							instagramUrl
-							content {
-								childMarkdownRemark {
-								  html
-								}
-							  }
+							artistType
+							
 							image {
 							  file {
 								url
@@ -860,6 +857,27 @@ export const pageQuery = graphql`
 							}
 						  }
 						... on ContentfulCoworking {
+							id
+							images {
+							  file {
+								url
+							  }
+							}
+							boxImage {
+								file {
+								  url
+								}
+							  }
+							title
+							url
+							bookUrl
+							description {
+							  childMarkdownRemark {
+								html
+							  }
+							}
+						}
+						... on ContentfulCreativeSuites {
 							id
 							images {
 							  file {
@@ -957,6 +975,9 @@ export const pageQuery = graphql`
 								}
 							  ... on ContentfulTextBox {
 								id
+								internal {
+									type
+								  }
 								content {
 								  childMarkdownRemark {
 									html
@@ -965,6 +986,9 @@ export const pageQuery = graphql`
 							  }
 							  ... on ContentfulImageHolder {
 								id
+								internal {
+									type
+								  }
 								image {
 								  file {
 									url
@@ -990,7 +1014,6 @@ export const pageQuery = graphql`
 							}
 							subTitle
 							title
-							tag
 							image {
 							  file {
 								url

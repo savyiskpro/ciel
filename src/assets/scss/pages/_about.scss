@@ -38,7 +38,7 @@
         }
 
         @include breakpoint(medium) {
-            margin-bottom: 70px;
+            margin-bottom: 0;
         }
     }
 
@@ -49,12 +49,10 @@
         font-size: 18px;
         letter-spacing: 30px;
         text-transform: uppercase;
-        margin-bottom: 50px;
+
         font-family: $font-brandon-medium;
 
-        @include breakpoint(xmedium) {
-            margin-bottom: 30px;
-        }
+
 
         @include breakpoint(medium) {
             display: none;
@@ -63,16 +61,33 @@
 
     .colmn-img {
         width: 380px;
+        margin-top: 50px;
+
+        @include breakpoint(xmedium) {
+            margin-top: 30px;
+        }
 
         @include breakpoint(medium) {
             width: 100%;
-
+            margin-top: 0
         }
+
     }
+
 
     .colmn-text {
         width: calc(100% - 380px);
         padding-left: 80px;
+        margin-top: 50px;
+
+        @include breakpoint(xmedium) {
+            margin-top: 30px;
+        }
+
+        @include breakpoint(medium) {
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
 
         h5 {
             display: none;
@@ -86,7 +101,7 @@
         }
 
         @include breakpoint(xmedium) {
-            padding-left: 0px;
+            padding-left: 50px;
         }
 
         @include breakpoint(medium) {
@@ -399,6 +414,12 @@
 }
 
 .happenings-section {
+    padding-top: 100px;
+
+    @include breakpoint(xmedium) {
+        padding-top: 70px;
+    }
+
     @include breakpoint(medium) {
         padding-bottom: 40px;
     }

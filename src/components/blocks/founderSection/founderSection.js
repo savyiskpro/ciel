@@ -1,4 +1,6 @@
 import React from 'react';
+import Renderer from '../../renderer';
+
 
 const founderSection = (props) => {
 
@@ -10,30 +12,25 @@ const founderSection = (props) => {
 						<h5 data-aos="fade-in" data-aos-duration="2000">{item.title}</h5>
 
 						<div key={key} className="flex">
-							{item.blockItems[0].__typename == 'ContentfulImageHolder' ? <div className="colmn-img">
-								<figure data-aos="fade-in" data-aos-duration="2000">
-									<img src={item.blockItems[0].image.file.url} />
-								</figure>
-							</div> : <div className="colmn-img">
-									<figure data-aos="fade-in" data-aos-duration="2000">
-										<img src={item.blockItems[1].image.file.url} />
-									</figure>
-								</div>}
-							{item.blockItems[0].__typename == 'ContentfulTextBox' ?
-								<div className="colmn-text" data-aos="fade-in" data-aos-duration="2000">
-									<h5>{item.title}</h5>
-									<div dangerouslySetInnerHTML={{
-										__html: item.blockItems[0].content.childMarkdownRemark.html
-									}}></div>
+							{item.blockItems.map((innerItem, key) => {
+								if (innerItem.__typename == 'ContentfulImageHolder') {
+									return <div key={key} className="colmn-img">
+										<figure data-aos="fade-in" data-aos-duration="2000">
+											<img src={innerItem.image.file.url} />
+										</figure>
+									</div>
+								}
+								if (innerItem.__typename == 'ContentfulTextBox') {
+									return <div className="colmn-text" data-aos="fade-in" data-aos-duration="2000">
+										<h5>{item.title}</h5>
+										<div dangerouslySetInnerHTML={{
+											__html: innerItem.content.childMarkdownRemark.html
+										}}></div>
 
-								</div> :
-								<div className="colmn-text" data-aos="fade-in" data-aos-duration="2000">
-									<h5>{item.title}</h5>
-									<div dangerouslySetInnerHTML={{
-										__html: item.blockItems[1].content.childMarkdownRemark.html
-									}}></div>
+									</div>
+								}
+							})}
 
-								</div>}
 
 
 						</div>

@@ -33,7 +33,7 @@ class sliderSection extends Component {
 												</figure>
 											</div>
 											<div className="colmn-text">
-												<span className="tag"> {slide.tag}</span>
+												<span className="tag"> {new Date(slide.eventDate) < new Date() ? 'Past Event' : 'Upcoming Event'}</span>
 												<h2>{slide.title}</h2>
 												<h4>{slide.subTitle} </h4>
 												<p>{slide.sortText}</p>

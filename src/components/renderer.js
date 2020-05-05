@@ -13,7 +13,11 @@ const components = {
 		return <a href={nav.data.url} className="btn-underline">{nav.data.title}</a>
 	},
 	ContentfulImageHolder: function (image) {
-		return <figure><img src={image.data.image.file.url} /></figure>
+		return <div className="colmn-img">
+			<figure data-aos="fade-in" data-aos-duration="2000">
+				<img src={image.data.image.file.url} />
+			</figure>
+		</div>
 	}
 	// ContentfulTextBlock: textBlock,
 	// ContentfulBannerTitle: function (title) {

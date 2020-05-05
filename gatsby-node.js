@@ -176,5 +176,47 @@ exports.createPages = ({ graphql, actions }) => {
 			})
 		)
 	})
+	const prosimeFive = new Promise((resolve, reject) => {
+		const blogPost = path.resolve('./src/templates/creativeSuites.js')
+		resolve(
+			graphql(
+				`
+        {
+            allContentfulCreativeSuites {
+              edges {
+                node {
+                  title
+				  url
+				  
+                }
+              }
+            }
+          }
+          
+          `
+			).then(result => {
+				if (result.errors) {
+					console.log(result.errors)
+					reject(result.errors)
+				}
+
+				console.log(result.data.allContentfulCreativeSuites.edges)
+
+				const pages = result.data.allContentfulCreativeSuites.edges
+				pages.forEach((page, index) => {
+
+					createPage({
+						path: `${page.node.url}/`,
+						component: blogPost,
+						context: {
+							slug: page.node.url
+						},
+
+					})
+
+				})
+			})
+		)
+	})
 	return Promise.all([prosimeOne, prosimeTwo, prosimeThree, prosimeFour])
 }
