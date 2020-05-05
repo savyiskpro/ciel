@@ -134,7 +134,7 @@ class studioSingleTemplate extends React.Component {
 							{pageDetail.otherStudios.map((other, key) => (
 								<Link to={other.url} key={key} className="colmn-box">
 									<figure>
-										<img src={other.images[0].file.url} />
+										<img src={other.boxImage.file.url} />
 									</figure>
 									<h2>{other.title}</h2>
 								</Link>
@@ -256,11 +256,11 @@ export const pageQuery = graphql`
 			otherStudios {
 				url
 				title
-				images {
-				  file {
-					url
+				boxImage {
+					file {
+					  url
+					}
 				  }
-				}
 			  }
 			bannerImage {
 				file {
