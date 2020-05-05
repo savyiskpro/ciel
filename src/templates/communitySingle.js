@@ -71,7 +71,7 @@ class communitySingleTemplate extends React.Component {
 										<li>{pageDetail.eventTiming}</li>
 									</ul>
 									<ul>
-										<li><a href="https://calendar.google.com/calendar/r/eventedit" target="_blank" className="btn-underline">google calendar</a></li>
+										<li><a href={pageDetail.googleCalendarLink ? pageDetail.googleCalendarLink : '#'} target="_blank" className="btn-underline">google calendar</a></li>
 										<li><a href={pageDetail.uploadIcalFile ? pageDetail.uploadIcalFile.file.url : '#'} className="btn-underline">iCal</a></li>
 									</ul>
 									{pageDetail.buttonLink ? <div className="btn-box">
@@ -197,7 +197,7 @@ export const pageQuery = graphql`
 	  allContentfulCommunity(filter: {url: {eq: $slug}}) {
 		edges {
 		  node {
-
+			googleCalendarLink
 			uploadIcalFile{
 				file {
 					url

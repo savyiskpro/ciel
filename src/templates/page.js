@@ -1007,6 +1007,7 @@ export const pageQuery = graphql`
 						... on ContentfulCommunity {
 							id
 							url
+							googleCalendarLink 
 							uploadIcalFile{
 								file {
 									url
