@@ -13,8 +13,8 @@ const tabSection = (props) => {
 
 						<figure>
 							{props.sectionDetail.blockItems.map((tab, key) => (
-								<Link key={key} to={tab.slug} id={encodeURI(tab.title.split(' ')[0])}>
-									<img src={tab.image.file.url} />
+								<Link key={key} to={tab.url} id={encodeURI(tab.title.split(' ')[0])}>
+									<img src={tab.navigationImage.file.url} />
 								</Link>
 							))}
 
@@ -23,7 +23,7 @@ const tabSection = (props) => {
 					<div className="colmn-text">
 						<ul>
 							{props.sectionDetail.blockItems.map((tab, key) => (
-								<li key={key}><Link to={tab.slug} key={key} data-img={encodeURI("#" + tab.title.split(' ')[0])}>{tab.title}</Link></li>
+								<li key={key}><Link to={tab.url} key={key} data-img={encodeURI("#" + tab.title.split(' ')[0])}>{tab.title}</Link></li>
 							))}
 
 						</ul>

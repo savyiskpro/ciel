@@ -1031,18 +1031,13 @@ export const pageQuery = graphql`
 							internal {
 								type
 							}
-						}
-						... on ContentfulTabGroup {
-							title
-							internal {
-							  type
-							}
-							image {
-							  file {
-								url
+							navigationImage {
+								file {
+								  url
+								}
 							  }
-							}
 						}
+						
 						... on ContentfulImageHolder {
 							internal {
 								type

@@ -304,22 +304,16 @@ export const pageQuery = graphql`
 						... on ContentfulNavigation {
 							title
 							url
+							navigationImage {
+								file {
+								  url
+								}
+							  }
 							internal {
 								type
 							}
 						}
-						... on ContentfulTabGroup {
-							title
-							slug
-							internal {
-							  type
-							}
-							image {
-							  file {
-								url
-							  }
-							}
-						}
+						
 						... on ContentfulImageHolder {
 							internal {
 								type
