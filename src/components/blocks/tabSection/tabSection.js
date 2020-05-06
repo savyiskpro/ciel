@@ -23,7 +23,7 @@ const tabSection = (props) => {
 					<div className="colmn-text">
 						<ul>
 							{props.sectionDetail.blockItems.map((tab, key) => (
-								<li key={key}><Link to={tab.url} data-img={encodeURI("#" + tab.title.split(' ')[0])}>{tab.title}</Link></li>
+								<li key={key}><Link to={tab.url} key={key} data-img={encodeURI("#" + tab.title.split(' ')[0])}>{tab.title}</Link></li>
 							))}
 
 						</ul>
