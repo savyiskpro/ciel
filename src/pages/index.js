@@ -245,6 +245,12 @@ export const pageQuery = graphql`
 						url
 					  }
 					}
+					video{
+						file {
+							url
+							contentType
+						  }
+					}
 					imageVideo {
 					  file {
 						url
