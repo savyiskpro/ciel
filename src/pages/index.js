@@ -310,7 +310,7 @@ export const pageQuery = graphql`
 						}
 						... on ContentfulTabGroup {
 							title
-							url
+							slug
 							internal {
 							  type
 							}
